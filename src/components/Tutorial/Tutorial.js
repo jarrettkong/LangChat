@@ -28,7 +28,7 @@ export default class Tutorial extends React.Component {
 			<View style={styles.container}>
 				<Swiper>
 					<View style={[ styles.slideContainer, styles.slide1 ]}>
-						<Text>To access the navigation for LangChat, tap the logo icon in the top left.</Text>
+						<Text>Slide 1</Text>
 					</View>
 					<View style={[ styles.slideContainer, styles.slide2 ]}>
 						<Text>Slide 2</Text>
