@@ -4,22 +4,21 @@ import { Button, Input } from '../common';
 import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
-import { emailChanged, passwordChanged } from '../../actions/index';
+import { changeEmail, changePassword } from '../../actions/index';
 
 class LoginForm extends Component {
-  
-  handleChange = (text, input) => {
-    if( input === "emailChanged" ) {
-      this.props.emailChanged(text);
-    } else {
-      this.props.passwordChanged(text);
-    }
-  }
+	handleChange = (text, input) => {
+		if (input === 'email') {
+			this.props.changeEmail(text);
+		} else {
+			this.props.changePassword(text);
+		}
+	};
 
 	render () {
-    const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
-    console.log(this.props.email)
-    console.log(this.props.password)
+		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
+		console.log('email', this.props.email);
+		console.log('password', this.props.password);
 		return (
 			<View style={containerStyle}>
 				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
@@ -27,19 +26,19 @@ class LoginForm extends Component {
 				<View style={inputContainerStyle}>
 					<Input
 						label={<MaterialCommunityIcons name="email-outline" size={30} color="#999" />}
-            placeholder="Email"
-            value={this.props.email}
-            onChangeText={email => this.handleChange(email, "emailChanged")}
-            required
+						placeholder="Email"
+						value={this.props.email}
+						onChangeText={email => this.handleChange(email, 'email')}
+						required
 					/>
 				</View>
 				<View style={inputContainerStyle}>
 					<Input
 						label={<AntDesign name="lock" size={30} color="#999" />}
 						placeholder="Password"
-            secureTextEntry
-            value={this.props.password}
-						onChangeText={password => this.handleChange(password, "passwordChanged")}
+						secureTextEntry
+						value={this.props.password}
+						onChangeText={password => this.handleChange(password, 'password')}
 					/>
 				</View>
 				<View style={buttonContainerStyle}>
@@ -90,4 +89,4 @@ export const mapStateToProps = state => ({
 	password: state.auth.password
 });
 
-export default connect(mapStateToProps, { emailChanged, passwordChanged })(LoginForm);
+export default connect(mapStateToProps, { changeEmail, changePassword })(LoginForm);
