@@ -18,8 +18,7 @@ class MessageInput extends Component {
 
 	render() {
 		return (
-			<View style={styles.Message}>
-				<KeyboardAvoidingView style={styles.keyboard} behavior="padding">
+			<View style={styles.MessageInput}>
 					<Input
 						placeholder="Enter your message here..."
 						value={this.state.message}
@@ -28,21 +27,14 @@ class MessageInput extends Component {
 					<View>
 						<Button onPress={this.sendMessage}>Send</Button>
 					</View>
-				</KeyboardAvoidingView>
 			</View>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
-	Message: {
-		flex: 1
-	},
-	keyboard: {
-		position: 'absolute',
-		bottom: 0,
-		left: 0,
-		right: 0
+	MessageInput: {
+		// flex: 1
 	}
 });
 

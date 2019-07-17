@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
 	MessageView: {
 		borderColor: 'red',
 		borderWidth: 1,
-		flex: 4
+    flex: 1,
+    height: 200
 	}
 });
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
 import MessageView from '../MessageView/MessageView';
 import MessageInput from '../MessageInput/MessageInput';
@@ -39,8 +39,10 @@ class ChatRoom extends Component {
 		// const messages = this.props.messages.filter(message => message.room_id === this.props.roomId);
 		return (
 			<View style={styles.ChatRoom}>
-				<MessageView messages={this.props.messages} />
-				<MessageInput sendMessage={this.sendMessage} />
+				<KeyboardAvoidingView style={styles.keyboard} behavior="padding">
+					<MessageView messages={this.props.messages} />
+					<MessageInput sendMessage={this.sendMessage} />
+				</KeyboardAvoidingView>
 			</View>
 		);
 	}
@@ -48,8 +50,14 @@ class ChatRoom extends Component {
 
 const styles = StyleSheet.create({
 	ChatRoom: {
-		alignContent: 'space-between',
+		alignContent: 'flex-end',
 		flex: 1
+	},
+	keyboard: {
+		position: 'absolute',
+		bottom: 0,
+		left: 0,
+		right: 0
 	}
 });
 
