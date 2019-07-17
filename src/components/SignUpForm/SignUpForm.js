@@ -18,18 +18,25 @@ class SignUpForm extends Component {
 	state = { userInfo: true, userCountry: false, userCredentials: false, country: '' };
 
 	buttonToRender = () => {
+		const { firstName, lastName, userName, email, password } = this.props;
 		if (this.state.userInfo) {
-			return <Button onPress={() => this.setState({ userInfo: false, userCountry: true })}>Next</Button>;
+			return (
+				<Button
+					disabled={!firstName || !lastName || !userName}
+					onPress={() => this.setState({ userInfo: false, userCountry: true })}>
+					Next
+				</Button>
+			);
 		}
 		if (this.state.userCountry) {
 			return <Button onPress={() => this.setState({ userCountry: false, userCredentials: true })}>Next</Button>;
 		}
-		return <Button>Sign Up!</Button>;
+		return <Button disabled={!email || !password}>Sign Up!</Button>;
 	};
 
 	renderPicker = () => {
-    const countries = Data.countries;
-    const { createCountry, country } = this.props
+		const countries = Data.countries;
+		const { createCountry, country } = this.props;
 		return (
 			<Picker
 				style={{
@@ -38,7 +45,7 @@ class SignUpForm extends Component {
 				}}
 				itemStyle={{ height: '100%', fontSize: 25 }}
 				selectedValue={country}
-				onValueChange={(itemValue, itemIndex) => createCountry( itemValue )}>
+				onValueChange={(itemValue, itemIndex) => createCountry(itemValue)}>
 				{countries.map(country => {
 					return <Picker.Item key={country} label={country} value={country} />;
 				})}
@@ -58,7 +65,7 @@ class SignUpForm extends Component {
 			createEmail,
 			createPassword,
 			userName,
-      createUserName
+			createUserName
 		} = this.props;
 		return (
 			<View style={containerStyle}>
