@@ -17,8 +17,7 @@ class LoginForm extends Component {
 
 	render () {
 		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
-		console.log('email', this.props.email);
-		console.log('password', this.props.password);
+		const { email, password } = this.props;
 		return (
 			<View style={containerStyle}>
 				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
@@ -42,7 +41,7 @@ class LoginForm extends Component {
 					/>
 				</View>
 				<View style={buttonContainerStyle}>
-					<Button>Log In</Button>
+					<Button disabled={!email || !password}>Log In</Button>
 				</View>
 			</View>
 		);
