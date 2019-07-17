@@ -1,46 +1,50 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 
 class ChatRoom extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.connection = new WebSocket('url');
+	}
 
-  constructor(props) {
-    super(props)
-    this.state = {}
-    this.connection = new WebSocket('url')
-  }
+	componentDidMount() {
+		this.connect();
+	}
 
-  componentDidMount() {
-    this.connect()
-  }
+	connect = () => {
+		this.connection.onopen = () => {
+			console.log('connected');
+		};
+		this.connection.onmessage = message => {
+			console.log('message received');
+		};
+		this.connection.onerror = error => {
+			console.log('error');
+		};
+		this.connection.onclose = () => {
+			console.log('disconnected');
+			// this.connect()
+		};
+	};
 
-  connect = () => {
-    this.connection.onopen = () => {
-      console.log('connected')
-    }
-    this.connection.onmessage = message => {
-      console.log('message received')
-    }
-    this.connection.onerror = error => {
-      console.log('error')
-    }
-    this.connection.onclose = () => {
-      console.log('disconnected')
-      // this.connect()
-    }
-  }
-  
-  render() {
-    return (
-      <View>
-        <Text> ChatRoom </Text>
-        <MessageView messages={this.props.messages} />
-      </View>
-    )
-  }
+	sendMessage = message => {
+		console.log(message);
+	};
+
+	render() {
+		return (
+			<View>
+				<Text> ChatRoom </Text>
+				<MessageView messages={this.props.messages} />
+				<MessageInput sendMessage={this.sendMessage} />
+			</View>
+		);
+	}
 }
 
 export const mapStateToProps = state => ({
-  messages: state.messages
-})
+	messages: state.messages
+});
 
-export default ChatRoom
+export default ChatRoom;
