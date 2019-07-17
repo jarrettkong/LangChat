@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text } from 'react-native';
 import { Button, Input } from '../common';
 import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
+import { connect } from 'react-redux';
+import { emailChanged, passwordChanged } from '../../actions/index';
 
 class LoginForm extends Component {
-  onEmailChange = text => {
-
-  }
-
-  onPasswordChange = text => {
-
+  
+  handleChange = (text, input) => {
+    if( input === "emailChanged" ) {
+      this.props.emailChanged(text);
+    } else {
+      this.props.passwordChanged(text);
+    }
   }
 
 	render () {
-		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
+    const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
+    console.log(this.props.email)
+    console.log(this.props.password)
 		return (
 			<View style={containerStyle}>
 				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
@@ -22,16 +27,19 @@ class LoginForm extends Component {
 				<View style={inputContainerStyle}>
 					<Input
 						label={<MaterialCommunityIcons name="email-outline" size={30} color="#999" />}
-						placeholder="Email"
-						onChangeText={email => this.onEmailChange(email)}
+            placeholder="Email"
+            value={this.props.email}
+            onChangeText={email => this.handleChange(email, "emailChanged")}
+            required
 					/>
 				</View>
 				<View style={inputContainerStyle}>
 					<Input
 						label={<AntDesign name="lock" size={30} color="#999" />}
 						placeholder="Password"
-						secureTextEntry
-						onChangeText={password => this.onPasswordChange(password)}
+            secureTextEntry
+            value={this.props.password}
+						onChangeText={password => this.handleChange(password, "passwordChanged")}
 					/>
 				</View>
 				<View style={buttonContainerStyle}>
@@ -77,4 +85,9 @@ const styles = {
 	}
 };
 
-export default LoginForm;
+export const mapStateToProps = state => ({
+	email: state.auth.email,
+	password: state.auth.password
+});
+
+export default connect(mapStateToProps, { emailChanged, passwordChanged })(LoginForm);
