@@ -1,8 +1,8 @@
-import { combineReducers } from "redux";
-import AuthReducer from './AuthReducer';
-import RegisterReducer from "./RegisterReducer";
+import { combineReducers } from 'redux';
+import { authReducer } from './authReducer';
+import { messagesReducer } from './messagesReducer';
 
 export default combineReducers({
-  auth: AuthReducer,
-  register: RegisterReducer
+	auth: authReducer,
+	messages: messagesReducer
 });

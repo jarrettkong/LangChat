@@ -41,7 +41,7 @@ class LoginForm extends Component {
 					/>
 				</View>
 				<View style={buttonContainerStyle}>
-					<Button disabled={!email || !password}>Log In</Button>
+					<Button disabled={!email || !password} onPress={() => Actions.home()}>Log In</Button>
 				</View>
 			</View>
 		);
