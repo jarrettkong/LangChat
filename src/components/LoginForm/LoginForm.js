@@ -5,17 +5,34 @@ import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 
 class LoginForm extends Component {
+  onEmailChange = text => {
+
+  }
+
+  onPasswordChange = text => {
+
+  }
+
 	render () {
 		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
 		return (
 			<View style={containerStyle}>
-				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} />
+				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
 				<Text style={textHeaderStyle}>Log In</Text>
 				<View style={inputContainerStyle}>
-					<Input label={<MaterialCommunityIcons name="email-outline" size={30} color="#999" />} placeholder="Email" />
+					<Input
+						label={<MaterialCommunityIcons name="email-outline" size={30} color="#999" />}
+						placeholder="Email"
+						onChangeText={email => this.onEmailChange(email)}
+					/>
 				</View>
 				<View style={inputContainerStyle}>
-					<Input label={<AntDesign name="lock" size={30} color="#999" />} placeholder="Password" />
+					<Input
+						label={<AntDesign name="lock" size={30} color="#999" />}
+						placeholder="Password"
+						secureTextEntry
+						onChangeText={password => this.onPasswordChange(password)}
+					/>
 				</View>
 				<View style={buttonContainerStyle}>
 					<Button>Log In</Button>
@@ -56,7 +73,7 @@ const styles = {
 		paddingBottom: 40
 	},
 	buttonContainerStyle: {
-    marginTop: 80
+		marginTop: 80
 	}
 };
 
