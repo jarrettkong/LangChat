@@ -1,6 +1,6 @@
 const INITIAL_STATE = { email: '', password: '' };
 
-export default (state = INITIAL_STATE, action) => {
+export const authReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case 'CHANGE_EMAIL':
 			return { ...state, email: action.text };
