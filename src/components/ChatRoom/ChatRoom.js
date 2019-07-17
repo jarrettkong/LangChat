@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+import { connect } from 'react-redux'
 
 class ChatRoom extends Component {
 	constructor(props) {
@@ -47,4 +48,4 @@ export const mapStateToProps = state => ({
 	messages: state.messages
 });
 
-export default ChatRoom;
+export default connect(mapStateToProps)(ChatRoom);
