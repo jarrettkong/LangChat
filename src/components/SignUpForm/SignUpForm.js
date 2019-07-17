@@ -4,6 +4,15 @@ import { Button, Input } from '../common';
 import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons, Feather } from '@expo/vector-icons';
 import Data from '../../Helper/data';
+import { connect } from 'react-redux';
+import {
+	createEmail,
+	createPassword,
+	createFirstName,
+	createLastName,
+	createUserName,
+	createCountry
+} from '../../actions/index';
 
 class SignUpForm extends Component {
 	state = { userInfo: true, userCountry: false, userCredentials: false, country: '' };
@@ -19,7 +28,8 @@ class SignUpForm extends Component {
 	};
 
 	renderPicker = () => {
-		const countries = Data.countries;
+    const countries = Data.countries;
+    const { createCountry, country } = this.props
 		return (
 			<Picker
 				style={{
@@ -27,8 +37,8 @@ class SignUpForm extends Component {
 					height: 444
 				}}
 				itemStyle={{ height: '100%', fontSize: 25 }}
-				selectedValue={this.state.country}
-				onValueChange={(itemValue, itemIndex) => this.setState({ country: itemValue })}>
+				selectedValue={country}
+				onValueChange={(itemValue, itemIndex) => createCountry( itemValue )}>
 				{countries.map(country => {
 					return <Picker.Item key={country} label={country} value={country} />;
 				})}
@@ -38,7 +48,18 @@ class SignUpForm extends Component {
 
 	render () {
 		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
-		console.log(this.state.country);
+		const {
+			email,
+			password,
+			firstName,
+			lastName,
+			createFirstName,
+			createLastName,
+			createEmail,
+			createPassword,
+			userName,
+      createUserName
+		} = this.props;
 		return (
 			<View style={containerStyle}>
 				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
@@ -46,13 +67,28 @@ class SignUpForm extends Component {
 				{this.state.userInfo && (
 					<React.Fragment>
 						<View style={inputContainerStyle}>
-							<Input label={<Feather name="plus" size={30} color="#999" />} placeholder="First Name" />
+							<Input
+								label={<Feather name="plus" size={30} color="#999" />}
+								placeholder="First Name"
+								value={firstName}
+								onChangeText={firstName => createFirstName(firstName)}
+							/>
 						</View>
 						<View style={inputContainerStyle}>
-							<Input label={<Feather name="plus" size={30} color="#999" />} placeholder="Last Name" />
+							<Input
+								label={<Feather name="plus" size={30} color="#999" />}
+								placeholder="Last Name"
+								value={lastName}
+								onChangeText={lastName => createLastName(lastName)}
+							/>
 						</View>
 						<View style={inputContainerStyle}>
-							<Input label={<AntDesign name="user" size={30} color="#999" />} placeholder="Username" />
+							<Input
+								label={<AntDesign name="user" size={30} color="#999" />}
+								placeholder="Username"
+								value={userName}
+								onChangeText={userName => createUserName(userName)}
+							/>
 						</View>
 					</React.Fragment>
 				)}
@@ -63,10 +99,18 @@ class SignUpForm extends Component {
 							<Input
 								label={<MaterialCommunityIcons name="email-outline" size={30} color="#999" />}
 								placeholder="Email"
+								value={email}
+								onChangeText={email => createEmail(email)}
 							/>
 						</View>
 						<View style={inputContainerStyle}>
-							<Input label={<AntDesign name="lock" size={30} color="#999" />} placeholder="Password" secureTextEntry />
+							<Input
+								label={<AntDesign name="lock" size={30} color="#999" />}
+								placeholder="Password"
+								secureTextEntry
+								value={password}
+								onChangeText={password => createPassword(password)}
+							/>
 						</View>
 						<View style={inputContainerStyle}>
 							<Input
@@ -118,4 +162,22 @@ const styles = {
 	}
 };
 
-export default SignUpForm;
+export const mapStateToProps = state => ({
+	email: state.register.email,
+	password: state.register.password,
+	firstName: state.register.firstName,
+	lastName: state.register.lastName,
+	userName: state.register.userName,
+	country: state.register.country
+});
+
+export const mapDispatchToProps = dispatch => ({
+	createFirstName: firstName => dispatch(createFirstName(firstName)),
+	createLastName: lastName => dispatch(createLastName(lastName)),
+	createEmail: email => dispatch(createEmail(email)),
+	createPassword: password => dispatch(createPassword(password)),
+	createUserName: userName => dispatch(createUserName(userName)),
+	createCountry: country => dispatch(createCountry(country))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
