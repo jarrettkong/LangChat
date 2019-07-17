@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 
-export default class Home extends Component {
+export default class Turotial extends Component {
     render() {
         return (
             <View>
@@ -10,6 +10,3 @@ export default class Home extends Component {
         )
     }
 }
-const styles = {
-
-};
