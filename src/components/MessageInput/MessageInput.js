@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { Input, Button } from '../common';
 import { addMessage } from '../../actions';
 import { connect } from 'react-redux';
@@ -18,23 +18,31 @@ class MessageInput extends Component {
 
 	render() {
 		return (
-			<View style={styles.ChatRoom}>
-				<Input
-					placeholder="Enter your message here..."
-					value={this.state.message}
-					onChangeText={message => this.setState({ message })}
-				/>
-				<View>
-					<Button onPress={this.sendMessage}>Send</Button>
-				</View>
+			<View style={styles.Message}>
+				<KeyboardAvoidingView style={styles.keyboard} behavior="padding">
+					<Input
+						placeholder="Enter your message here..."
+						value={this.state.message}
+						onChangeText={message => this.setState({ message })}
+					/>
+					<View>
+						<Button onPress={this.sendMessage}>Send</Button>
+					</View>
+				</KeyboardAvoidingView>
 			</View>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
-	ChatRoom: {
-		paddingTop: 60
+	Message: {
+		flex: 1
+	},
+	keyboard: {
+		position: 'absolute',
+		bottom: 0,
+		left: 0,
+		right: 0
 	}
 });
 

@@ -39,8 +39,8 @@ class ChatRoom extends Component {
 		// const messages = this.props.messages.filter(message => message.room_id === this.props.roomId);
 		return (
 			<View style={styles.ChatRoom}>
-				<MessageInput sendMessage={this.sendMessage} />
 				<MessageView messages={this.props.messages} />
+				<MessageInput sendMessage={this.sendMessage} />
 			</View>
 		);
 	}
@@ -49,10 +49,7 @@ class ChatRoom extends Component {
 const styles = StyleSheet.create({
 	ChatRoom: {
 		alignContent: 'space-between',
-		height: 200,
-		flex: 1,
-		borderColor: 'red',
-		borderWidth: 1
+		flex: 1
 	}
 });
 
