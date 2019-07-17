@@ -42,7 +42,7 @@ class LoginForm extends Component {
 					/>
 				</View>
 				<View style={buttonContainerStyle}>
-					<Button>Log In</Button>
+					<Button onPress={() => {Actions.home()}}>Log In</Button>
 				</View>
 			</View>
 		);
