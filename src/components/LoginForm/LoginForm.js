@@ -5,15 +5,16 @@ import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 
 class LoginForm extends Component {
-  onEmailChange = text => {
+	state = {
+		email: '',
+		password: ''
+	};
 
-  }
+	handleChange = (name, value) => {
+		this.setState({ [name]: value });
+	};
 
-  onPasswordChange = text => {
-
-  }
-
-	render () {
+	render() {
 		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
 		return (
 			<View style={containerStyle}>
@@ -23,7 +24,7 @@ class LoginForm extends Component {
 					<Input
 						label={<MaterialCommunityIcons name="email-outline" size={30} color="#999" />}
 						placeholder="Email"
-						onChangeText={email => this.onEmailChange(email)}
+						onChangeText={email => this.handleChange('email', email)}
 					/>
 				</View>
 				<View style={inputContainerStyle}>
@@ -31,7 +32,7 @@ class LoginForm extends Component {
 						label={<AntDesign name="lock" size={30} color="#999" />}
 						placeholder="Password"
 						secureTextEntry
-						onChangeText={password => this.onPasswordChange(password)}
+						onChangeText={password => this.onPasswordChange('password', password)}
 					/>
 				</View>
 				<View style={buttonContainerStyle}>
