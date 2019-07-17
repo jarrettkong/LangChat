@@ -1,26 +1,49 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Picker } from 'react-native';
 import { Button, Input } from '../common';
 import { Actions } from 'react-native-router-flux';
-import { MaterialCommunityIcons, AntDesign, EvilIcons, Feather, Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, AntDesign, EvilIcons, Feather } from '@expo/vector-icons';
+import Data from '../../Helper/data';
 
 class SignUpForm extends Component {
-	state = { userInfo: true };
+	state = { userInfo: true, userCountry: false, userCredentials: false, country: '' };
 
 	buttonToRender = () => {
 		if (this.state.userInfo) {
-			return <Button onPress={() => this.setState({ userInfo: false })}>Next</Button>;
-    }
-    return <Button>Sign Up!</Button>
+			return <Button onPress={() => this.setState({ userInfo: false, userCountry: true })}>Next</Button>;
+		}
+		if (this.state.userCountry) {
+			return <Button onPress={() => this.setState({ userCountry: false, userCredentials: true })}>Next</Button>;
+		}
+		return <Button>Sign Up!</Button>;
+	};
+
+	renderPicker = () => {
+		const countries = Data.countries;
+		return (
+			<Picker
+				style={{
+					width: '100%',
+					height: 444
+				}}
+				itemStyle={{ height: '100%', fontSize: 25 }}
+				selectedValue={this.state.country}
+				onValueChange={(itemValue, itemIndex) => this.setState({ country: itemValue })}>
+				{countries.map(country => {
+					return <Picker.Item key={country} label={country} value={country} />;
+				})}
+			</Picker>
+		);
 	};
 
 	render () {
 		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
+		console.log(this.state.country);
 		return (
 			<View style={containerStyle}>
 				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
 				<Text style={textHeaderStyle}>Sign Up</Text>
-				{this.state.userInfo ? (
+				{this.state.userInfo && (
 					<React.Fragment>
 						<View style={inputContainerStyle}>
 							<Input label={<Feather name="plus" size={30} color="#999" />} placeholder="First Name" />
@@ -31,11 +54,10 @@ class SignUpForm extends Component {
 						<View style={inputContainerStyle}>
 							<Input label={<AntDesign name="user" size={30} color="#999" />} placeholder="Username" />
 						</View>
-						<View style={inputContainerStyle}>
-							<Input label={<Ionicons name="md-globe" size={30} color="#999" />} placeholder="Country" />
-						</View>
 					</React.Fragment>
-				):(
+				)}
+				{this.state.userCountry && <View style={inputContainerStyle}>{this.renderPicker()}</View>}
+				{this.state.userCredentials && (
 					<React.Fragment>
 						<View style={inputContainerStyle}>
 							<Input
@@ -55,9 +77,7 @@ class SignUpForm extends Component {
 						</View>
 					</React.Fragment>
 				)}
-				<View style={buttonContainerStyle}>
-					{this.buttonToRender()}
-				</View>
+				<View style={buttonContainerStyle}>{this.buttonToRender()}</View>
 			</View>
 		);
 	}
