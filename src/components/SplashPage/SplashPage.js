@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Actions} from "react-native-router-flux";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import Button from "../common/Button";
 
@@ -14,10 +15,10 @@ class SplashPage extends Component {
           style={imageStyle}
           source={{ uri: "https://i.imgur.com/IoKqmrE.jpg" }}
         />
-        <Button onPress={() => console.log("SIGN UP")}>Sign Up</Button>
+        <Button onPress={() => Actions.signUpForm()}>Sign Up</Button>
         <View style={logInContainerStyle}>
           <Text style={logInTextStyle}>Already have an account?</Text>
-          <Text style={logInButtonStyle}>Log In</Text>
+          <Text style={logInButtonStyle} onPress={() => Actions.loginForm()}>Log In</Text>
         </View>
       </View>
     );
