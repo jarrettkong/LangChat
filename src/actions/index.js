@@ -1,9 +1,9 @@
-export const emailChanged = text => ({
-	type: 'EMAIL_CHANGED',
+export const changeEmail = text => ({
+	type: 'CHANGE_EMAIL',
 	text
 });
 
-export const passwordChanged = text => ({
-	type: 'PASSWORD_CHANGED',
+export const changePassword = text => ({
+	type: 'CHANGE_PASSWORD',
 	text
 });
