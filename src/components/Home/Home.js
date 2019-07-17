@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import Tutorial from '../Tutorial/Tutorial';
-import Welcome from '../Welcome/Welcome';
+import { Text, View, StyleSheet } from 'react-native';
+import ChatRoom from '../ChatRoom/ChatRoom';
+import Tutorial from '../Tutorial/Tutorial'
+
 export default class Home extends Component {
-	render () {
+	render() {
 		return (
-			<View>
+			<View style={styles.Home}>
 				<Tutorial />
 			</View>
 		);
 	}
 }
-const styles = {};
+
+const styles = StyleSheet.create({
+	Home: {
+		flex: 1
+	}
+});

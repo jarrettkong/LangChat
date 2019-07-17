@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import { connect } from 'react-redux'
+import { Text, View, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import MessageView from '../MessageView/MessageView';
+import MessageInput from '../MessageInput/MessageInput';
 
 class ChatRoom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
-		this.connection = new WebSocket('url');
+		this.connection = new WebSocket(`http://langchat-crosspollination.herokuapp.com/ws/${this.props.roomId}`);
 	}
 
 	componentDidMount() {
@@ -34,15 +36,22 @@ class ChatRoom extends Component {
 	};
 
 	render() {
+		// const messages = this.props.messages.filter(message => message.room_id === this.props.roomId);
 		return (
-			<View>
-				<Text> ChatRoom </Text>
+			<View style={styles.ChatRoom}>
 				<MessageView messages={this.props.messages} />
 				<MessageInput sendMessage={this.sendMessage} />
 			</View>
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	ChatRoom: {
+		alignContent: 'space-between',
+		flex: 1
+	}
+});
 
 export const mapStateToProps = state => ({
 	messages: state.messages

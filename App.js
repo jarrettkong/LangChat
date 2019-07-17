@@ -8,7 +8,7 @@ import Router from './src/Router';
 const App = () => {
 	return (
 		<Provider store={createStore(reducers)}>
-				<Router />
+			<Router />
 		</Provider>
 	);
 };
