@@ -5,7 +5,7 @@ export default class Welcome extends Component {
     render() {
         return (
             <View>
-                <Text> textInComponent </Text>
+                <Text> Welcome back {this.props.userName}! </Text>
             </View>
         )
     }
