@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 
-export default class ChatRoom extends Component {
+class ChatRoom extends Component {
 
   constructor(props) {
     super(props)
@@ -17,15 +17,30 @@ export default class ChatRoom extends Component {
     this.connection.onopen = () => {
       console.log('connected')
     }
+    this.connection.onmessage = message => {
+      console.log('message received')
+    }
+    this.connection.onerror = error => {
+      console.log('error')
+    }
+    this.connection.onclose = () => {
+      console.log('disconnected')
+      // this.connect()
+    }
   }
   
   render() {
     return (
       <View>
         <Text> ChatRoom </Text>
+        <MessageView messages={this.props.messages} />
       </View>
     )
   }
 }
+
+export const mapStateToProps = state => ({
+  messages: state.messages
+})
 
 export default ChatRoom
