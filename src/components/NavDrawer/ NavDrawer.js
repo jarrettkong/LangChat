@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, FlatList, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { Text, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import Drawer from 'react-native-drawer';
-import { MaterialCommunityIcons, AntDesign, EvilIcons, Ionicons } from '@expo/vector-icons';
-import { Actions } from 'react-native-router-flux';
+import { Ionicons } from '@expo/vector-icons';
 import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
 
@@ -99,17 +98,17 @@ const styles = {
 		backgroundColor: '#3B5998'
 	},
 	menuTitleContainer: {
-		alignItem: 'center',
 		height: 60,
 		width: '100%',
-		flexDirection: 'row'
+		flexDirection: 'row',
+		alignItem: 'center'
 	},
 	menuTitle: {
 		width: '100%',
 		color: 'white',
-		textAlign: 'center',
 		fontSize: 17,
-		alignSelf: 'center'
+		alignSelf: 'center',
+		textAlign: 'center'
 	},
 	menuIcon: {
 		color: 'white'
