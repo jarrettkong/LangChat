@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, FlatList, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import Drawer from 'react-native-drawer';
-import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, AntDesign, EvilIcons, Ionicons } from '@expo/vector-icons';
 import { Actions } from 'react-native-router-flux';
 import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
@@ -27,13 +27,13 @@ export default class Home extends Component {
 		);
 	}
 
-	openDrawer () {
+	openDrawer = () => {
 		this.drawer.open();
-	}
+	};
 
-	closeDrawer () {
+	closeDrawer = () => {
 		this.drawer.close();
-	}
+	};
 
 	render () {
 		return (
@@ -47,12 +47,12 @@ export default class Home extends Component {
 						openDrawerOffset={0.35}
 						styles={drawerStyles}>
 						<View style={styles.headerContainer}>
-							<View style={styles.menuButton}>
-								<TouchableOpacity onPress={() => this.openDrawer()}>
-									<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
+							<View>
+								<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
+									<Ionicons name="ios-menu" style={styles.menuIcon} size={40} onPress={this.openDrawer} />
 								</TouchableOpacity>
 							</View>
-							<Text style={styles.headerTitle}>DRAWER</Text>
+							<Text style={styles.headerTitle}>LangChat</Text>
 							<View style={styles.menuButton} />
 						</View>
 						{this.props.children || null}
@@ -85,6 +85,8 @@ const styles = {
 		backgroundColor: '#3B5998'
 	},
 	headerContainer: {
+		position: 'relative',
+		alignItems: 'center',
 		height: 44,
 		flexDirection: 'row',
 		justifyContent: 'center',
@@ -98,7 +100,7 @@ const styles = {
 	},
 	menuButton: {
 		marginLeft: 8,
-		marginRight: 8,
+        marginRight: 8,
 		alignSelf: 'center',
 		tintColor: 'white'
 	},
@@ -118,5 +120,8 @@ const styles = {
 		textAlign: 'center',
 		fontSize: 17,
 		alignSelf: 'center'
+	},
+	menuIcon: {
+		color: 'white',
 	}
 };
