@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { Text, KeyboardAvoidingView, View, StyleSheet } from 'react-native';
 import { Input, Button } from '../common';
 import { addMessage } from '../../actions';
 import { connect } from 'react-redux';
@@ -9,24 +9,19 @@ class MessageInput extends Component {
 		message: ''
 	};
 
-	sendMessage = () => {
-		// this.props.sendMessage(this.state.message);
-		const newMessage = { id: Date.now(), username: 'Jarrett', text: this.state.message };
-		this.props.addMessage(newMessage);
-		this.setState({ message: '' });
-	};
+	sendMessage = () => {};
 
 	render() {
 		return (
 			<View style={styles.MessageInput}>
-					<Input
-						placeholder="Enter your message here..."
-						value={this.state.message}
-						onChangeText={message => this.setState({ message })}
-					/>
-					<View>
-						<Button onPress={this.sendMessage}>Send</Button>
-					</View>
+				<Input
+					placeholder="Enter your message here..."
+					value={this.state.message}
+					onChangeText={message => this.setState({ message })}
+				/>
+				<View>
+					<Button onPress={this.sendMessage}>Send</Button>
+				</View>
 			</View>
 		);
 	}
@@ -34,12 +29,11 @@ class MessageInput extends Component {
 
 const styles = StyleSheet.create({
 	MessageInput: {
-		// flex: 1
+		bottom: 0,
+		left: 0,
+		right: 0,
+		position: 'absolute'
 	}
 });
 
-export const mapDispatchToProps = dispatch => ({
-	addMessage: message => dispatch(addMessage(message))
-});
-
-export default connect(null, mapDispatchToProps)(MessageInput);
+export default MessageInput;
