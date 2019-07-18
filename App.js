@@ -9,7 +9,6 @@ import Drawer from './src/components/Drawer/Drawer';
 const App = () => {
 	return (
 		<Provider store={createStore(reducers)}>
-			<Drawer />
 			<Router />
 		</Provider>
 	);

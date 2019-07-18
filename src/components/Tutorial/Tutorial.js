@@ -1,15 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Swiper from 'react-native-web-swiper';
-
+import Drawer from '../Drawer/Drawer';
 const styles = StyleSheet.create({
 	container: {
-		flex: 1
+		height: '100%',
+		width: '100%',
+		zIndex: 1
 	},
 	slideContainer: {
 		flex: 1,
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		height: '100%',
+		width: '100%',
+		zIndex: 1
 	},
 	slide1: {
 		backgroundColor: 'rgba(20,20,200,0.3)'

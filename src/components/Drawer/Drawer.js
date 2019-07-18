@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, FlatList, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import Drawer from 'react-native-drawer';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
+import { Actions } from 'react-native-router-flux';
+
 console.disableYellowBox = true;
 
 const menu = [
 	{ title: 'Home' },
 	{ title: 'Wishlist' },
-	{ title: 'Avout us' },
+	{ title: 'About us' },
 	{ title: 'Contact us' },
 	{ title: 'Log out' }
 ];
@@ -59,13 +61,14 @@ export default class Home extends Component {
 						styles={drawerStyles}>
 						<View style={styles.headerContainer}>
 							<View style={styles.menuButton}>
-								<TouchableOpacity onPress={this.openDrawer.bind(this)}>
+								<TouchableOpacity onPress={() => this.openDrawer()}>
 									<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
 								</TouchableOpacity>
 							</View>
 							<Text style={styles.headerTitle}>DRAWER</Text>
 							<View style={styles.menuButton} />
 						</View>
+						{this.props.children || null}
 					</Drawer>
 				</View>
 			</SafeAreaView>
@@ -76,6 +79,7 @@ export default class Home extends Component {
 const drawerStyles = {
 	drawer: {
 		flex: 1.0,
+
 		backgroundColor: '#3B5998'
 	},
 	main: {
@@ -96,7 +100,7 @@ const styles = {
 	headerContainer: {
 		height: 44,
 		flexDirection: 'row',
-		justifyContect: 'center',
+		justifyContent: 'center',
 		backgroundColor: '#3B5998'
 	},
 	headerTitle: {
