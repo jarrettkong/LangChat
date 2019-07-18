@@ -11,7 +11,7 @@ class MessageInput extends Component {
 
 	sendMessage = () => {};
 
-	render() {
+	render () {
 		return (
 			<View style={styles.MessageInput}>
 				<Input
