@@ -25,13 +25,13 @@ const styles = {
 		paddingLeft: 5,
 		paddingRight: 5,
 		fontSize: 18,
-    lineHeight: 23,
-    width: "100%"
+		lineHeight: 23,
+		width: '100%'
 	},
 	labelStyle: {
 		fontSize: 18,
-    paddingLeft: 10,
-    paddingRight: 10,
+		paddingLeft: 10,
+		paddingRight: 10
 	},
 	containerStyle: {
 		height: 40,

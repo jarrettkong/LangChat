@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { Text, TextInput, View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
 import MessageView from '../MessageView/MessageView';
-import MessageInput from '../MessageInput/MessageInput';
-import { Input, Button } from '../common';
+import { Ionicons } from '@expo/vector-icons';
 import { addMessage } from '../../actions';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class ChatRoom extends Component {
 	constructor(props) {
@@ -45,17 +45,15 @@ class ChatRoom extends Component {
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" keyboardVerticalOffset={40} enabled>
 				<MessageView messages={this.props.messages} />
 				<View style={styles.inputContainer}>
-					<Input
+					<TextInput
 						style={styles.messageInput}
 						placeholder="Enter your message here..."
 						value={this.state.message}
 						onChangeText={message => this.setState({ message })}
 					/>
-					<View>
-						<Button onPress={this.sendMessage} style={styles.sendButton}>
-							S
-						</Button>
-					</View>
+					<TouchableOpacity style={styles.sendButton}>
+						<Ionicons name="ios-send" size={35} color="#000" />
+					</TouchableOpacity>
 				</View>
 			</KeyboardAvoidingView>
 		);
@@ -69,15 +67,22 @@ const styles = StyleSheet.create({
 	},
 	inputContainer: {
 		justifyContent: 'space-between',
-		height: 40
+		height: 40,
+		flexDirection: 'row',
+		alignContent: 'flex-start'
 	},
 	messageInput: {
+		alignContent: 'center',
 		borderColor: 'blue',
-		borderWidth: 1
+		flex: 1,
+    paddingLeft: 5
 	},
 	sendButton: {
 		width: 40,
-		height: 40
+		height: 40,
+		color: '#ffffff',
+		justifyContent: 'center',
+		alignContent: 'center'
 	}
 });
 
