@@ -55,7 +55,6 @@ export default class NavDrawer extends Component {
 const drawerStyles = {
 	drawer: {
 		flex: 1.0,
-
 		backgroundColor: '#3B5998'
 	},
 	main: {
