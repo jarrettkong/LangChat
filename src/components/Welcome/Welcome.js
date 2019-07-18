@@ -7,8 +7,8 @@ export default class Welcome extends Component {
 		return (
 			<View style={styles.container}>
 				<Drawer>
-                    <Tutorial/>
-                </Drawer>
+					<Text>Welcome back user!</Text>
+				</Drawer>
 			</View>
 		);
 	}
@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
 		fontSize: 50
 	},
 	drawerContainer: {
-		// position: 'absolute',
 		flex: 1.0,
 		zIndex: 5
 	},

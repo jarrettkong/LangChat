@@ -3,7 +3,7 @@ import { Platform, StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Sa
 import Drawer from 'react-native-drawer';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 import { Actions } from 'react-native-router-flux';
-
+import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
 
 const menu = [
@@ -22,20 +22,7 @@ export default class Home extends Component {
 	renderDrawer () {
 		return (
 			<View style={styles.menuContainer}>
-				<FlatList
-					style={{ flex: 1.0 }}
-					data={menu}
-					extraData={this.state}
-					renderItem={({ item, index }) => {
-						return (
-							<TouchableOpacity style={styles.menuTitleContainer}>
-								<Text style={styles.menuTitle} key={index}>
-									{item.title}
-								</Text>
-							</TouchableOpacity>
-						);
-					}}
-				/>
+				<Nav />
 			</View>
 		);
 	}

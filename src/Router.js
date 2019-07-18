@@ -17,10 +17,10 @@ const RouterComponent = () => {
 					<Scene key="splashPage" component={SplashPage} hideNavBar={true} />
 					<Scene key="loginForm" component={LoginForm} hideNavBar={true} />
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />
-					<Scene key="home" component={Home} hideNavBar={true} />
+					<Scene key="home" component={Home} initial hideNavBar={true} />
 					<Scene key="chatRoom" component={ChatRoom} hideNavBar={true} />
 					<Scene key="tutorial" component={Tutorial} hideNavBar={true} />
-					<Scene key="welcome" component={Welcome} initial hideNavBar={true} />
+					<Scene key="welcome" component={Welcome} hideNavBar={true} />
 				</Scene>
 			</Router>
 		</SafeAreaView>
