@@ -19,7 +19,7 @@ class SignUpForm extends Component {
 		userInfo: true,
 		userCountry: false,
 		userCredentials: false,
-		country: '',
+		confirmation: '',
 		error: ''
 	};
 
@@ -38,7 +38,7 @@ class SignUpForm extends Component {
 		if (this.state.userCountry) {
 			return <Button onPress={() => this.setState({ userCountry: false, userCredentials: true })}>Next</Button>;
 		}
-		return <Button disabled={!email || !password}>Sign Up!</Button>;
+		return <Button disabled={(!email || !password) && this.validatePassword()}>Sign Up!</Button>;
 	};
 
 	renderPicker = () => {
@@ -50,9 +50,9 @@ class SignUpForm extends Component {
 					width: '100%',
 					height: 444
 				}}
-				itemStyle={{ height: '100%', fontSize: 25 }}
+				itemStyle={{ fontSize: 25 }}
 				selectedValue={country}
-				onValueChange={(itemValue, itemIndex) => createCountry(itemValue)}
+				onValueChange={itemValue => createCountry(itemValue)}
 			>
 				{countries.map(country => {
 					return <Picker.Item key={country} label={country} value={country} />;
@@ -84,6 +84,10 @@ class SignUpForm extends Component {
 		} catch (error) {
 			this.setState({ error: 'Unable to register new user.' });
 		}
+	};
+
+	validatePassword = () => {
+		return this.state.confirmation !== this.props.password;
 	};
 
 	render() {
@@ -156,9 +160,12 @@ class SignUpForm extends Component {
 							<Input
 								label={<AntDesign name="lock" size={30} color="#999" />}
 								placeholder="Confirm Password"
+								value={this.state.confirmation}
+								onChangeText={text => this.setState({ confirmation: text })}
 								secureTextEntry
 							/>
 						</View>
+						{this.validatePassword() && <Text>Passwords do not match</Text>}
 					</React.Fragment>
 				)}
 				<View style={buttonContainerStyle}>{this.buttonToRender()}</View>
