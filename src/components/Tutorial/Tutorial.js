@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Swiper from 'react-native-web-swiper';
-import Drawer from '../Drawer/Drawer';
+import Drawer from '../NavDrawer/ NavDrawer';
 const styles = StyleSheet.create({
 	container: {
 		height: '100%',

@@ -6,15 +6,7 @@ import { Actions } from 'react-native-router-flux';
 import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
 
-const menu = [
-	{ title: 'Home' },
-	{ title: 'Wishlist' },
-	{ title: 'About us' },
-	{ title: 'Contact us' },
-	{ title: 'Log out' }
-];
-
-export default class Home extends Component {
+export default class NavDrawer extends Component {
 	constructor (props) {
 		super(props);
 	}
@@ -44,14 +36,12 @@ export default class Home extends Component {
 						content={this.renderDrawer()}
 						type="static"
 						tapToClose={true}
-						openDrawerOffset={0.35}
+						openDrawerOffset={0.25}
 						styles={drawerStyles}>
 						<View style={styles.headerContainer}>
-							<View>
-								<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
-									<Ionicons name="ios-menu" style={styles.menuIcon} size={40} onPress={this.openDrawer} />
-								</TouchableOpacity>
-							</View>
+							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
+								<Ionicons name="ios-menu" style={styles.menuIcon} size={40} onPress={this.openDrawer} />
+							</TouchableOpacity>
 							<Text style={styles.headerTitle}>LangChat</Text>
 							<View style={styles.menuButton} />
 						</View>
@@ -100,7 +90,7 @@ const styles = {
 	},
 	menuButton: {
 		marginLeft: 8,
-        marginRight: 8,
+		marginRight: 8,
 		alignSelf: 'center',
 		tintColor: 'white'
 	},
@@ -122,6 +112,6 @@ const styles = {
 		alignSelf: 'center'
 	},
 	menuIcon: {
-		color: 'white',
+		color: 'white'
 	}
 };

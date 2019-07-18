@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import Drawer from '../Drawer/Drawer';
-import Tutorial from '../Tutorial/Tutorial';
+import NavDrawer from '../NavDrawer/ NavDrawer';
 export default class Welcome extends Component {
 	render () {
 		return (
 			<View style={styles.container}>
-				<Drawer>
+				<NavDrawer>
 					<Text>Welcome back user!</Text>
-				</Drawer>
+				</NavDrawer>
 			</View>
 		);
 	}
