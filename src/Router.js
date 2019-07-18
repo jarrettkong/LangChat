@@ -11,10 +11,10 @@ const RouterComponent = () => {
 		<SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
 			<Router>
 				<Scene key="root">
-					<Scene key="splashPage" component={SplashPage} initial hideNavBar={true} />
+					<Scene key="splashPage" component={SplashPage} hideNavBar={true} />
 					<Scene key="loginForm" component={LoginForm} hideNavBar={true} />
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />
-					<Scene key="home" component={Home} hideNavBar={true} />
+					<Scene key="home" component={Home} initial hideNavBar={true} />
 				</Scene>
 			</Router>
 		</SafeAreaView>
