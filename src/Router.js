@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { StatusBar } from 'react-native';
 import { Scene, Router } from 'react-native-router-flux';
 import SplashPage from './components/SplashPage/SplashPage';
 import LoginForm from './components/LoginForm/LoginForm';
@@ -11,19 +11,20 @@ import Welcome from './components/Welcome/Welcome';
 
 const RouterComponent = () => {
 	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+		<React.Fragment>
+			<StatusBar barStyle="dark-content" />
 			<Router>
 				<Scene key="root">
-					<Scene key="splashPage" component={SplashPage} hideNavBar={true} />
+					<Scene key="splashPage" component={SplashPage} initial hideNavBar={true} />
 					<Scene key="loginForm" component={LoginForm} hideNavBar={true} />
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />
-					<Scene key="home" component={Home} initial hideNavBar={true} />
+					<Scene key="home" component={Home}  hideNavBar={true} />
 					<Scene key="chatRoom" component={ChatRoom} hideNavBar={true} />
 					<Scene key="tutorial" component={Tutorial} hideNavBar={true} />
 					<Scene key="welcome" component={Welcome} hideNavBar={true} />
 				</Scene>
 			</Router>
-		</SafeAreaView>
+		</React.Fragment>
 	);
 };
 

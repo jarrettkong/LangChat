@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button, StyleSheet, TouchableHighlight } from 'react-native';
+import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -33,6 +33,11 @@ export default class Nav extends Component {
 				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.chatRoom()}>
 					<Text Text style={styles.button}>
 						chatroom
+					</Text>
+				</TouchableHighlight>
+				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.tutorial()}>
+					<Text Text style={styles.button}>
+						tutorial
 					</Text>
 				</TouchableHighlight>
 			</View>

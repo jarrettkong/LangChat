@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { Text, View, TouchableOpacity, Image, SafeAreaView, StatusBar } from 'react-native';
 import Drawer from 'react-native-drawer';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
+
 import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
 
@@ -33,6 +34,7 @@ export default class NavDrawer extends Component {
 	render () {
 		return (
 			<SafeAreaView style={styles.safeAreaStyle}>
+				<StatusBar barStyle="light-content" />
 				<View style={styles.mainContainer}>
 					<Drawer
 						ref={ref => (this.drawer = ref)}
@@ -76,7 +78,7 @@ const drawerStyles = {
 const styles = {
 	mainContainer: {
 		flex: 1.0,
-		backgroundColor: 'white'
+		backgroundColor: '#3B5998'
 	},
 	safeAreaStyle: {
 		flex: 1.0,
