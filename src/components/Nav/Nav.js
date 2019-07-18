@@ -6,11 +6,11 @@ export default class Nav extends Component {
 	render () {
 		return (
 			<View>
-				<Button title="splashPage" onPress={() => Actions.splashPage()} />
-				<Button title="loginForm" onPress={() => Actions.loginForm()} />
-				<Button title="signUpForm" onPress={() => Actions.signUpForm()} />
-				<Button title="home" onPress={() => Actions.home()} />
-				<Button title="chatRoom" onPress={() => Actions.chatRoom()} />
+				<Button title="Splash page" onPress={() => Actions.splashPage()} />
+				<Button title="Login" onPress={() => Actions.loginForm()} />
+				<Button title="Signup" onPress={() => Actions.signUpForm()} />
+				<Button title="Home" onPress={() => Actions.home()} />
+				<Button title="Chatroom" onPress={() => Actions.chatRoom()} />
 			</View>
 		);
 	}

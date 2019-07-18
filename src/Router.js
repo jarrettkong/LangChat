@@ -6,6 +6,8 @@ import LoginForm from './components/LoginForm/LoginForm';
 import SignUpForm from './components/SignUpForm/SignUpForm';
 import Home from './components/Home/Home';
 import ChatRoom from './components/ChatRoom/ChatRoom';
+import Tutorial from './components/Tutorial/Tutorial';
+import Welcome from './components/Welcome/Welcome';
 
 const RouterComponent = () => {
 	return (
@@ -17,6 +19,8 @@ const RouterComponent = () => {
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />
 					<Scene key="home" component={Home} initial hideNavBar={true} />
 					<Scene key="chatRoom" component={ChatRoom} hideNavBar={true} />
+					<Scene key="tutorial" component={Tutorial} hideNavBar={true} />
+					<Scene key="welcome" component={Welcome} hideNavBar={true} />
 				</Scene>
 			</Router>
 		</SafeAreaView>
