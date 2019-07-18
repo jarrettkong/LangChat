@@ -5,6 +5,6 @@ import { registerReducer } from './RegisterReducer';
 
 export default combineReducers({
 	auth: authReducer,
-  messages: messagesReducer,
-  register: registerReducer
+	messages: messagesReducer,
+	register: registerReducer
 });
