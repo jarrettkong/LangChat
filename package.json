@@ -28,7 +28,9 @@
     "redux": "^4.0.4"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.1.1"
+    "babel-preset-expo": "^5.1.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0"
   },
   "private": true
 }
