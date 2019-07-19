@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import MessageView from '../MessageView/MessageView';
 import { Ionicons } from '@expo/vector-icons';
 import { addMessage } from '../../actions';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 class ChatRoom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { message: '' };
-		this.connection = new WebSocket(`http://langchat-crosspollination.herokuapp.com/ws/${this.props.roomId}`);
+		this.connection;
 	}
 
 	componentDidMount() {
@@ -18,18 +18,23 @@ class ChatRoom extends Component {
 	}
 
 	connect = () => {
+		this.connection = new WebSocket(`ws://langchat-crosspollination.herokuapp.com/ws/${this.props.language}`);
 		this.connection.onopen = () => {
 			console.log('connected');
 		};
 		this.connection.onmessage = message => {
+			/*
+      const data = JSON.parse(message.data)
+      this.props.addMessage(message)
+      */
 			console.log('message received');
 		};
 		this.connection.onerror = error => {
 			console.log('error');
 		};
 		this.connection.onclose = () => {
-			// this.props.sendMessage(this.state.message);
 			console.log('disconnected');
+			// this.connect();
 		};
 	};
 
@@ -51,9 +56,9 @@ class ChatRoom extends Component {
 						value={this.state.message}
 						onChangeText={message => this.setState({ message })}
 					/>
-					<TouchableOpacity style={styles.sendButton}>
+					<TouchableWithoutFeedback style={styles.sendButton} onPress={this.sendMessage}>
 						<Ionicons name="ios-send" size={35} color="#000" />
-					</TouchableOpacity>
+					</TouchableWithoutFeedback>
 				</View>
 			</KeyboardAvoidingView>
 		);
@@ -67,7 +72,7 @@ const styles = StyleSheet.create({
 	},
 	inputContainer: {
 		justifyContent: 'space-between',
-		height: 40,
+		height: 45,
 		flexDirection: 'row',
 		alignContent: 'flex-start'
 	},
@@ -75,12 +80,14 @@ const styles = StyleSheet.create({
 		alignContent: 'center',
 		borderColor: 'blue',
 		flex: 1,
-    paddingLeft: 5
+		backgroundColor: '#fff',
+    paddingLeft: 15,
+    fontSize: 16
 	},
 	sendButton: {
-		width: 40,
-		height: 40,
-		color: '#ffffff',
+		width: 45,
+		height: 45,
+		backgroundColor: '#fff',
 		justifyContent: 'center',
 		alignContent: 'center'
 	}
