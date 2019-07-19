@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { Text, View, TouchableOpacity, Image, SafeAreaView, StatusBar } from 'react-native';
 import Drawer from 'react-native-drawer';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, AntDesign } from '@expo/vector-icons';
+
 import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
 
 export default class NavDrawer extends Component {
-	constructor (props) {
-		super(props);
-	}
+	state = {
+		drawerOpen: false
+	};
 
 	renderDrawer () {
 		return (
@@ -25,21 +26,32 @@ export default class NavDrawer extends Component {
 	closeDrawer = () => {
 		this.drawer.close();
 	};
+	toggleDrawer = () => {
+		const { drawerOpen } = this.state;
+		this.setState({ drawerOpen: !drawerOpen });
+	};
 
 	render () {
 		return (
 			<SafeAreaView style={styles.safeAreaStyle}>
+				<StatusBar barStyle="light-content" />
 				<View style={styles.mainContainer}>
 					<Drawer
 						ref={ref => (this.drawer = ref)}
 						content={this.renderDrawer()}
 						type="static"
+						onOpen={this.toggleDrawer}
+						onClose={this.toggleDrawer}
 						tapToClose={true}
 						openDrawerOffset={0.25}
 						styles={drawerStyles}>
 						<View style={styles.headerContainer}>
 							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
-								<Ionicons name="ios-menu" style={styles.menuIcon} size={40} onPress={this.openDrawer} />
+								{this.state.drawerOpen ? (
+									<AntDesign name="menu-unfold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
+								) : (
+									<AntDesign name="menu-fold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
+								)}
 							</TouchableOpacity>
 							<Text style={styles.headerTitle}>LangChat</Text>
 							<View style={styles.menuButton} />
@@ -66,7 +78,7 @@ const drawerStyles = {
 const styles = {
 	mainContainer: {
 		flex: 1.0,
-		backgroundColor: 'white'
+		backgroundColor: '#3B5998'
 	},
 	safeAreaStyle: {
 		flex: 1.0,
