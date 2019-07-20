@@ -16,7 +16,13 @@ class ChatRoom extends Component {
 	}
 
 	componentDidMount() {
+    console.log('mounting...')
 		this.connect();
+	}
+
+	componentWillUnmount() {
+		console.log('unmounting...');
+		this.socket.close();
 	}
 
 	connect = () => {
