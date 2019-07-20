@@ -5,12 +5,14 @@ import MessageView from '../MessageView/MessageView';
 import { Ionicons } from '@expo/vector-icons';
 import { addMessage } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import NavDrawer from '../NavDrawer/ NavDrawer';
+import io from 'socket.io-client';
 
 class ChatRoom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { message: '' };
-		this.connection;
+		this.socket = io('http://thawing-chamber-88612.herokuapp.com/');
 	}
 
 	componentDidMount() {
@@ -18,48 +20,35 @@ class ChatRoom extends Component {
 	}
 
 	connect = () => {
-		this.connection = new WebSocket(`ws://langchat-crosspollination.herokuapp.com/ws/${this.props.language}`);
-		this.connection.onopen = () => {
-			console.log('connected');
-		};
-		this.connection.onmessage = message => {
-			/*
-      const data = JSON.parse(message.data)
-      this.props.addMessage(message)
-      */
-			console.log('message received');
-		};
-		this.connection.onerror = error => {
-			console.log('error');
-		};
-		this.connection.onclose = () => {
-			console.log('disconnected');
-			// this.connect();
-		};
+		this.socket.on('message', message => {
+			this.props.addMessage(message);
+			this.setState({ message: '' });
+		});
 	};
 
 	sendMessage = () => {
-		const newMessage = { id: Date.now(), username: 'Jarrett', text: this.state.message };
-		this.props.addMessage(newMessage);
-		this.setState({ message: '' });
+		const message = { id: Date.now(), username: 'Jarrett', text: this.state.message };
+		this.socket.emit('message', message);
 	};
 
 	render() {
 		// const messages = this.props.messages.filter(message => message.room_id === this.props.roomId);
 		return (
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" keyboardVerticalOffset={40} enabled>
-				<MessageView messages={this.props.messages} />
-				<View style={styles.inputContainer}>
-					<TextInput
-						style={styles.messageInput}
-						placeholder="Enter your message here..."
-						value={this.state.message}
-						onChangeText={message => this.setState({ message })}
-					/>
-					<TouchableWithoutFeedback style={styles.sendButton} onPress={this.sendMessage}>
-						<Ionicons name="ios-send" size={35} color="#000" />
-					</TouchableWithoutFeedback>
-				</View>
+				<NavDrawer>
+					<MessageView messages={this.props.messages} />
+					<View style={styles.inputContainer}>
+						<TextInput
+							style={styles.messageInput}
+							placeholder="Enter your message here..."
+							value={this.state.message}
+							onChangeText={message => this.setState({ message })}
+						/>
+						<TouchableWithoutFeedback style={styles.sendButton} onPress={this.sendMessage}>
+							<Ionicons name="ios-send" size={35} color="#000" />
+						</TouchableWithoutFeedback>
+					</View>
+				</NavDrawer>
 			</KeyboardAvoidingView>
 		);
 	}
@@ -81,8 +70,8 @@ const styles = StyleSheet.create({
 		borderColor: 'blue',
 		flex: 1,
 		backgroundColor: '#fff',
-    paddingLeft: 15,
-    fontSize: 16
+		paddingLeft: 15,
+		fontSize: 16
 	},
 	sendButton: {
 		width: 45,
