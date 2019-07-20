@@ -95,11 +95,12 @@ class SignUpForm extends Component {
 	};
 
 	login = async user => {
+		const { username, password } = user;
 		try {
 			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(user)
+				body: JSON.stringify({ username, password })
 			});
 			const json = await res.json();
 			console.log(json);

@@ -1,5 +1,5 @@
-export const changeEmail = text => ({
-	type: 'CHANGE_EMAIL',
+export const changeUsername = text => ({
+	type: 'CHANGE_USERNAME',
 	text
 });
 
