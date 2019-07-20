@@ -24,7 +24,9 @@ class LoginForm extends Component {
 				body: JSON.stringify({ username, password })
 			});
 			const json = await res.json();
-			console.log(json);
+			const cookieStr = res.headers.map['set-cookie'];
+			const cookie = cookieStr.match(/^(csrftoken=)\w+;/);
+			console.log(cookie);
 			this.props.login(json); // redux
 			Actions.home();
 		} catch (error) {
