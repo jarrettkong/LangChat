@@ -3,10 +3,12 @@ import { authReducer } from './AuthReducer';
 import { messagesReducer } from './messagesReducer';
 import { registerReducer } from './RegisterReducer';
 import { userReducer } from './userReducer';
+import { tokenReducer } from './tokenReducer';
 
 export default combineReducers({
 	auth: authReducer,
 	messages: messagesReducer,
 	register: registerReducer,
-	user: userReducer
+	user: userReducer,
+	token: tokenReducer
 });
