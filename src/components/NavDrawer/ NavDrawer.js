@@ -83,7 +83,6 @@ class NavDrawer extends Component {
 						</View>
 						{this.props.children || null}
 					</Drawer>
-					<Button onPress={this.logout}>Sign out</Button>
 				</View>
 			</SafeAreaView>
 		);

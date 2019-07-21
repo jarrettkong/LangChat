@@ -14,7 +14,7 @@ class ChatRoom extends Component {
 		this.state = { message: '' };
 		// this.socket = io('http://thawing-chamber-88612.herokuapp.com/');
 		// this.socket = new WebSocket(`wss://echo.websocket.org/`);
-		this.socket = new WebSocket(`wss://langchat-crosspollination.herokuapp.com/ws/${this.props.language}/`);
+		this.socket = new WebSocket(`wss://langchat-crosspollination.herokuapp.com/ws/${this.props.language}/?token=${this.props.token}`);
 	}
 
 	componentDidMount() {
