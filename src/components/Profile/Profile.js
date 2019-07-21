@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-
+import { Button } from '../common';
 export class Profile extends React.Component {
 	componentDidMount () {
 		// redirect to splash or 404 if user doesn't exist
@@ -24,6 +24,24 @@ export class Profile extends React.Component {
 	handlePress = () => {
 		const { editing } = this.state;
 		this.setState({ editing: !editing });
+	};
+
+	logout = async () => {
+		try {
+			const { username, password } = this.props;
+			await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_out/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'X-CSRFToken': this.props.cookie,
+					Authorization: `Token ${this.props.token}`
+				},
+				body: JSON.stringify({ username, password })
+			});
+			Actions.splashPage();
+		} catch (error) {
+			console.log(error.message);
+		}
 	};
 	render () {
 		// console.log(this.props);
@@ -61,8 +79,8 @@ export class Profile extends React.Component {
 						</TextInput>
 					</View>
 				)}
-
 				<Button title="edit" onPress={this.handlePress} />
+				<Button style={styles.buttonStyling}onPress={this.logout}>Sign out</Button>
 			</View>
 		);
 	}
@@ -70,6 +88,7 @@ export class Profile extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
+		flex: 1.0,
 		borderWidth: 1,
 		borderRadius: 2,
 		borderColor: '#ddd',
@@ -82,6 +101,9 @@ const styles = StyleSheet.create({
 		marginLeft: 5,
 		marginRight: 5,
 		paddingTop: 50
+	},
+	buttonStyling: {
+		marginBottom: 50
 	},
 	input: {
 		backgroundColor: 'yellow',
@@ -100,12 +122,10 @@ const styles = StyleSheet.create({
 });
 
 export const mapStateToProps = state => ({
-	email: state.register.email,
-	password: state.register.password,
-	firstName: state.register.firstName,
-	lastName: state.register.lastName,
-	userName: state.register.userName,
-	country: state.register.country
+	cookie: state.cookie,
+	username: state.auth.username,
+	password: state.auth.password,
+	token: state.token
 });
 
 export default connect(mapStateToProps)(Profile);
