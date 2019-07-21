@@ -23,12 +23,11 @@ class LoginForm extends Component {
 				headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
 				body: JSON.stringify({ username, password })
 			});
-			const json = await res.json();
-			// response is a BLOB, need to extract string
-			const headers = Object.assign({}, res.headers);
-			const cookieData = headers.map; //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
-			console.log(cookieData['cookie-set']);
-			this.props.login(json, ''); // redux
+			const user = await res.json();
+			const cookieData = res.headers.get('set-cookie'); //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
+			const match = cookieData.match(/(csrftoken=)\w+;/);
+			const csrftoken = match[0].split('=')[1].slice(0, -1);
+			this.props.login(user, csrftoken); // redux
 			Actions.home();
 		} catch (error) {
 			console.log(error.message);
@@ -113,7 +112,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
 	changeUsername: text => dispatch(changeUsername(text)),
 	changePassword: text => dispatch(changePassword(text)),
-	login: (user, cookie) => dispatch(login(user, cookie))
+	login: (user, token) => dispatch(login(user, token))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
