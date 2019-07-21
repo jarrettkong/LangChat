@@ -4,11 +4,13 @@ import { messagesReducer } from './messagesReducer';
 import { registerReducer } from './RegisterReducer';
 import { userReducer } from './userReducer';
 import { tokenReducer } from './tokenReducer';
+import { cookieReducer } from './cookieReducer';
 
 export default combineReducers({
 	auth: authReducer,
 	messages: messagesReducer,
 	register: registerReducer,
 	user: userReducer,
-	token: tokenReducer
+	token: tokenReducer,
+	cookie: cookieReducer
 });

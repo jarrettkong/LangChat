@@ -18,16 +18,17 @@ class LoginForm extends Component {
 	login = async () => {
 		const { username, password } = this.props;
 		try {
-			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/', {
+			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/?format=json', {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
+				headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
 				body: JSON.stringify({ username, password })
 			});
 			const json = await res.json();
 			const cookieStr = res.headers.map['set-cookie'];
-			const cookie = cookieStr.match(/^(csrftoken=)\w+;/);
-			console.log(cookie);
-			this.props.login(json); // redux
+			const match = cookieStr.match(/(csrftoken=)\w+;/)[0]; //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
+			const cookie = match.split('=');
+			console.log(String(cookie[1]).substr(0, -2));
+			this.props.login(json, ''); // redux
 			Actions.home();
 		} catch (error) {
 			console.log(error.message);
@@ -112,7 +113,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
 	changeUsername: text => dispatch(changeUsername(text)),
 	changePassword: text => dispatch(changePassword(text)),
-	login: user => dispatch(login(user))
+	login: (user, cookie) => dispatch(login(user, cookie))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
