@@ -24,10 +24,10 @@ class LoginForm extends Component {
 				body: JSON.stringify({ username, password })
 			});
 			const json = await res.json();
-			const cookieStr = res.headers.map['set-cookie'];
-			const match = cookieStr.match(/(csrftoken=)\w+;/)[0]; //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
-			const cookie = match.split('=');
-			console.log(String(cookie[1]).substr(0, -2));
+			// response is a BLOB, need to extract string
+			const headers = Object.assign({}, res.headers);
+			const cookieData = headers.map; //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
+			console.log(cookieData['cookie-set']);
 			this.props.login(json, ''); // redux
 			Actions.home();
 		} catch (error) {
