@@ -11,8 +11,9 @@ import {
 	createFirstName,
 	createLastName,
 	createUserName,
-	createCountry
-} from '../../actions/index';
+	createCountry,
+	login
+} from '../../actions';
 
 class SignUpForm extends Component {
 	state = {
@@ -38,7 +39,11 @@ class SignUpForm extends Component {
 		if (this.state.userCountry) {
 			return <Button onPress={() => this.setState({ userCountry: false, userCredentials: true })}>Next</Button>;
 		}
-		return <Button disabled={(!email || !password) && this.validatePassword()}>Sign Up!</Button>;
+		return (
+			<Button disabled={(!email || !password) && this.validatePassword()} onPress={this.register}>
+				Sign Up!
+			</Button>
+		);
 	};
 
 	renderPicker = () => {
@@ -65,6 +70,7 @@ class SignUpForm extends Component {
 		const { email, password, firstName, lastName, userName, country } = this.props;
 		const newUser = {
 			displayName: userName,
+			email,
 			firstName,
 			lastName,
 			active: true,
@@ -74,15 +80,33 @@ class SignUpForm extends Component {
 		};
 
 		try {
-			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/users', {
+			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/users/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(newUser)
 			});
 			const user = await res.json();
-			this.props.login(user);
+			console.log(user);
+			await this.login(user);
 		} catch (error) {
+			console.log(error.message);
 			this.setState({ error: 'Unable to register new user.' });
+		}
+	};
+
+	login = async user => {
+		const { username, password } = user;
+		try {
+			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ username, password })
+			});
+			const json = await res.json();
+			console.log(json);
+			this.props.login(json); // redux
+		} catch (error) {
+			console.log(error.message);
 		}
 	};
 

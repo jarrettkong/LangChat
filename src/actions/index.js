@@ -1,5 +1,5 @@
-export const changeEmail = text => ({
-	type: 'CHANGE_EMAIL',
+export const changeUsername = text => ({
+	type: 'CHANGE_USERNAME',
 	text
 });
 
@@ -43,9 +43,9 @@ export const addMessage = message => ({
 	payload: { message }
 });
 
-export const login = user => ({
+export const login = (user, cookie) => ({
 	type: 'LOGIN',
-	payload: { user }
+	payload: { user, cookie }
 });
 
 export const logout = () => ({

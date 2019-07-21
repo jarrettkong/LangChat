@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Image, SafeAreaView, StatusBar } from 'react-native';
 import Drawer from 'react-native-drawer';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
+import { Button } from '../common';
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
 
-export default class NavDrawer extends Component {
+class NavDrawer extends Component {
 	state = {
 		drawerOpen: false
 	};
 
-	renderDrawer () {
+	renderDrawer() {
 		return (
 			<View style={styles.menuContainer}>
 				<Nav />
@@ -26,12 +29,31 @@ export default class NavDrawer extends Component {
 	closeDrawer = () => {
 		this.drawer.close();
 	};
+
 	toggleDrawer = () => {
 		const { drawerOpen } = this.state;
 		this.setState({ drawerOpen: !drawerOpen });
 	};
 
-	render () {
+	logout = async () => {
+		try {
+			const { username, password } = this.props;
+			await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_out/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'X-CSRFToken': this.props.cookie,
+					Authorization: `Token ${this.props.token}`
+				},
+				body: JSON.stringify({ username, password })
+			});
+			Actions.splashPage();
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
+
+	render() {
 		return (
 			<SafeAreaView style={styles.safeAreaStyle}>
 				<StatusBar barStyle="light-content" />
@@ -44,7 +66,8 @@ export default class NavDrawer extends Component {
 						onClose={this.toggleDrawer}
 						tapToClose={true}
 						openDrawerOffset={0.25}
-						styles={drawerStyles}>
+						styles={drawerStyles}
+					>
 						<View style={styles.headerContainer}>
 							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
 								{this.state.drawerOpen ? (
@@ -58,6 +81,7 @@ export default class NavDrawer extends Component {
 						</View>
 						{this.props.children || null}
 					</Drawer>
+					<Button onPress={this.logout}>Sign out</Button>
 				</View>
 			</SafeAreaView>
 		);
@@ -125,3 +149,12 @@ const styles = {
 		color: 'white'
 	}
 };
+
+export const mapStateToProps = state => ({
+	cookie: state.cookie,
+	username: state.auth.username,
+	password: state.auth.password,
+	token: state.token
+});
+
+export default connect(mapStateToProps)(NavDrawer);

@@ -4,20 +4,39 @@ import { Button, Input } from '../common';
 import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
-import { changeEmail, changePassword } from '../../actions/index';
+import { changeUsername, changePassword, login } from '../../actions/index';
 
 class LoginForm extends Component {
 	handleChange = (text, input) => {
-		if (input === 'email') {
-			this.props.changeEmail(text);
+		if (input === 'username') {
+			this.props.changeUsername(text);
 		} else {
 			this.props.changePassword(text);
 		}
 	};
 
+	login = async () => {
+		const { username, password } = this.props;
+		try {
+			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/?format=json', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+				body: JSON.stringify({ username, password })
+			});
+			const user = await res.json();
+			const cookieData = res.headers.get('set-cookie'); //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
+			const match = cookieData.match(/(csrftoken=)\w+;/);
+			const csrftoken = match[0].split('=')[1].slice(0, -1);
+			this.props.login(user, csrftoken); // redux
+			Actions.home();
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
+
 	render() {
 		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
-		const { email, password } = this.props;
+		const { username, password } = this.props;
 		return (
 			<View style={containerStyle}>
 				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
@@ -25,9 +44,9 @@ class LoginForm extends Component {
 				<View style={inputContainerStyle}>
 					<Input
 						label={<MaterialCommunityIcons name="email-outline" size={30} color="#999" />}
-						placeholder="Email"
-						value={this.props.email}
-						onChangeText={email => this.handleChange(email, 'email')}
+						placeholder="Username"
+						value={this.props.username}
+						onChangeText={username => this.handleChange(username, 'username')}
 						required
 					/>
 				</View>
@@ -41,7 +60,7 @@ class LoginForm extends Component {
 					/>
 				</View>
 				<View style={buttonContainerStyle}>
-					<Button disabled={!email || !password} onPress={() => Actions.home()}>
+					<Button disabled={!username || !password} onPress={this.login}>
 						Log In
 					</Button>
 				</View>
@@ -86,8 +105,14 @@ const styles = {
 };
 
 export const mapStateToProps = state => ({
-	email: state.auth.email,
+	username: state.auth.username,
 	password: state.auth.password
 });
 
-export default connect(mapStateToProps, { changeEmail, changePassword })(LoginForm);
+export const mapDispatchToProps = dispatch => ({
+	changeUsername: text => dispatch(changeUsername(text)),
+	changePassword: text => dispatch(changePassword(text)),
+	login: (user, token) => dispatch(login(user, token))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
