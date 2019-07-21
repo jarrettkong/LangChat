@@ -16,7 +16,7 @@ const RouterComponent = () => {
 			<StatusBar barStyle="dark-content" />
 			<Router>
 				<Scene key="root">
-					<Scene key="splashPage" component={SplashPage} initial hideNavBar={true} />
+					<Scene key="splashPage" component={SplashPage} hideNavBar={true} />
 					<Scene key="loginForm" component={LoginForm} hideNavBar={true} />
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />
 					<Scene key="home" component={Home} hideNavBar={true} />
@@ -24,7 +24,7 @@ const RouterComponent = () => {
 					<Scene type="reset" key="chatRoomFrench" component={ChatRoom} hideNavBar={true} />
 					<Scene key="tutorial" component={Tutorial} hideNavBar={true} />
 					<Scene key="welcome" component={Welcome} hideNavBar={true} />
-					<Scene key="profile" component={Profile} hideNavBar={true} />
+					<Scene key="profile" component={Profile} initial hideNavBar={true} />
 				</Scene>
 			</Router>
 		</React.Fragment>
