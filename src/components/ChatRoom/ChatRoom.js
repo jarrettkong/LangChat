@@ -12,11 +12,13 @@ class ChatRoom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { message: '' };
-		this.socket = io('http://thawing-chamber-88612.herokuapp.com/');
+		// this.socket = io('http://thawing-chamber-88612.herokuapp.com/');
+		// this.socket = new WebSocket(`wss://echo.websocket.org/`);
+		this.socket = new WebSocket(`wss://langchat-crosspollination.herokuapp.com/ws/${this.props.language}/`);
 	}
 
 	componentDidMount() {
-    console.log('mounting...')
+		console.log('mounting...');
 		this.connect();
 	}
 
@@ -26,15 +28,43 @@ class ChatRoom extends Component {
 	}
 
 	connect = () => {
-		this.socket.on('message', message => {
-			this.props.addMessage(message);
-			this.setState({ message: '' });
-		});
+		this.socket.onopen = () => {
+			console.log(`connected to ${this.props.language} chat...`);
+		};
+
+		this.socket.onmessage = message => {
+			console.log('message received');
+			const newMessage = JSON.parse(message.data);
+			this.props.addMessage(newMessage);
+		};
+
+		this.socket.onerror = error => {
+			console.log('error: ', error.message);
+		};
+
+		this.socket.onclose = () => {
+			console.log('disconnected...');
+			// this.connect();
+		};
+		// this.socket.on('message', message => {
+		// 	this.props.addMessage(message);
+		// 	this.setState({ message: '' });
+		// });
 	};
 
 	sendMessage = () => {
-		const message = { id: Date.now(), username: 'Jarrett', text: this.state.message };
-		this.socket.emit('message', message);
+		try {
+			const message = {
+				id: Date.now(),
+				username: this.props.user.username,
+				message: this.state.message,
+				token: this.props.token
+			};
+			this.socket.send(JSON.stringify(message));
+			this.setState({ message: '' });
+		} catch (err) {
+			console.log(err.message);
+		}
 	};
 
 	render() {
@@ -89,7 +119,9 @@ const styles = StyleSheet.create({
 });
 
 export const mapStateToProps = state => ({
-	messages: state.messages
+	messages: state.messages,
+	user: state.user,
+	token: state.token
 });
 
 export const mapDispatchToProps = dispatch => ({

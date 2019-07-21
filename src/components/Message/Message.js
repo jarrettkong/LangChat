@@ -13,7 +13,7 @@ const Message = props => {
 					<Text style={styles.username}>{username}</Text>
 				</View>
 				<View style={{ width: '80%' }}>
-					<Text style={styles.messageText}>{text}</Text>
+					<Text style={styles.messageText}>{message}</Text>
 				</View>
 			</View>
 		</View>
