@@ -32,21 +32,33 @@ export class Profile extends React.Component {
 			<View style={styles.container}>
 				{!this.state.editing ? (
 					<View>
-						<Text>{this.state.firstName}</Text>
-						<Text>{this.state.lastName}</Text>
-						<Text>{this.state.userName}</Text>
-						<Text>{this.state.password}</Text>
-						<Text>{this.state.country}</Text>
-						<Text>{this.state.email}</Text>
+						<Text style={styles.inputContainerStyle}>{this.state.firstName}</Text>
+						<Text style={styles.inputContainerStyle}>{this.state.lastName}</Text>
+						<Text style={styles.inputContainerStyle}>{this.state.userName}</Text>
+						<Text style={styles.inputContainerStyle}>{this.state.password}</Text>
+						<Text style={styles.inputContainerStyle}>{this.state.country}</Text>
+						<Text style={styles.inputContainerStyle}>{this.state.email}</Text>
 					</View>
 				) : (
 					<View>
-						<TextInput label='First Name'>{this.state.firstName}</TextInput>
-						<TextInput label='First Name'>{this.state.lastName}</TextInput>
-						<TextInput label='First Name'>{this.state.userName}</TextInput>
-						<TextInput label='First Name'>{this.state.password}</TextInput>
-						<TextInput label='First Name'>{this.state.country}</TextInput>
-						<TextInput label='First Name'>{this.state.email}</TextInput>
+						<TextInput style={styles.inputContainerStyle} label="First Name">
+							{this.state.firstName}
+						</TextInput>
+						<TextInput style={styles.inputContainerStyle} label="Last Name">
+							{this.state.lastName}
+						</TextInput>
+						<TextInput style={styles.inputContainerStyle} label="Username">
+							{this.state.userName}
+						</TextInput>
+						<TextInput style={styles.inputContainerStyle} label="Password">
+							{this.state.password}
+						</TextInput>
+						<TextInput style={styles.inputContainerStyle} label="Country">
+							{this.state.country}
+						</TextInput>
+						<TextInput style={styles.inputContainerStyle} label="Email">
+							{this.state.email}
+						</TextInput>
 					</View>
 				)}
 
@@ -58,13 +70,32 @@ export class Profile extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1
+		borderWidth: 1,
+		borderRadius: 2,
+		borderColor: '#ddd',
+		borderBottomWidth: 0,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.1,
+		shadowRadius: 2,
+		elevation: 1,
+		marginLeft: 5,
+		marginRight: 5,
+		paddingTop: 50
 	},
-	container: {
-		flex: 1
+	input: {
+		backgroundColor: 'yellow',
+		padding: 10,
+		marginBottom: 10
 	},
-	container: {
-		flex: 1
+	inputContainerStyle: {
+		borderBottomWidth: 1,
+		padding: 5,
+		backgroundColor: '#fff',
+		justifyContent: 'flex-start',
+		flexDirection: 'row',
+		borderColor: '#ddd',
+		position: 'relative'
 	}
 });
 
