@@ -8,6 +8,7 @@ import Home from './components/Home/Home';
 import ChatRoom from './components/ChatRoom/ChatRoom';
 import Tutorial from './components/Tutorial/Tutorial';
 import Welcome from './components/Welcome/Welcome';
+import Profile from './components/Profile/Profile';
 
 const RouterComponent = () => {
 	return (
@@ -23,6 +24,7 @@ const RouterComponent = () => {
 					<Scene type="reset" key="chatRoomFrench" component={ChatRoom} hideNavBar={true} />
 					<Scene key="tutorial" component={Tutorial} hideNavBar={true} />
 					<Scene key="welcome" component={Welcome} hideNavBar={true} />
+					<Scene key="profile" component={Profile} hideNavBar={true} />
 				</Scene>
 			</Router>
 		</React.Fragment>

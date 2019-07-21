@@ -5,7 +5,7 @@ export default class Tutorial extends React.Component {
 	render () {
 		return (
 			<View style={styles.container}>
-        
+        <Text>Profile</Text>
 			</View>
 		);
 	}
@@ -14,4 +14,4 @@ export default class Tutorial extends React.Component {
 const styles = StyleSheet.create({
 	container: {
     flex: 1
-	}}
+	}})
