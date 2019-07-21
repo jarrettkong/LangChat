@@ -18,8 +18,9 @@ const RouterComponent = () => {
 					<Scene key="splashPage" component={SplashPage} initial hideNavBar={true} />
 					<Scene key="loginForm" component={LoginForm} hideNavBar={true} />
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />
-					<Scene key="home" component={Home}  hideNavBar={true} />
-					<Scene key="chatRoom" component={ChatRoom} hideNavBar={true} />
+					<Scene key="home" component={Home} hideNavBar={true} />
+					<Scene type="reset" key="chatRoomSpanish" component={ChatRoom} hideNavBar={true} />
+					<Scene type="reset" key="chatRoomFrench" component={ChatRoom} hideNavBar={true} />
 					<Scene key="tutorial" component={Tutorial} hideNavBar={true} />
 					<Scene key="welcome" component={Welcome} hideNavBar={true} />
 				</Scene>

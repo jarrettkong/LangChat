@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import NavDrawer from '../NavDrawer/ NavDrawer';
+
 export default class Welcome extends Component {
 	render () {
 		return (
@@ -12,6 +13,7 @@ export default class Welcome extends Component {
 		);
 	}
 }
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 1.0,

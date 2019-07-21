@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default class Nav extends Component {
-	render () {
+	render() {
 		return (
 			<View style={styles.container}>
 				<View style={styles.profileContainer}>
@@ -30,9 +30,14 @@ export default class Nav extends Component {
 						home
 					</Text>
 				</TouchableHighlight>
-				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.chatRoom()}>
+				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.chatRoomFrench({ language: 'french' })}>
 					<Text Text style={styles.button}>
-						chatroom
+						chatroom french
+					</Text>
+				</TouchableHighlight>
+				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.chatRoomSpanish({ language: 'spanish' })}>
+					<Text Text style={styles.button}>
+						chatroom spanish
 					</Text>
 				</TouchableHighlight>
 				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.tutorial()}>
@@ -44,6 +49,7 @@ export default class Nav extends Component {
 		);
 	}
 }
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 1.0,

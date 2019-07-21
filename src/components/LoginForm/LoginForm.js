@@ -15,7 +15,7 @@ class LoginForm extends Component {
 		}
 	};
 
-	render () {
+	render() {
 		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
 		const { email, password } = this.props;
 		return (
@@ -41,7 +41,9 @@ class LoginForm extends Component {
 					/>
 				</View>
 				<View style={buttonContainerStyle}>
-					<Button disabled={!email || !password} onPress={() => Actions.home()}>Log In</Button>
+					<Button disabled={!email || !password} onPress={() => Actions.home()}>
+						Log In
+					</Button>
 				</View>
 			</View>
 		);
