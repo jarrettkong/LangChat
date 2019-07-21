@@ -1,4 +1,4 @@
-const INITIAL_STATE = { email: '', password: '' };
+const INITIAL_STATE = { username: '', password: '' };
 
 export const authReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
