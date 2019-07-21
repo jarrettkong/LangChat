@@ -112,7 +112,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
 	changeUsername: text => dispatch(changeUsername(text)),
 	changePassword: text => dispatch(changePassword(text)),
-	login: (user, token) => dispatch(login(user, token))
+	login: (user, cookie) => dispatch(login(user, cookie))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
