@@ -5,6 +5,7 @@ import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { Button } from '../common';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
+import { logout } from '../../actions';
 
 import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
@@ -47,6 +48,7 @@ class NavDrawer extends Component {
 				},
 				body: JSON.stringify({ username, password })
 			});
+			this.props.logout();
 			Actions.splashPage();
 		} catch (error) {
 			console.log(error.message);
@@ -81,7 +83,6 @@ class NavDrawer extends Component {
 						</View>
 						{this.props.children || null}
 					</Drawer>
-					<Button onPress={this.logout}>Sign out</Button>
 				</View>
 			</SafeAreaView>
 		);
@@ -157,4 +158,8 @@ export const mapStateToProps = state => ({
 	token: state.token
 });
 
-export default connect(mapStateToProps)(NavDrawer);
+export const mapDispatchToProps = dispatch => ({
+	logout: () => dispatch(logout())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavDrawer);

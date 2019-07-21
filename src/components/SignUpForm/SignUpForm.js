@@ -86,25 +86,27 @@ class SignUpForm extends Component {
 				body: JSON.stringify(newUser)
 			});
 			const user = await res.json();
-			console.log(user);
-			await this.login(user);
+			this.login(user);
+			// Actions.loginForm();
 		} catch (error) {
-			console.log(error.message);
 			this.setState({ error: 'Unable to register new user.' });
 		}
 	};
 
 	login = async user => {
-		const { username, password } = user;
+		const { username } = user;
 		try {
-			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/', {
+			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/?format=json', {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ username, password })
+				headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+				body: JSON.stringify({ username, password: this.props.password })
 			});
-			const json = await res.json();
-			console.log(json);
-			this.props.login(json); // redux
+			const user = await res.json();
+			const cookieData = res.headers.get('set-cookie'); //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
+			const match = cookieData.match(/(csrftoken=)\w+;/);
+			const csrftoken = match[0].split('=')[1].slice(0, -1);
+			this.props.login(user, csrftoken); // redux
+			Actions.home();
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -249,7 +251,7 @@ export const mapDispatchToProps = dispatch => ({
 	createPassword: password => dispatch(createPassword(password)),
 	createUserName: userName => dispatch(createUserName(userName)),
 	createCountry: country => dispatch(createCountry(country)),
-	login: user => dispatch(login(user))
+	login: (user, cookie) => dispatch(login(user, cookie))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);

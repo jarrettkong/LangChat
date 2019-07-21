@@ -1,10 +1,10 @@
-export const tokenReducer = (state = '', action) => {
+export const tokenReducer = (state = null, action) => {
 	const { type, payload } = action;
 	switch (type) {
 		case 'LOGIN':
 			return payload.user.token;
 		case 'LOGOUT':
-			return '';
+			return null;
 		default:
 			return state;
 	}

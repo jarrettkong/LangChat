@@ -6,6 +6,8 @@ export const authReducer = (state = INITIAL_STATE, action) => {
 			return { ...state, username: action.text };
 		case 'CHANGE_PASSWORD':
 			return { ...state, password: action.text };
+		case 'LOGOUT':
+			return INITIAL_STATE;
 		default:
 			return state;
 	}
