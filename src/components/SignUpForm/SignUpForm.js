@@ -131,6 +131,7 @@ export class SignUpForm extends Component {
 			userName,
 			createUserName
 		} = this.props;
+		console.log(firstName)
 		return (
 			<View style={containerStyle}>
 				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
