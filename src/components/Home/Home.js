@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import Drawer from '../NavDrawer/ NavDrawer';
 import Welcome from '../Welcome/Welcome';
 class Home extends Component {
 	render () {

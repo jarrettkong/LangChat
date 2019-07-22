@@ -5,7 +5,7 @@ import MessageView from '../MessageView/MessageView';
 import { Ionicons } from '@expo/vector-icons';
 import { addMessage } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import NavDrawer from '../NavDrawer/ NavDrawer';
+import NavDrawer from '../NavDrawer/NavDrawer';
 import io from 'socket.io-client';
 
 export class ChatRoom extends Component {

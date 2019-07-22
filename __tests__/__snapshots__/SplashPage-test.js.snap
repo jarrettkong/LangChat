@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SplashPage Component should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "flex": 1,
+      "opacity": 0.8,
+      "width": null,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "paddingTop": 60,
+        "position": "absolute",
+        "width": "100%",
+        "zIndex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#007aff",
+          "fontSize": 50,
+          "fontWeight": "800",
+        }
+      }
+    >
+      LangChat
+    </Text>
+  </View>
+  <Image
+    source={
+      Object {
+        "uri": "https://i.imgur.com/IoKqmrE.jpg",
+      }
+    }
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 1,
+        "opacity": 0.8,
+        "width": null,
+      }
+    }
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignSelf": "center",
+        "backgroundColor": "#007aff",
+        "borderColor": "#007aff",
+        "borderRadius": 25,
+        "borderWidth": 1,
+        "marginLeft": 5,
+        "marginRight": 5,
+        "opacity": 1,
+        "position": "absolute",
+        "top": "84%",
+        "width": "85%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#fff",
+          "fontSize": 19,
+          "fontWeight": "600",
+          "paddingBottom": 12,
+          "paddingTop": 12,
+        }
+      }
+    >
+      Sign Up
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "flexDirection": "row",
+        "fontWeight": "600",
+        "position": "absolute",
+        "top": "93%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 15,
+        }
+      }
+    >
+      Already have an account?
+    </Text>
+    <Text
+      onPress={[Function]}
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 15,
+          "marginLeft": 8,
+          "textDecorationLine": "underline",
+        }
+      }
+    >
+      Log In
+    </Text>
+  </View>
+</View>
+`;

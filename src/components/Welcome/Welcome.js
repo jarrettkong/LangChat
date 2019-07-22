@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import NavDrawer from '../NavDrawer/ NavDrawer';
+import NavDrawer from '../NavDrawer/NavDrawer';
 
-class Welcome extends Component {
+export default class Welcome extends Component {
 	render () {
 		return (
 			<View style={styles.container}>
@@ -32,5 +32,3 @@ const styles = StyleSheet.create({
 		zIndex: 1
 	}
 });
-
-export default Welcome;
