@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { Button } from '../common';
+import Button from '../common/Button';
 
-class SplashPage extends Component {
+export default class SplashPage extends Component {
 	render() {
 		const { imageStyle, textStyle, textViewStyle, logInContainerStyle, logInTextStyle, logInButtonStyle } = styles;
 		return (
@@ -62,5 +62,3 @@ const styles = StyleSheet.create({
 		textDecorationLine: 'underline'
 	}
 });
-
-export default SplashPage;

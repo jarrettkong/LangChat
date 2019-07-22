@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message Component should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignContent": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+      "paddingBottom": 5,
+      "paddingTop": 5,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderColor": "black",
+        "borderRadius": 100,
+        "borderWidth": 1,
+        "height": 40,
+        "justifyContent": "center",
+        "marginRight": 15,
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 22,
+          "textAlign": "center",
+        }
+      }
+    >
+      MOCKUSER
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "fontWeight": "500",
+          }
+        }
+      >
+        mockUser
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "fontWeight": "500",
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "width": "80%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "flex": 1,
+            "flexWrap": "wrap",
+            "fontSize": 16,
+          }
+        }
+      >
+        This is a mock message
+      </Text>
+    </View>
+  </View>
+</View>
+`;

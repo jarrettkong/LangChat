@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Picker } from 'react-native';
-import { Button, Input } from '../common';
 import { Actions } from 'react-native-router-flux';
+import Button from "../common/Button";
+import Input from "../common/Input";
 import { MaterialCommunityIcons, AntDesign, EvilIcons, Feather } from '@expo/vector-icons';
 import Data from '../../Helper/data';
 import { connect } from 'react-redux';
@@ -15,7 +16,7 @@ import {
 	login
 } from '../../actions';
 
-class SignUpForm extends Component {
+export class SignUpForm extends Component {
 	state = {
 		userInfo: true,
 		userCountry: false,
@@ -128,6 +129,7 @@ class SignUpForm extends Component {
 			userName,
 			createUserName
 		} = this.props;
+		console.log(firstName)
 		return (
 			<View style={containerStyle}>
 				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />

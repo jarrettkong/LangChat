@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, Image, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import { Button } from '../common';
-import NavDrawer from '../NavDrawer/ NavDrawer';
+import  Button  from '../common/Button';
+import NavDrawer from '../NavDrawer/NavDrawer';
 
 export class Profile extends React.Component {
 	componentDidMount () {
@@ -46,7 +46,6 @@ export class Profile extends React.Component {
 		}
 	};
 	render () {
-		console.log(this.props.user)
 		const { country_of_origin, email, first_name, is_active, last_name, username, password } = this.props.user;
 		// todo change this.state to props after login is saving in redux store
 		return (

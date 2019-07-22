@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default class Nav extends Component {
+class Nav extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -82,3 +82,5 @@ const styles = StyleSheet.create({
 		marginTop: 10
 	}
 });
+
+export default Nav;

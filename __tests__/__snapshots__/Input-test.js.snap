@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "height": 40,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 18,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    autoCorrect={false}
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#000",
+        "fontSize": 18,
+        "lineHeight": 23,
+        "paddingLeft": 5,
+        "paddingRight": 5,
+        "width": "100%",
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

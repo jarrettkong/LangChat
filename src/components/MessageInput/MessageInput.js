@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, KeyboardAvoidingView, View, StyleSheet } from 'react-native';
-import { Input, Button } from '../common';
+import Button from "../common/Button";
+import Input from "../common/Input";
 import { addMessage } from '../../actions';
 import { connect } from 'react-redux';
 
