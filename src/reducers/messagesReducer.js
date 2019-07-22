@@ -1,8 +1,7 @@
 export default (state = [], action) => {
-	const { type, payload } = action;
-	switch (type) {
+	switch (action.type) {
 		case 'ADD_MESSAGE':
-			return [...state, payload.message];
+			return [...state, action.message];
 		default:
 			return state;
 	}

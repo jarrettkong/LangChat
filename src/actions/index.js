@@ -40,7 +40,7 @@ export const createCountry = text => ({
 
 export const addMessage = message => ({
 	type: 'ADD_MESSAGE',
-	payload: { message }
+	message
 });
 
 export const login = (user, cookie) => ({
