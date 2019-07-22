@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, Image } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Button } from '../common';
+
 export class Profile extends React.Component {
 	componentDidMount () {
 		// redirect to splash or 404 if user doesn't exist
@@ -18,13 +19,18 @@ export class Profile extends React.Component {
 			userName: 'maxbsilver',
 			email: 'maxbsilver@gmail.com',
 			country: 'USA',
-			editing: false
+			editing: false,
+			active: true
 		};
 	}
 
 	handlePress = () => {
 		const { editing } = this.state;
 		this.setState({ editing: !editing });
+	};
+	handleActivityPress = () => {
+		const { active } = this.state;
+		this.setState({ active: !active });
 	};
 
 	logout = async () => {
@@ -45,15 +51,7 @@ export class Profile extends React.Component {
 		}
 	};
 	render () {
-		const {
-			country_of_origin,
-			email,
-			first_name,
-			is_active,
-			last_name,
-			username,
-			password
-		} = this.props.user;
+		const { country_of_origin, email, first_name, is_active, last_name, username, password } = this.props.user;
 		// todo change this.state to props after login is saving in redux store
 		return (
 			<View style={styles.container}>
@@ -62,14 +60,17 @@ export class Profile extends React.Component {
 						<View style={styles.imageContainerStyle}>
 							<Image style={styles.imageStyle} source={{ uri: 'https://i.stack.imgur.com/34AD2.jpg' }} />
 						</View>
-						<View style={styles.imageStyle}>
+						<View style={styles.inputContainer}>
 							<Text style={styles.inputContainerStyle}>{first_name}</Text>
 							<Text style={styles.inputContainerStyle}>{last_name}</Text>
 							<Text style={styles.inputContainerStyle}>{username}</Text>
 							<Text style={styles.inputContainerStyle}>{this.props.password}</Text>
 							<Text style={styles.inputContainerStyle}>{country_of_origin}</Text>
 							<Text style={styles.inputContainerStyle}>{email}</Text>
-							<Text style={styles.inputContainerStyle}>{is_active}</Text>
+							<Text style={styles.inputContainerStyle}>
+								Active:
+								<Switch onValueChange={this.handleActivityPress} value={this.state.active} style={styles.inputContainerStyle} />
+							</Text>
 						</View>
 					</React.Fragment>
 				) : (
@@ -117,7 +118,11 @@ const styles = StyleSheet.create({
 		elevation: 1,
 		marginLeft: 5,
 		marginRight: 5,
-		paddingTop: 50
+		paddingTop: 50,
+		justifyContent: 'space-between'
+	},
+	inputContainer: {
+		flex: 1
 	},
 	buttonStyling: {
 		marginBottom: 50
@@ -137,8 +142,9 @@ const styles = StyleSheet.create({
 		position: 'relative'
 	},
 	imageStyle: {
-		flex: 0.5,
-		borderRadius: 0.5
+		flex: 1.0,
+		borderRadius: 100,
+		width: 200
 	},
 	imageContainerStyle: {
 		flex: 0.5
