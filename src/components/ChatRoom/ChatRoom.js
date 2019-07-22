@@ -10,7 +10,7 @@ import NavDrawer from '../NavDrawer/ NavDrawer';
 class ChatRoom extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { message: '' };
+		this.state = { message: '', loading: false };
 		this.socket = new WebSocket(
 			`wss://langchat-crosspollination.herokuapp.com/ws/${this.props.language}/?token=${this.props.token}`
 		);
@@ -18,7 +18,9 @@ class ChatRoom extends Component {
 
 	componentDidMount() {
 		console.log('mounting...');
-		this.connect();
+		this.setState({ loading: true }, () => {
+			this.connect();
+		});
 	}
 
 	componentWillUnmount() {
@@ -28,6 +30,7 @@ class ChatRoom extends Component {
 	connect = () => {
 		this.socket.onopen = () => {
 			console.log(`connected to ${this.props.language} chat...`);
+			this.setState({ loading: false });
 		};
 
 		this.socket.onmessage = message => {
@@ -66,22 +69,28 @@ class ChatRoom extends Component {
 		return (
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" keyboardVerticalOffset={40} enabled>
 				<NavDrawer>
-					<MessageView messages={messages} />
-					<View style={styles.inputContainer}>
-						<TextInput
-							style={styles.messageInput}
-							placeholder="Enter your message here..."
-							value={this.state.message}
-							onChangeText={message => this.setState({ message })}
-						/>
-						<TouchableWithoutFeedback
-							style={styles.sendButton}
-							onPress={this.sendMessage}
-							disabled={!this.state.message.length}
-						>
-							<Ionicons name="ios-send" size={35} color="#000" />
-						</TouchableWithoutFeedback>
-					</View>
+					{this.state.loading ? (
+						<Text>Loading...</Text>
+					) : (
+						<React.Fragment>
+							<MessageView messages={messages} />
+							<View style={styles.inputContainer}>
+								<TextInput
+									style={styles.messageInput}
+									placeholder="Enter your message here..."
+									value={this.state.message}
+									onChangeText={message => this.setState({ message })}
+								/>
+								<TouchableWithoutFeedback
+									style={styles.sendButton}
+									onPress={this.sendMessage}
+									disabled={!this.state.message.length}
+								>
+									<Ionicons name="ios-send" size={35} color="#000" />
+								</TouchableWithoutFeedback>
+							</View>
+						</React.Fragment>
+					)}
 				</NavDrawer>
 			</KeyboardAvoidingView>
 		);
