@@ -15,7 +15,7 @@ import {
 	login
 } from '../../actions';
 
-class SignUpForm extends Component {
+export class SignUpForm extends Component {
 	state = {
 		userInfo: true,
 		userCountry: false,

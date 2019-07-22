@@ -8,7 +8,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/ NavDrawer';
 import io from 'socket.io-client';
 
-class ChatRoom extends Component {
+export class ChatRoom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { message: '' };

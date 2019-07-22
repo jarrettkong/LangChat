@@ -40,4 +40,4 @@ const styles = {
 	}
 };
 
-export { Input };
+export default Input;

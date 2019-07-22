@@ -6,7 +6,7 @@ import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons
 import { connect } from 'react-redux';
 import { changeUsername, changePassword, login } from '../../actions/index';
 
-class LoginForm extends Component {
+export class LoginForm extends Component {
 	handleChange = (text, input) => {
 		if (input === 'username') {
 			this.props.changeUsername(text);

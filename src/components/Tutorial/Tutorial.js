@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default class Tutorial extends React.Component {
+class Tutorial extends React.Component {
 	render () {
 		return (
 			<View style={styles.container}>
@@ -46,3 +46,5 @@ export default class Tutorial extends React.Component {
 		);
 	}
 }
+
+export default Tutorial;

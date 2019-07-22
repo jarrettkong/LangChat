@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Image, SafeAreaView, StatusBar } from 'react-native';
 import Drawer from 'react-native-drawer';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
-import { Button } from '../common';
+import { Button } from "../common/Button"
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { logout } from '../../actions';
@@ -10,7 +10,7 @@ import { logout } from '../../actions';
 import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
 
-class NavDrawer extends Component {
+export class NavDrawer extends Component {
 	state = {
 		drawerOpen: false
 	};

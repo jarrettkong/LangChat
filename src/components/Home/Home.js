@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Drawer from '../NavDrawer/ NavDrawer';
 import Welcome from '../Welcome/Welcome';
-export default class Home extends Component {
+class Home extends Component {
 	render () {
 		// ! add conditional to toggle between new user and existing user
 		// Todo new user should route to tutorial, existing to welcome
@@ -19,3 +19,5 @@ const styles = StyleSheet.create({
 		position: 'relative'
 	}
 });
+
+export default Home;
