@@ -7,4 +7,11 @@ describe("messagesReducer", () => {
     const result = messagesReducer(undefined, false);
     expect(result).toEqual(expected);
   });
+
+  it("should return state with an array of messages", () => {
+    const expected = ["This is a mock message"];
+    const result = messagesReducer(undefined, actions.addMessage("This is a mock message"));
+
+    expect(result).toEqual(expected);
+  });
 });
