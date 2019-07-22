@@ -2,10 +2,6 @@ import React from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
 import Message from '../Message/Message';
 
-// onScrollToTop={}
-// pagingEnabled >
-// maintainVisibleContentPosition={{ minIndexForVisible: 0, autoscollToTopThreshold: 0 }}
-
 const MessageView = props => {
 	return (
 		<ScrollView
@@ -25,6 +21,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		paddingLeft: 20,
 		paddingRight: 20,
+		paddingTop: 15,
 		flex: 4
 	}
 });

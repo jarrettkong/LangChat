@@ -41,12 +41,7 @@ class ChatRoom extends Component {
 
 		this.socket.onclose = () => {
 			console.log('disconnected...');
-			// this.connect();
 		};
-		// this.socket.on('message', message => {
-		// 	this.props.addMessage(message);
-		// 	this.setState({ message: '' });
-		// });
 	};
 
 	sendMessage = () => {
@@ -79,7 +74,11 @@ class ChatRoom extends Component {
 							value={this.state.message}
 							onChangeText={message => this.setState({ message })}
 						/>
-						<TouchableWithoutFeedback style={styles.sendButton} onPress={this.sendMessage}>
+						<TouchableWithoutFeedback
+							style={styles.sendButton}
+							onPress={this.sendMessage}
+							disabled={!this.state.message.length}
+						>
 							<Ionicons name="ios-send" size={35} color="#000" />
 						</TouchableWithoutFeedback>
 					</View>
