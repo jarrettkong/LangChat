@@ -1,4 +1,4 @@
-export const messagesReducer = (state = [], action) => {
+export default (state = [], action) => {
 	const { type, payload } = action;
 	switch (type) {
 		case 'ADD_MESSAGE':

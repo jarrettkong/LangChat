@@ -1,6 +1,6 @@
 const INITIAL_STATE = { firstName: '', lastName: '', userName: '', country: 'United States', email: '', password: '' };
 
-export const registerReducer =  (state = INITIAL_STATE, action) => {
+export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case 'CREATE_FIRST_NAME':
 			return { ...state, firstName: action.text };
