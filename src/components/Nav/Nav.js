@@ -32,7 +32,7 @@ export default class Nav extends Component {
 				</TouchableHighlight>
 				<TouchableHighlight
 					underlayColor="#4765A9"
-					onPress={() => Actions.chatRoomFrench({ language: 'french', roomId: 1, roomId: 1 })}
+					onPress={() => Actions.chatRoomFrench({ language: 'french', roomId: 1, languageId: 1 })}
 				>
 					<Text Text style={styles.button}>
 						chatroom french
@@ -40,7 +40,7 @@ export default class Nav extends Component {
 				</TouchableHighlight>
 				<TouchableHighlight
 					underlayColor="#4765A9"
-					onPress={() => Actions.chatRoomSpanish({ language: 'spanish', roomId: 6, languageId: 2 })}
+					onPress={() => Actions.chatRoomSpanish({ language: 'spanish', roomId: 2, languageId: 2 })}
 				>
 					<Text Text style={styles.button}>
 						chatroom spanish

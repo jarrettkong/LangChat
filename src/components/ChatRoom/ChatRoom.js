@@ -34,7 +34,6 @@ class ChatRoom extends Component {
 		};
 
 		this.socket.onmessage = message => {
-			console.log('message received');
 			const newMessage = JSON.parse(message.data);
 			this.props.addMessage(newMessage);
 		};
