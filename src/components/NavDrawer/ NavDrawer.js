@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Image, SafeAreaView, StatusBar } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
 import Drawer from 'react-native-drawer';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { Button } from '../common';

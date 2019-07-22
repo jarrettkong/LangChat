@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Button } from '../common';
@@ -21,6 +21,7 @@ export class Profile extends React.Component {
 			editing: false
 		};
 	}
+
 	handlePress = () => {
 		const { editing } = this.state;
 		this.setState({ editing: !editing });
@@ -44,19 +45,33 @@ export class Profile extends React.Component {
 		}
 	};
 	render () {
-		// console.log(this.props);
+		const {
+			country_of_origin,
+			email,
+			first_name,
+			is_active,
+			last_name,
+			username,
+			password
+		} = this.props.user;
 		// todo change this.state to props after login is saving in redux store
 		return (
 			<View style={styles.container}>
 				{!this.state.editing ? (
-					<View>
-						<Text style={styles.inputContainerStyle}>{this.state.firstName}</Text>
-						<Text style={styles.inputContainerStyle}>{this.state.lastName}</Text>
-						<Text style={styles.inputContainerStyle}>{this.state.userName}</Text>
-						<Text style={styles.inputContainerStyle}>{this.state.password}</Text>
-						<Text style={styles.inputContainerStyle}>{this.state.country}</Text>
-						<Text style={styles.inputContainerStyle}>{this.state.email}</Text>
-					</View>
+					<React.Fragment>
+						<View style={styles.imageContainerStyle}>
+							<Image style={styles.imageStyle} source={{ uri: 'https://i.stack.imgur.com/34AD2.jpg' }} />
+						</View>
+						<View style={styles.imageStyle}>
+							<Text style={styles.inputContainerStyle}>{first_name}</Text>
+							<Text style={styles.inputContainerStyle}>{last_name}</Text>
+							<Text style={styles.inputContainerStyle}>{username}</Text>
+							<Text style={styles.inputContainerStyle}>{this.props.password}</Text>
+							<Text style={styles.inputContainerStyle}>{country_of_origin}</Text>
+							<Text style={styles.inputContainerStyle}>{email}</Text>
+							<Text style={styles.inputContainerStyle}>{is_active}</Text>
+						</View>
+					</React.Fragment>
 				) : (
 					<View>
 						<TextInput style={styles.inputContainerStyle} label="First Name">
@@ -80,7 +95,9 @@ export class Profile extends React.Component {
 					</View>
 				)}
 				<Button title="edit" onPress={this.handlePress} />
-				<Button style={styles.buttonStyling}onPress={this.logout}>Sign out</Button>
+				<Button style={styles.buttonStyling} onPress={this.logout}>
+					Sign out
+				</Button>
 			</View>
 		);
 	}
@@ -118,6 +135,13 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		borderColor: '#ddd',
 		position: 'relative'
+	},
+	imageStyle: {
+		flex: 0.5,
+		borderRadius: 0.5
+	},
+	imageContainerStyle: {
+		flex: 0.5
 	}
 });
 
@@ -125,7 +149,8 @@ export const mapStateToProps = state => ({
 	cookie: state.cookie,
 	username: state.auth.username,
 	password: state.auth.password,
-	token: state.token
+	token: state.token,
+	user: state.currentUser
 });
 
 export default connect(mapStateToProps)(Profile);

@@ -16,7 +16,7 @@ const RouterComponent = () => {
 			<StatusBar barStyle="dark-content" />
 			<Router>
 				<Scene key="root">
-					<Scene key="profile"  component={Profile} hideNavBar={true} />
+					<Scene key="profile"   component={Profile} hideNavBar={true} />
 					<Scene key="splashPage" component={SplashPage} hideNavBar={true} />
 					<Scene key="loginForm" component={LoginForm} hideNavBar={true} />
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />
