@@ -13,13 +13,6 @@ export class Profile extends React.Component {
 		super(props);
 
 		this.state = {
-			password: 'password',
-			firstName: 'max',
-			lastName: 'silver',
-			userName: 'maxbsilver',
-			email: 'maxbsilver@gmail.com',
-			country: 'USA',
-			editing: false,
 			active: true
 		};
 	}
@@ -30,6 +23,7 @@ export class Profile extends React.Component {
 	};
 	handleActivityPress = () => {
 		const { active } = this.state;
+		// edit the server here
 		this.setState({ active: !active });
 	};
 
@@ -55,46 +49,26 @@ export class Profile extends React.Component {
 		// todo change this.state to props after login is saving in redux store
 		return (
 			<View style={styles.container}>
-				{!this.state.editing ? (
-					<React.Fragment>
-						<View style={styles.imageContainerStyle}>
+				<React.Fragment>
+					<View style={styles.inputContainer}>
+						<Text style={styles.inputContainerStyle}>
 							<Image style={styles.imageStyle} source={{ uri: 'https://i.stack.imgur.com/34AD2.jpg' }} />
-						</View>
-						<View style={styles.inputContainer}>
-							<Text style={styles.inputContainerStyle}>{first_name}</Text>
-							<Text style={styles.inputContainerStyle}>{last_name}</Text>
-							<Text style={styles.inputContainerStyle}>{username}</Text>
-							<Text style={styles.inputContainerStyle}>{this.props.password}</Text>
-							<Text style={styles.inputContainerStyle}>{country_of_origin}</Text>
-							<Text style={styles.inputContainerStyle}>{email}</Text>
-							<Text style={styles.inputContainerStyle}>
-								Active:
-								<Switch onValueChange={this.handleActivityPress} value={this.state.active} style={styles.inputContainerStyle} />
-							</Text>
-						</View>
-					</React.Fragment>
-				) : (
-					<View>
-						<TextInput style={styles.inputContainerStyle} label="First Name">
-							{this.state.firstName}
-						</TextInput>
-						<TextInput style={styles.inputContainerStyle} label="Last Name">
-							{this.state.lastName}
-						</TextInput>
-						<TextInput style={styles.inputContainerStyle} label="Username">
-							{this.state.userName}
-						</TextInput>
-						<TextInput style={styles.inputContainerStyle} label="Password">
-							{this.state.password}
-						</TextInput>
-						<TextInput style={styles.inputContainerStyle} label="Country">
-							{this.state.country}
-						</TextInput>
-						<TextInput style={styles.inputContainerStyle} label="Email">
-							{this.state.email}
-						</TextInput>
+							{first_name} {last_name}
+						</Text>
+						<Text style={styles.inputContainerStyle}>{username}</Text>
+						<Text style={styles.inputContainerStyle}>{this.props.password}</Text>
+						<Text style={styles.inputContainerStyle}>{country_of_origin}</Text>
+						<Text style={styles.inputContainerStyle}>{email}</Text>
+						<Text style={styles.inputContainerStyle}>
+							Active:
+							<Switch
+								onValueChange={this.handleActivityPress}
+								value={this.state.active}
+								style={styles.inputContainerStyle}
+							/>
+						</Text>
 					</View>
-				)}
+				</React.Fragment>
 				<Button title="edit" onPress={this.handlePress} />
 				<Button style={styles.buttonStyling} onPress={this.logout}>
 					Sign out
@@ -144,7 +118,8 @@ const styles = StyleSheet.create({
 	imageStyle: {
 		flex: 1.0,
 		borderRadius: 100,
-		width: 200
+		width: 40,
+		height: 40
 	},
 	imageContainerStyle: {
 		flex: 0.5
