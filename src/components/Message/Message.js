@@ -3,7 +3,26 @@ import { View, Text, StyleSheet } from 'react-native';
 import TextMessage from '../TextMessage/TextMessage';
 
 const Message = props => {
-	return <TextMessage {...props.message} />;
+	const { user, message, timestamp, username } = props;
+	const initial = username[0].toUpperCase();
+	// const cloneMessage = React.Children.map(props.children, child => {
+	// 	React.cloneElement(child, { message: props.message });
+	// });
+	console.log(props.message);
+	return (
+		<View style={styles.container}>
+			<View style={styles.initialContainer}>
+				<Text style={styles.initials}>{initial}</Text>
+			</View>
+			<View style={{ width: '100%' }}>
+				<View>
+					<Text style={styles.username}>{username}</Text>
+					<Text style={styles.username}>{timestamp}</Text>
+				</View>
+				<View style={{ width: '80%' }}>{props.children}</View>
+			</View>
+		</View>
+	);
 };
 
 const styles = StyleSheet.create({

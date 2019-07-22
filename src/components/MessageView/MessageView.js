@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
 import Message from '../Message/Message';
+import TextMessage from '../TextMessage/TextMessage';
 
 const MessageView = props => {
 	return (
@@ -9,9 +10,12 @@ const MessageView = props => {
 			style={styles.MessageView}
 			alwaysBounceVertical
 			keyboardDismissMode="on-drag"
-			onContentSizeChange={() => this.scrollView.scrollToEnd({ animated: true })}
-		>
-			{props.messages.map(message => <Message key={message.id} message={message} />)}
+			onContentSizeChange={() => this.scrollView.scrollToEnd({ animated: true })}>
+			{props.messages.map(message => (
+				<Message key={message.id} {...message} >
+					<TextMessage message={message.message}/>
+				</Message>
+			))}
 		</ScrollView>
 	);
 };
