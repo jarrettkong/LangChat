@@ -1,4 +1,4 @@
-export const authenticationReducer = (state = false, action) => {
+export default (state = false, action) => {
 	switch (action.type) {
 		case 'LOGIN':
 			return true;

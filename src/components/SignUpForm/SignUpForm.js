@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Picker } from 'react-native';
-import { Button, Input } from '../common';
 import { Actions } from 'react-native-router-flux';
+import Button from "../common/Button";
+import Input from "../common/Input";
 import { MaterialCommunityIcons, AntDesign, EvilIcons, Feather } from '@expo/vector-icons';
 import Data from '../../Helper/data';
 import { connect } from 'react-redux';
