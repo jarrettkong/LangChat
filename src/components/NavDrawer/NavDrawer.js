@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
 import Drawer from 'react-native-drawer';
-import { Ionicons, AntDesign } from '@expo/vector-icons';
-import { Button } from '../common';
+import { AntDesign } from '@expo/vector-icons';
+import Button from '../common/Button';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { logout } from '../../actions';
@@ -10,12 +10,12 @@ import { logout } from '../../actions';
 import Nav from '../Nav/Nav';
 console.disableYellowBox = true;
 
-class NavDrawer extends Component {
+export class NavDrawer extends Component {
 	state = {
 		drawerOpen: false
 	};
 
-	renderDrawer() {
+	renderDrawer () {
 		return (
 			<View style={styles.menuContainer}>
 				<Nav />
@@ -55,7 +55,7 @@ class NavDrawer extends Component {
 		}
 	};
 
-	render() {
+	render () {
 		return (
 			<SafeAreaView style={styles.safeAreaStyle}>
 				<StatusBar barStyle="light-content" />
@@ -68,8 +68,7 @@ class NavDrawer extends Component {
 						onClose={this.toggleDrawer}
 						tapToClose={true}
 						openDrawerOffset={0.25}
-						styles={drawerStyles}
-					>
+						styles={drawerStyles}>
 						<View style={styles.headerContainer}>
 							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
 								{this.state.drawerOpen ? (

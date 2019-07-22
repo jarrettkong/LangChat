@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tutorial Component should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+      "zIndex": 1,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  />
+</View>
+`;

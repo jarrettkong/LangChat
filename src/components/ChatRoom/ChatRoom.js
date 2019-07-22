@@ -5,10 +5,10 @@ import MessageView from '../MessageView/MessageView';
 import { Ionicons } from '@expo/vector-icons';
 import { addMessage } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import NavDrawer from '../NavDrawer/ NavDrawer';
+import NavDrawer from '../NavDrawer/NavDrawer';
 
-class ChatRoom extends Component {
-	constructor(props) {
+export class ChatRoom extends Component {
+	constructor (props) {
 		super(props);
 		this.state = { message: '', loading: false };
 		this.socket = new WebSocket(
@@ -16,14 +16,14 @@ class ChatRoom extends Component {
 		);
 	}
 
-	componentDidMount() {
+	componentDidMount () {
 		console.log('mounting...');
 		this.setState({ loading: true }, () => {
 			this.connect();
 		});
 	}
 
-	componentWillUnmount() {
+	componentWillUnmount () {
 		this.socket.close();
 	}
 
@@ -61,7 +61,7 @@ class ChatRoom extends Component {
 		}
 	};
 
-	render() {
+	render () {
 		const messages = this.props.messages.filter(message => message.room === this.props.roomId);
 		return (
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" keyboardVerticalOffset={40} enabled>
@@ -81,8 +81,7 @@ class ChatRoom extends Component {
 								<TouchableWithoutFeedback
 									style={styles.sendButton}
 									onPress={this.sendMessage}
-									disabled={!this.state.message.length}
-								>
+									disabled={!this.state.message.length}>
 									<Ionicons name="ios-send" size={35} color="#000" />
 								</TouchableWithoutFeedback>
 							</View>
