@@ -50,12 +50,9 @@ class ChatRoom extends Component {
 	sendMessage = () => {
 		try {
 			const message = {
-				user_id: this.props.user.id,
 				room_id: this.props.roomId,
 				language_id: this.props.languageId,
-				username: this.props.user.username,
-				message: this.state.message,
-				token: this.props.token
+				message: this.state.message
 			};
 			this.socket.send(JSON.stringify(message));
 			this.setState({ message: '' });

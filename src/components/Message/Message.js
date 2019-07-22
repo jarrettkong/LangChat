@@ -2,18 +2,17 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const Message = props => {
-	const { user, message, timestamp } = props;
-	// const initial = username[0].toUpperCase();
+	const { user, message, timestamp, username } = props;
+	const initial = username[0].toUpperCase();
 	console.log(user, message, timestamp);
 	return (
 		<View style={styles.container}>
 			<View style={styles.initialContainer}>
-				<Text style={styles.initials}>{user}</Text>
-				{/* <Text style={styles.initials}>{initial}</Text> */}
+				<Text style={styles.initials}>{initial}</Text>
 			</View>
 			<View style={{ width: '100%' }}>
 				<View>
-					<Text style={styles.username}>{user}</Text>
+					<Text style={styles.username}>{username}</Text>
 					<Text style={styles.username}>{timestamp}</Text>
 				</View>
 				<View style={{ width: '80%' }}>
