@@ -8,7 +8,7 @@ export default class Home extends Component {
 		// Todo new user should route to tutorial, existing to welcome
 		return (
 			<View style={styles.container}>
-				<Welcome />
+				<Welcome></Welcome>
 			</View>
 		);
 	}

@@ -8,8 +8,8 @@ export default class Nav extends Component {
 		return (
 			<View style={styles.container}>
 				<View style={styles.profileContainer}>
-					<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.splashPage()}>
-						<FontAwesome style={styles.button} name="user" size={50} />
+					<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.profile()}>
+						<FontAwesome style={styles.button} name="user" size={80} />
 					</TouchableHighlight>
 				</View>
 				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.splashPage()}>
@@ -41,6 +41,11 @@ export default class Nav extends Component {
 					</Text>
 				</TouchableHighlight>
 				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.tutorial()}>
+					<Text Text style={styles.button}>
+						tutorial
+					</Text>
+				</TouchableHighlight>
+					<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.tutorial()}>
 					<Text Text style={styles.button}>
 						tutorial
 					</Text>

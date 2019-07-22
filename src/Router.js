@@ -8,6 +8,7 @@ import Home from './components/Home/Home';
 import ChatRoom from './components/ChatRoom/ChatRoom';
 import Tutorial from './components/Tutorial/Tutorial';
 import Welcome from './components/Welcome/Welcome';
+import Profile from './components/Profile/Profile';
 
 const RouterComponent = () => {
 	return (
@@ -15,10 +16,11 @@ const RouterComponent = () => {
 			<StatusBar barStyle="dark-content" />
 			<Router>
 				<Scene key="root">
-					<Scene key="splashPage" component={SplashPage} initial hideNavBar={true} />
+					<Scene key="profile"   component={Profile} hideNavBar={true} />
+					<Scene key="splashPage" component={SplashPage} hideNavBar={true} />
 					<Scene key="loginForm" component={LoginForm} hideNavBar={true} />
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />
-					<Scene key="home" component={Home} hideNavBar={true} />
+					<Scene key="home" initial component={Home} hideNavBar={true} />
 					<Scene type="reset" key="chatRoomSpanish" component={ChatRoom} hideNavBar={true} />
 					<Scene type="reset" key="chatRoomFrench" component={ChatRoom} hideNavBar={true} />
 					<Scene key="tutorial" component={Tutorial} hideNavBar={true} />

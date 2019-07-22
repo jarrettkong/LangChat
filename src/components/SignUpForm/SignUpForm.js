@@ -30,8 +30,7 @@ class SignUpForm extends Component {
 			return (
 				<Button
 					disabled={!firstName || !lastName || !userName}
-					onPress={() => this.setState({ userInfo: false, userCountry: true })}
-				>
+					onPress={() => this.setState({ userInfo: false, userCountry: true })}>
 					Next
 				</Button>
 			);
@@ -57,8 +56,7 @@ class SignUpForm extends Component {
 				}}
 				itemStyle={{ fontSize: 25 }}
 				selectedValue={country}
-				onValueChange={itemValue => createCountry(itemValue)}
-			>
+				onValueChange={itemValue => createCountry(itemValue)}>
 				{countries.map(country => {
 					return <Picker.Item key={country} label={country} value={country} />;
 				})}
@@ -116,7 +114,7 @@ class SignUpForm extends Component {
 		return this.state.confirmation !== this.props.password;
 	};
 
-	render() {
+	render () {
 		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
 		const {
 			email,
@@ -231,7 +229,7 @@ const styles = {
 		paddingBottom: 40
 	},
 	buttonContainerStyle: {
-		marginTop: 80
+		// marginTop: 80
 	}
 };
 
