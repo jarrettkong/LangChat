@@ -8,29 +8,35 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/NavDrawer';
 
 export class ChatRoom extends Component {
-	constructor (props) {
+	constructor(props) {
 		super(props);
 		this.state = {
 			message: '',
 			loading: false,
-			savedMessage: ''
+			referencedMessage: null
 		};
-		
+
 		this.socket = new WebSocket(
 			`wss://langchat-crosspollination.herokuapp.com/ws/${this.props.language}/?token=${this.props.token}`
 		);
 	}
 
-	componentDidMount () {
+	componentDidMount() {
 		console.log('mounting...');
 		this.setState({ loading: true }, () => {
 			this.connect();
 		});
 	}
 
-	componentWillUnmount () {
+	componentWillUnmount() {
 		this.socket.close();
 	}
+
+	setReferencedMessage = id => {
+		this.setState({ referencedMessage: id }, () => {
+			console.log('state has been set to ', this.state.referencedMessage);
+		});
+	};
 
 	connect = () => {
 		this.socket.onopen = () => {
@@ -57,16 +63,17 @@ export class ChatRoom extends Component {
 			const message = {
 				room_id: this.props.roomId,
 				language_id: this.props.languageId,
-				message: this.state.message
+				message: this.state.message,
+				referenced_message: this.state.referencedMessage
 			};
 			this.socket.send(JSON.stringify(message));
-			this.setState({ message: '' });
+			this.setState({ message: '', referencedMessage: null });
 		} catch (err) {
 			console.log(err.message);
 		}
 	};
 
-	render () {
+	render() {
 		const messages = this.props.messages.filter(message => message.room === this.props.roomId);
 		return (
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" keyboardVerticalOffset={40} enabled>
@@ -75,7 +82,7 @@ export class ChatRoom extends Component {
 						<Text>Loading...</Text>
 					) : (
 						<React.Fragment>
-							<MessageView messages={messages} />
+							<MessageView messages={messages} setReferencedMessage={this.setReferencedMessage} />
 							<View style={styles.inputContainer}>
 								<TextInput
 									style={styles.messageInput}
@@ -86,7 +93,8 @@ export class ChatRoom extends Component {
 								<TouchableWithoutFeedback
 									style={styles.sendButton}
 									onPress={this.sendMessage}
-									disabled={!this.state.message.length}>
+									disabled={!this.state.message.length}
+								>
 									<Ionicons name="ios-send" size={35} color="#000" />
 								</TouchableWithoutFeedback>
 							</View>

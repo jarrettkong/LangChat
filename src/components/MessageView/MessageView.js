@@ -5,21 +5,21 @@ import TextMessage from '../TextMessage/TextMessage';
 import CorrectedMessage from '../CorrectedMessage/CorrectedMessage';
 
 const MessageView = props => {
-	const fakeMessages = [{id: 1, timestamp: Date.now(), username: 'Test', message: 'How are you?', referenced_message: 'How is you?'},{id: 2, timestamp: Date.now(), username: 'Other Test', message: 'Hey are you doing ok?', referenced_message:null}]
 	return (
 		<ScrollView
 			ref={ref => (this.scrollView = ref)}
 			style={styles.MessageView}
 			alwaysBounceVertical
 			keyboardDismissMode="on-drag"
-			onContentSizeChange={() => this.scrollView.scrollToEnd({ animated: true })}>
-			{fakeMessages.map(message => (
-				<Message key={message.id} {...message} >
-					{message.referenced_message ? 
-					<CorrectedMessage message={message.message} referenced_message={message.referenced_message}/>
-					:
-					<TextMessage message={message.message}/>
-				}
+			onContentSizeChange={() => this.scrollView.scrollToEnd({ animated: true })}
+		>
+			{props.messages.map(message => (
+				<Message key={message.id} {...message} setReferencedMessage={props.setReferencedMessage}>
+					{message.referenced_message ? (
+						<CorrectedMessage message={message.message} referenced_message={message.referenced_message} />
+					) : (
+						<TextMessage message={message.message} />
+					)}
 				</Message>
 			))}
 		</ScrollView>
