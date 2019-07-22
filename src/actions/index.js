@@ -51,3 +51,4 @@ export const login = (user, cookie) => ({
 export const logout = () => ({
 	type: 'LOGOUT'
 });
+
