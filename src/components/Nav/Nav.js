@@ -30,12 +30,18 @@ export default class Nav extends Component {
 						home
 					</Text>
 				</TouchableHighlight>
-				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.chatRoomFrench({ language: 'french' })}>
+				<TouchableHighlight
+					underlayColor="#4765A9"
+					onPress={() => Actions.chatRoomFrench({ language: 'french', roomId: 1, roomId: 1 })}
+				>
 					<Text Text style={styles.button}>
 						chatroom french
 					</Text>
 				</TouchableHighlight>
-				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.chatRoomSpanish({ language: 'spanish' })}>
+				<TouchableHighlight
+					underlayColor="#4765A9"
+					onPress={() => Actions.chatRoomSpanish({ language: 'spanish', roomId: 6, languageId: 2 })}
+				>
 					<Text Text style={styles.button}>
 						chatroom spanish
 					</Text>
