@@ -4,7 +4,9 @@ import Tutorial from '../src/components/Tutorial/Tutorial';
 
 import renderer from 'react-test-renderer';
 
-test('renders correctly', () => {
-	const tree = renderer.create(<Tutorial />).toJSON();
-	expect(tree).toMatchSnapshot();
+describe('Tutorial Component', () => {
+	it('should match snapshot', () => {
+		const tree = renderer.create(<Tutorial />).toJSON();
+		expect(tree).toMatchSnapshot();
+	});
 });

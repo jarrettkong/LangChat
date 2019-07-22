@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const Message = props => {
-	const { username, text } = props;
+	const { username, text, message } = props;
 	return (
 		<View style={styles.container}>
 			<View style={styles.initialContainer}>

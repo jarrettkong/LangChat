@@ -4,7 +4,9 @@ import Input from '../src/components/common/Input';
 
 import renderer from 'react-test-renderer';
 
-test('renders correctly', () => {
-	const tree = renderer.create(<Input />).toJSON();
-	expect(tree).toMatchSnapshot();
+describe('Input Component', () => {
+	it('should match snapshot', () => {
+		const tree = renderer.create(<Input />).toJSON();
+		expect(tree).toMatchSnapshot();
+	});
 });
