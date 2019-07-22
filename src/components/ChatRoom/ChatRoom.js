@@ -10,7 +10,12 @@ import NavDrawer from '../NavDrawer/NavDrawer';
 export class ChatRoom extends Component {
 	constructor (props) {
 		super(props);
-		this.state = { message: '', loading: false };
+		this.state = {
+			message: '',
+			loading: false,
+			savedMessage: ''
+		};
+		
 		this.socket = new WebSocket(
 			`wss://langchat-crosspollination.herokuapp.com/ws/${this.props.language}/?token=${this.props.token}`
 		);
