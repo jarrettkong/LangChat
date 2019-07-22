@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const Message = props => {
 	const { user, message, timestamp } = props;
 	// const initial = username[0].toUpperCase();
+	console.log(user, message, timestamp);
 	return (
 		<View style={styles.container}>
 			<View style={styles.initialContainer}>

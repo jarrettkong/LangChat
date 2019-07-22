@@ -6,14 +6,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { addMessage } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/ NavDrawer';
-import io from 'socket.io-client';
 
 class ChatRoom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { message: '' };
-		// this.socket = io('http://thawing-chamber-88612.herokuapp.com/');
-		// this.socket = new WebSocket(`wss://echo.websocket.org/`);
 		this.socket = new WebSocket(
 			`wss://langchat-crosspollination.herokuapp.com/ws/${this.props.language}/?token=${this.props.token}`
 		);
@@ -35,7 +32,7 @@ class ChatRoom extends Component {
 
 		this.socket.onmessage = message => {
 			const newMessage = JSON.parse(message.data);
-			this.props.addMessage(newMessage);
+			this.props.addMessage(JSON.parse(newMessage.message));
 		};
 
 		this.socket.onerror = error => {
@@ -70,11 +67,11 @@ class ChatRoom extends Component {
 	};
 
 	render() {
-		// const messages = this.props.messages.filter(message => message.room_id === this.props.roomId);
+		const messages = this.props.messages.filter(message => message.room === this.props.roomId);
 		return (
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" keyboardVerticalOffset={40} enabled>
 				<NavDrawer>
-					<MessageView messages={this.props.messages} />
+					<MessageView messages={messages} />
 					<View style={styles.inputContainer}>
 						<TextInput
 							style={styles.messageInput}
