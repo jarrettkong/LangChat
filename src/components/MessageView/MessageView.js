@@ -11,7 +11,7 @@ const MessageView = props => {
 			keyboardDismissMode="on-drag"
 			onContentSizeChange={() => this.scrollView.scrollToEnd({ animated: true })}
 		>
-			{props.messages.map(message => <Message key={message.id} {...message} />)}
+			{props.messages.map(message => <Message key={message.id} message={message} />)}
 		</ScrollView>
 	);
 };
