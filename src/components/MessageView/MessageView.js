@@ -3,6 +3,7 @@ import { ScrollView, Text, StyleSheet } from 'react-native';
 import Message from '../Message/Message';
 import TextMessage from '../TextMessage/TextMessage';
 import CorrectedMessage from '../CorrectedMessage/CorrectedMessage';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 const MessageView = props => {
 	return (

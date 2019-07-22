@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TextInput, View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { Text, TextInput, View, StyleSheet, KeyboardAvoidingView, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import MessageView from '../MessageView/MessageView';
 import { Ionicons } from '@expo/vector-icons';
@@ -33,9 +33,11 @@ export class ChatRoom extends Component {
 	}
 
 	setReferencedMessage = id => {
-		this.setState({ referencedMessage: id }, () => {
-			console.log('state has been set to ', this.state.referencedMessage);
-		});
+		this.setState({ referencedMessage: id });
+	};
+
+	clearReferencedMessage = () => {
+		this.setState({ referencedMessage: null });
 	};
 
 	connect = () => {
@@ -64,7 +66,7 @@ export class ChatRoom extends Component {
 				room_id: this.props.roomId,
 				language_id: this.props.languageId,
 				message: this.state.message,
-				referenced_message: this.state.referencedMessage
+				referenced_message: this.state.referencedMessage || null
 			};
 			this.socket.send(JSON.stringify(message));
 			this.setState({ message: '', referencedMessage: null });
@@ -82,7 +84,17 @@ export class ChatRoom extends Component {
 						<Text>Loading...</Text>
 					) : (
 						<React.Fragment>
-							<MessageView messages={messages} setReferencedMessage={this.setReferencedMessage} />
+							<MessageView
+								messages={messages}
+								setReferencedMessage={this.setReferencedMessage}
+								clearReferencedMessage={this.clearReferencedMessage}
+								hasReferencedMessage={!this.state.referencedMessage}
+							/>
+							{this.state.referencedMessage && (
+								<TouchableHighlight onPress={this.clearReferencedMessage}>
+									<Text>Stop Correcting</Text>
+								</TouchableHighlight>
+							)}
 							<View style={styles.inputContainer}>
 								<TextInput
 									style={styles.messageInput}
