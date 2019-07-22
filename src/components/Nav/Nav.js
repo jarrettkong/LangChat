@@ -9,7 +9,7 @@ export default class Nav extends Component {
 			<View style={styles.container}>
 				<View style={styles.profileContainer}>
 					<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.profile()}>
-						<FontAwesome style={styles.button} name="user" size={50} />
+						<FontAwesome style={styles.button} name="user" size={80} />
 					</TouchableHighlight>
 				</View>
 				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.splashPage()}>

@@ -37,10 +37,6 @@ export const createCountry = text => ({
 	type: 'CREATE_COUNTRY',
 	text
 });
-export const currentUser = user => ({
-	type:'CURRENT_USER',
-	user
-})
 
 export const addMessage = message => ({
 	type: 'ADD_MESSAGE',

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput, Image, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Button } from '../common';
+import NavDrawer from '../NavDrawer/ NavDrawer';
 
 export class Profile extends React.Component {
 	componentDidMount () {
@@ -45,34 +46,45 @@ export class Profile extends React.Component {
 		}
 	};
 	render () {
+		console.log(this.props.user)
 		const { country_of_origin, email, first_name, is_active, last_name, username, password } = this.props.user;
 		// todo change this.state to props after login is saving in redux store
 		return (
 			<View style={styles.container}>
-				<React.Fragment>
-					<View style={styles.inputContainer}>
-						<Text style={styles.inputContainerStyle}>
-							<Image style={styles.imageStyle} source={{ uri: 'https://i.stack.imgur.com/34AD2.jpg' }} />
-							{first_name} {last_name}
-						</Text>
-						<Text style={styles.inputContainerStyle}>{username}</Text>
-						<Text style={styles.inputContainerStyle}>{this.props.password}</Text>
-						<Text style={styles.inputContainerStyle}>{country_of_origin}</Text>
-						<Text style={styles.inputContainerStyle}>{email}</Text>
-						<Text style={styles.inputContainerStyle}>
-							Active:
-							<Switch
-								onValueChange={this.handleActivityPress}
-								value={this.state.active}
-								style={styles.inputContainerStyle}
-							/>
-						</Text>
+				<NavDrawer>
+					<View style={styles.mainInfoContainer}>
+						<View style={styles.infoContainer}>
+							<Text>USERNAME</Text>
+							<Text style={styles.inputContainerStyle}>{username}</Text>
+						</View>
+
+						<View style={styles.infoContainer}>
+							<Text>NAME</Text>
+
+							<Text style={styles.inputContainerStyle}>
+								{first_name} {last_name}
+							</Text>
+						</View>
+						<View style={styles.infoContainer}>
+							<Text>EMAIL</Text>
+							<Text style={styles.inputContainerStyle}>{email}</Text>
+						</View>
+						<View style={styles.infoContainer}>
+							<Text>Active</Text>
+							<Text style={styles.inputContainerStyle}>
+								<Switch
+									onValueChange={this.handleActivityPress}
+									value={this.state.active}
+									style={styles.inputContainerStyle}
+								/>
+							</Text>
+						</View>
 					</View>
-				</React.Fragment>
-				<Button title="edit" onPress={this.handlePress} />
-				<Button style={styles.buttonStyling} onPress={this.logout}>
-					Sign out
-				</Button>
+
+					<Button style={styles.buttonStyling} onPress={this.logout}>
+						Sign out
+					</Button>
+				</NavDrawer>
 			</View>
 		);
 	}
@@ -80,49 +92,26 @@ export class Profile extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1.0,
-		borderWidth: 1,
-		borderRadius: 2,
-		borderColor: '#ddd',
-		borderBottomWidth: 0,
-		shadowColor: '#000',
-		shadowOffset: { width: 0, height: 2 },
-		shadowOpacity: 0.1,
-		shadowRadius: 2,
-		elevation: 1,
-		marginLeft: 5,
-		marginRight: 5,
-		paddingTop: 50,
-		justifyContent: 'space-between'
-	},
-	inputContainer: {
 		flex: 1
 	},
-	buttonStyling: {
-		marginBottom: 50
-	},
-	input: {
-		backgroundColor: 'yellow',
-		padding: 10,
-		marginBottom: 10
-	},
+	buttonStyling: {},
 	inputContainerStyle: {
 		borderBottomWidth: 1,
 		padding: 5,
-		backgroundColor: '#fff',
-		justifyContent: 'flex-start',
+		backgroundColor: 'white',
 		flexDirection: 'row',
 		borderColor: '#ddd',
-		position: 'relative'
+		position: 'relative',
+		marginTop: 5,
+		backgroundColor: 'blue'
 	},
-	imageStyle: {
-		flex: 1.0,
-		borderRadius: 100,
-		width: 40,
-		height: 40
+	infoContainer: {
+		flex: 1,
+		color: '#ffffff'
 	},
-	imageContainerStyle: {
-		flex: 0.5
+	mainInfoContainer: {
+		flex: 0.5,
+		padding: 5
 	}
 });
 
@@ -131,7 +120,7 @@ export const mapStateToProps = state => ({
 	username: state.auth.username,
 	password: state.auth.password,
 	token: state.token,
-	user: state.currentUser
+	user: state.user
 });
 
 export default connect(mapStateToProps)(Profile);

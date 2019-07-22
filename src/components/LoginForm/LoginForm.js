@@ -29,7 +29,7 @@ class LoginForm extends Component {
 			const match = cookieData.match(/(csrftoken=)\w+;/);
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
 			this.props.login(user, csrftoken); // redux
-			this.props.currentUser(user);
+			// this.props.currentUser(user);
 			Actions.home();
 		} catch (error) {
 			console.log(error.message);
