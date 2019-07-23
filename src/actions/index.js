@@ -43,6 +43,11 @@ export const addMessage = message => ({
 	message
 });
 
+export const addExistingMessages = messages => ({
+	type: 'ADD_EXISTING_MESSAGES',
+	payload: { messages }
+});
+
 export const login = (user, cookie) => ({
 	type: 'LOGIN',
 	payload: { user, cookie }
@@ -51,4 +56,3 @@ export const login = (user, cookie) => ({
 export const logout = () => ({
 	type: 'LOGOUT'
 });
-
