@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Picker } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import Button from "../common/Button";
-import Input from "../common/Input";
+import Button from '../common/Button';
+import Input from '../common/Input';
 import { MaterialCommunityIcons, AntDesign, EvilIcons, Feather } from '@expo/vector-icons';
 import Data from '../../Helper/data';
 import { connect } from 'react-redux';
@@ -15,6 +15,7 @@ import {
 	createCountry,
 	login
 } from '../../actions';
+import styles from './styles';
 
 export class SignUpForm extends Component {
 	state = {
@@ -31,7 +32,8 @@ export class SignUpForm extends Component {
 			return (
 				<Button
 					disabled={!firstName || !lastName || !userName}
-					onPress={() => this.setState({ userInfo: false, userCountry: true })}>
+					onPress={() => this.setState({ userInfo: false, userCountry: true })}
+				>
 					Next
 				</Button>
 			);
@@ -57,7 +59,8 @@ export class SignUpForm extends Component {
 				}}
 				itemStyle={{ fontSize: 25 }}
 				selectedValue={country}
-				onValueChange={itemValue => createCountry(itemValue)}>
+				onValueChange={itemValue => createCountry(itemValue)}
+			>
 				{countries.map(country => {
 					return <Picker.Item key={country} label={country} value={country} />;
 				})}
@@ -115,8 +118,8 @@ export class SignUpForm extends Component {
 		return this.state.confirmation !== this.props.password;
 	};
 
-	render () {
-		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
+	render() {
+		const { container, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
 		const {
 			email,
 			password,
@@ -130,8 +133,13 @@ export class SignUpForm extends Component {
 			createUserName
 		} = this.props;
 		return (
-			<View style={containerStyle}>
-				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%', alignSelf: 'flex-end' }} />
+			<View style={container}>
+				<EvilIcons
+					name="close"
+					size={40}
+					onPress={() => Actions.splashPage()}
+					style={{ width: '13%', alignSelf: 'flex-end', color: 'white' }}
+				/>
 				<Text style={textHeaderStyle}>Sign Up</Text>
 				{this.state.userInfo && (
 					<React.Fragment>
@@ -198,44 +206,6 @@ export class SignUpForm extends Component {
 		);
 	}
 }
-
-const styles = {
-	inputContainerStyle: {
-		borderBottomWidth: 1,
-		padding: 5,
-		marginRight: 10,
-		marginLeft: 10,
-		backgroundColor: '#fff',
-		justifyContent: 'flex-start',
-		flexDirection: 'row',
-		borderColor: '#ddd',
-		position: 'relative',
-	},
-	containerStyle: {
-		borderWidth: 1,
-		borderRadius: 2,
-		borderColor: '#ddd',
-		borderBottomWidth: 0,
-		shadowColor: '#000',
-		shadowOffset: { width: 0, height: 2 },
-		shadowOpacity: 0.1,
-		shadowRadius: 2,
-		elevation: 1,
-		marginLeft: 5,
-		marginRight: 5,
-		paddingTop: 50
-	},
-	textHeaderStyle: {
-		fontSize: 30,
-		fontWeight: '600',
-		paddingTop: 30,
-		paddingBottom: 40,
-		paddingLeft: 10
-	},
-	buttonContainerStyle: {
-		// marginTop: 80
-	}
-};
 
 export const mapStateToProps = state => ({
 	email: state.register.email,

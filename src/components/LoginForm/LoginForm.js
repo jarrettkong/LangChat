@@ -39,7 +39,7 @@ export class LoginForm extends Component {
 	};
 
 	render() {
-		const { container, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
+		const { container, inputContainerStyle, textHeaderStyle } = styles;
 		const { username, password } = this.props;
 		return (
 			<KeyboardAvoidingView style={container} behavior="padding" enabled>
@@ -68,7 +68,7 @@ export class LoginForm extends Component {
 						onChangeText={password => this.handleChange(password, 'password')}
 					/>
 				</View>
-				<View style={buttonContainerStyle}>
+				<View>
 					<Button disabled={!username || !password} onPress={this.login}>
 						Log In
 					</Button>

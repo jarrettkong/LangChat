@@ -30,4 +30,7 @@ export default StyleSheet.create({
 		textTransform: 'uppercase',
 		fontWeight: 'bold'
 	},
+	buttonContainerStyle: {
+		// marginTop: 80
+	}
 });

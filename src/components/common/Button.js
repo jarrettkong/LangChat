@@ -20,18 +20,11 @@ const styles = {
 		paddingBottom: 12
 	},
 	buttonStyle: {
-		position: 'absolute',
-		alignSelf: 'stretch',
 		width: '90%',
+		margin: 10,
 		backgroundColor: '#007aff',
 		borderRadius: 5,
-		borderWidth: 1,
-		borderColor: '#007aff',
-		marginTop: 20,
-		marginLeft: 5,
-		marginRight: 5,
-		alignSelf: 'center',
-		top: '84%'
+		alignSelf: 'center'
 	}
 };
 
