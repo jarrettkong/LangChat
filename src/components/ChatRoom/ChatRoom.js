@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TextInput, View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { Text, TextInput, View, StyleSheet, KeyboardAvoidingView, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import MessageView from '../MessageView/MessageView';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,29 +8,37 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/NavDrawer';
 
 export class ChatRoom extends Component {
-	constructor (props) {
+	constructor(props) {
 		super(props);
 		this.state = {
 			message: '',
 			loading: false,
-			savedMessage: ''
+			referencedMessage: null
 		};
-		
+
 		this.socket = new WebSocket(
 			`wss://langchat-crosspollination.herokuapp.com/ws/${this.props.language}/?token=${this.props.token}`
 		);
 	}
 
-	componentDidMount () {
+	componentDidMount() {
 		console.log('mounting...');
 		this.setState({ loading: true }, () => {
 			this.connect();
 		});
 	}
 
-	componentWillUnmount () {
+	componentWillUnmount() {
 		this.socket.close();
 	}
+
+	setReferencedMessage = id => {
+		this.setState({ referencedMessage: id });
+	};
+
+	clearReferencedMessage = () => {
+		this.setState({ referencedMessage: null });
+	};
 
 	connect = () => {
 		this.socket.onopen = () => {
@@ -57,25 +65,34 @@ export class ChatRoom extends Component {
 			const message = {
 				room_id: this.props.roomId,
 				language_id: this.props.languageId,
-				message: this.state.message
+				message: this.state.message,
+				reference: this.state.referencedMessage || null
 			};
 			this.socket.send(JSON.stringify(message));
-			this.setState({ message: '' });
+			this.setState({ message: '', referencedMessage: null });
 		} catch (err) {
 			console.log(err.message);
 		}
 	};
 
-	render () {
+	render() {
 		const messages = this.props.messages.filter(message => message.room === this.props.roomId);
 		return (
-			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" keyboardVerticalOffset={40} enabled>
+			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" enabled>
 				<NavDrawer>
 					{this.state.loading ? (
 						<Text>Loading...</Text>
 					) : (
 						<React.Fragment>
-							<MessageView messages={messages} />
+							<MessageView
+								messages={messages}
+								setReferencedMessage={this.setReferencedMessage}
+							/>
+							{this.state.referencedMessage && (
+								<TouchableHighlight onPress={this.clearReferencedMessage}>
+									<Text>Stop Correcting</Text>
+								</TouchableHighlight>
+							)}
 							<View style={styles.inputContainer}>
 								<TextInput
 									style={styles.messageInput}
@@ -86,7 +103,8 @@ export class ChatRoom extends Component {
 								<TouchableWithoutFeedback
 									style={styles.sendButton}
 									onPress={this.sendMessage}
-									disabled={!this.state.message.length}>
+									disabled={!this.state.message.length}
+								>
 									<Ionicons name="ios-send" size={35} color="#000" />
 								</TouchableWithoutFeedback>
 							</View>

@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const TextMessage = props => {
-  console.log(props.message)
 	return <Text>{props.message}</Text>;
 };
 
