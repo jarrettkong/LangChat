@@ -22,11 +22,12 @@ const styles = {
 	buttonStyle: {
 		position: 'absolute',
 		alignSelf: 'stretch',
-		width: '85%',
+		width: '90%',
 		backgroundColor: '#007aff',
 		borderRadius: 25,
 		borderWidth: 1,
 		borderColor: '#007aff',
+		marginTop: 20,
 		marginLeft: 5,
 		marginRight: 5,
 		alignSelf: 'center',

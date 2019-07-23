@@ -53,7 +53,7 @@ export class SignUpForm extends Component {
 			<Picker
 				style={{
 					width: '100%',
-					height: 444
+					height: 244
 				}}
 				itemStyle={{ fontSize: 25 }}
 				selectedValue={country}
@@ -129,10 +129,9 @@ export class SignUpForm extends Component {
 			userName,
 			createUserName
 		} = this.props;
-		console.log(firstName)
 		return (
 			<View style={containerStyle}>
-				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
+				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%', alignSelf: 'flex-end' }} />
 				<Text style={textHeaderStyle}>Sign Up</Text>
 				{this.state.userInfo && (
 					<React.Fragment>
@@ -204,11 +203,13 @@ const styles = {
 	inputContainerStyle: {
 		borderBottomWidth: 1,
 		padding: 5,
+		marginRight: 10,
+		marginLeft: 10,
 		backgroundColor: '#fff',
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
 		borderColor: '#ddd',
-		position: 'relative'
+		position: 'relative',
 	},
 	containerStyle: {
 		borderWidth: 1,
@@ -228,7 +229,8 @@ const styles = {
 		fontSize: 30,
 		fontWeight: '600',
 		paddingTop: 30,
-		paddingBottom: 40
+		paddingBottom: 40,
+		paddingLeft: 10
 	},
 	buttonContainerStyle: {
 		// marginTop: 80
