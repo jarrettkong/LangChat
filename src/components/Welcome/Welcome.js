@@ -9,7 +9,7 @@ class Welcome extends Component {
 			<View style={styles.container}>
 				<NavDrawer>
 					<Text style={styles.welcomeText}>
-						<Text style={styles.offColor}>Welcome back</Text> {this.props.user.username}!
+						Welcome back <Text style={styles.offColor}>{this.props.user.username}</Text>!
 					</Text>
 				</NavDrawer>
 			</View>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 	offColor: {
 		color: '#3B5998',
 		fontWeight: 'bold',
-		fontSize: 24
+		fontSize: 20
 	}
 });
 export const mapStateToProps = state => ({

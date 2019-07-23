@@ -78,7 +78,7 @@ export class NavDrawer extends Component {
 									<AntDesign name="menu-fold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
 								)}
 							</TouchableOpacity>
-							<Text style={styles.headerTitle}>langchat</Text>
+							<Text style={styles.headerTitle}>LangChat</Text>
 							<View style={styles.menuButton} />
 						</View>
 						{this.props.children || null}
@@ -124,7 +124,8 @@ const styles = {
 		flex: 1.0,
 		textAlign: 'center',
 		alignSelf: 'center',
-		color: '#3B5998'
+		color: '#007aff',
+		fontSize: 22
 	},
 	menuButton: {
 		marginLeft: 8,
@@ -150,7 +151,7 @@ const styles = {
 		textAlign: 'center'
 	},
 	menuIcon: {
-		color: '#3B5998'
+		color: '#007aff',
 	}
 };
 
