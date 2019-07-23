@@ -7,7 +7,7 @@ const CorrectedMessage = props => {
 		<View>
 			<Text>
 				<Ionicons name="md-close" size={20} />
-				{props.referenced_message}
+				{props.reference.message}
 			</Text>
 			<Text>
 				<Ionicons name="ios-checkmark" />

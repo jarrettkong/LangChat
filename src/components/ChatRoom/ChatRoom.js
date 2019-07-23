@@ -66,7 +66,7 @@ export class ChatRoom extends Component {
 				room_id: this.props.roomId,
 				language_id: this.props.languageId,
 				message: this.state.message,
-				referenced_message: this.state.referencedMessage || null
+				reference: this.state.referencedMessage || null
 			};
 			this.socket.send(JSON.stringify(message));
 			this.setState({ message: '', referencedMessage: null });
@@ -78,7 +78,7 @@ export class ChatRoom extends Component {
 	render() {
 		const messages = this.props.messages.filter(message => message.room === this.props.roomId);
 		return (
-			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" keyboardVerticalOffset={40} enabled>
+			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" enabled>
 				<NavDrawer>
 					{this.state.loading ? (
 						<Text>Loading...</Text>
@@ -87,8 +87,6 @@ export class ChatRoom extends Component {
 							<MessageView
 								messages={messages}
 								setReferencedMessage={this.setReferencedMessage}
-								clearReferencedMessage={this.clearReferencedMessage}
-								hasReferencedMessage={!this.state.referencedMessage}
 							/>
 							{this.state.referencedMessage && (
 								<TouchableHighlight onPress={this.clearReferencedMessage}>

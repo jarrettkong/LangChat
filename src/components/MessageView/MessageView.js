@@ -3,7 +3,6 @@ import { ScrollView, Text, StyleSheet } from 'react-native';
 import Message from '../Message/Message';
 import TextMessage from '../TextMessage/TextMessage';
 import CorrectedMessage from '../CorrectedMessage/CorrectedMessage';
-import { TouchableHighlight } from 'react-native-gesture-handler';
 
 const MessageView = props => {
 	return (
@@ -16,8 +15,8 @@ const MessageView = props => {
 		>
 			{props.messages.map(message => (
 				<Message key={message.id} {...message} setReferencedMessage={props.setReferencedMessage}>
-					{message.referenced_message ? (
-						<CorrectedMessage message={message.message} referenced_message={message.referenced_message} />
+					{message.reference ? (
+						<CorrectedMessage message={message.message} reference={message.reference} />
 					) : (
 						<TextMessage message={message.message} />
 					)}
