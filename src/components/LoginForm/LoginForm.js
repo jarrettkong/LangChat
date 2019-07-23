@@ -9,6 +9,10 @@ import { changeUsername, changePassword, login, currentUser } from '../../action
 import styles from './styles';
 
 export class LoginForm extends Component {
+	state = {
+		loading: false
+	};
+
 	handleChange = (text, input) => {
 		if (input === 'username') {
 			this.props.changeUsername(text);
@@ -18,6 +22,7 @@ export class LoginForm extends Component {
 	};
 
 	login = async () => {
+		this.setState({ loading: true });
 		const { username, password } = this.props;
 		try {
 			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/?format=json', {
@@ -30,17 +35,24 @@ export class LoginForm extends Component {
 			const cookieData = res.headers.get('set-cookie'); //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
 			const match = cookieData.match(/(csrftoken=)\w+;/);
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
-			this.props.login(user, csrftoken); // redux
-			// this.props.currentUser(user);
+			this.props.login(user, csrftoken);
 			Actions.home();
 		} catch (error) {
 			console.log(error.message);
 		}
+		this.setState({ loading: false });
+	};
+
+	disabled = () => {
+		const { username, password } = this.props;
+		const { loading } = this.state;
+		return !username || !password || loading;
 	};
 
 	render() {
 		const { container, inputContainerStyle, textHeaderStyle } = styles;
 		const { username, password } = this.props;
+		const { loading } = this.state;
 		return (
 			<KeyboardAvoidingView style={container} behavior="padding" enabled>
 				<EvilIcons
@@ -68,7 +80,7 @@ export class LoginForm extends Component {
 						onChangeText={password => this.handleChange(password, 'password')}
 					/>
 				</View>
-				<Button disabled={!username || !password} onPress={this.login}>
+				<Button disabled={this.disabled()} onPress={this.login}>
 					Log In
 				</Button>
 			</KeyboardAvoidingView>
