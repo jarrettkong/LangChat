@@ -11,7 +11,7 @@ export default class SplashPage extends Component {
 				<View style={textViewStyle}>
 					<Text style={textStyle}>LangChat</Text>
 				</View>
-				<Image style={imageStyle} source={{ uri: 'https://i.imgur.com/IoKqmrE.jpg' }} />
+				<Image style={imageStyle} source={{ uri: 'https://i.imgur.com/zciZ8K6.jpg' }} />
 				<Button onPress={() => Actions.signUpForm()}>Sign Up</Button>
 				<View style={logInContainerStyle}>
 					<Text style={logInTextStyle}>Already have an account?</Text>
@@ -26,15 +26,17 @@ export default class SplashPage extends Component {
 
 const styles = StyleSheet.create({
 	textStyle: {
-		fontSize: 50,
-		fontWeight: '800',
-		color: '#007aff'
+		fontSize: 70,
+		fontWeight: '700',
+		color: '#fff',
+		marginTop: "93%"
 	},
 	imageStyle: {
 		flex: 1,
 		alignSelf: 'stretch',
 		width: null,
-		opacity: 0.8
+		backgroundColor: "#000",
+		opacity: 0.9
 	},
 	textViewStyle: {
 		position: 'absolute',
