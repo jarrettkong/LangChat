@@ -130,6 +130,8 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	inputContainer: {
+		borderTopWidth: 1,
+		borderTopColor: '#f3f3f3',
 		justifyContent: 'space-between',
 		height: 45,
 		flexDirection: 'row',

@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import Button from "../common/Button";
-import Input from "../common/Input";
+import { View, Text, KeyboardAvoidingView } from 'react-native';
+import Button from '../common/Button';
+import Input from '../common/Input';
 import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { changeUsername, changePassword, login, currentUser } from '../../actions/index';
+import styles from './styles';
 
 export class LoginForm extends Component {
+	state = {
+		loading: false
+	};
+
 	handleChange = (text, input) => {
 		if (input === 'username') {
 			this.props.changeUsername(text);
@@ -17,6 +22,7 @@ export class LoginForm extends Component {
 	};
 
 	login = async () => {
+		this.setState({ loading: true });
 		const { username, password } = this.props;
 		try {
 			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/?format=json', {
@@ -29,24 +35,36 @@ export class LoginForm extends Component {
 			const cookieData = res.headers.get('set-cookie'); //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
 			const match = cookieData.match(/(csrftoken=)\w+;/);
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
-			this.props.login(user, csrftoken); // redux
-			// this.props.currentUser(user);
+			this.props.login(user, csrftoken);
 			Actions.home();
 		} catch (error) {
 			console.log(error.message);
 		}
+		this.setState({ loading: false });
 	};
 
-	render () {
-		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
+	disabled = () => {
 		const { username, password } = this.props;
+		const { loading } = this.state;
+		return !username || !password || loading;
+	};
+
+	render() {
+		const { container, inputContainerStyle, textHeaderStyle } = styles;
+		const { username, password } = this.props;
+		const { loading } = this.state;
 		return (
-			<View style={containerStyle}>
-				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%', alignSelf: 'flex-end' }} />
+			<KeyboardAvoidingView style={container} behavior="padding" enabled>
+				<EvilIcons
+					name="close"
+					size={40}
+					onPress={() => Actions.splashPage()}
+					style={{ width: '13%', alignSelf: 'flex-end', color: 'white' }}
+				/>
 				<Text style={textHeaderStyle}>Log In</Text>
 				<View style={inputContainerStyle}>
 					<Input
-						label={<MaterialCommunityIcons name="email-outline" size={30} color="#999" />}
+						label={<AntDesign name="user" size={30} color="#999" />}
 						placeholder="Username"
 						value={this.props.username}
 						onChangeText={username => this.handleChange(username, 'username')}
@@ -62,53 +80,13 @@ export class LoginForm extends Component {
 						onChangeText={password => this.handleChange(password, 'password')}
 					/>
 				</View>
-				<View style={buttonContainerStyle}>
-					<Button disabled={!username || !password} onPress={this.login}>
-						Log In
-					</Button>
-				</View>
-			</View>
+				<Button disabled={this.disabled()} onPress={this.login}>
+					Log In
+				</Button>
+			</KeyboardAvoidingView>
 		);
 	}
 }
-
-const styles = {
-	inputContainerStyle: {
-		borderBottomWidth: 1,
-		padding: 5,
-		marginRight: 10,
-		marginLeft: 10,
-		backgroundColor: '#fff',
-		justifyContent: 'flex-start',
-		flexDirection: 'row',
-		borderColor: '#ddd',
-		position: 'relative'
-	},
-	containerStyle: {
-		borderWidth: 1,
-		borderRadius: 2,
-		borderColor: '#ddd',
-		borderBottomWidth: 0,
-		shadowColor: '#000',
-		shadowOffset: { width: 0, height: 2 },
-		shadowOpacity: 0.1,
-		shadowRadius: 2,
-		elevation: 1,
-		marginLeft: 5,
-		marginRight: 5,
-		paddingTop: 50
-	},
-	textHeaderStyle: {
-		fontSize: 30,
-		fontWeight: '600',
-		paddingTop: 30,
-		paddingBottom: 40,
-		paddingLeft: 10
-	},
-	buttonContainerStyle: {
-		marginTop: 80
-	}
-};
 
 export const mapStateToProps = state => ({
 	username: state.auth.username,
