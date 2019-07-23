@@ -22,6 +22,7 @@ export class ChatRoom extends Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props)
 		console.log('mounting...');
 		this.setState({ loading: true }, async () => {
 			this.connect();
