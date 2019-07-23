@@ -119,7 +119,7 @@ export class SignUpForm extends Component {
 	};
 
 	render() {
-		const { container, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
+		const { container, inputContainerStyle, textHeaderStyle } = styles;
 		const {
 			email,
 			password,
@@ -201,7 +201,7 @@ export class SignUpForm extends Component {
 						{this.validatePassword() && <Text>Passwords do not match</Text>}
 					</React.Fragment>
 				)}
-				<View style={buttonContainerStyle}>{this.buttonToRender()}</View>
+				{this.buttonToRender()}
 			</View>
 		);
 	}

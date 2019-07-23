@@ -68,11 +68,9 @@ export class LoginForm extends Component {
 						onChangeText={password => this.handleChange(password, 'password')}
 					/>
 				</View>
-				<View>
-					<Button disabled={!username || !password} onPress={this.login}>
-						Log In
-					</Button>
-				</View>
+				<Button disabled={!username || !password} onPress={this.login}>
+					Log In
+				</Button>
 			</KeyboardAvoidingView>
 		);
 	}

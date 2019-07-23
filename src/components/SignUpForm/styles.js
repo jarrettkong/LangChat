@@ -29,8 +29,5 @@ export default StyleSheet.create({
 		textAlign: 'center',
 		textTransform: 'uppercase',
 		fontWeight: 'bold'
-	},
-	buttonContainerStyle: {
-		// marginTop: 80
 	}
 });
