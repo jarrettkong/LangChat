@@ -8,7 +8,7 @@ class Welcome extends Component {
 		return (
 			<View style={styles.container}>
 				<NavDrawer>
-					<Text>Welcome back {this.props.user.username}!</Text>
+					<Text style={styles.welcomeText}>Welcome back {this.props.user.username}!</Text>
 				</NavDrawer>
 			</View>
 		);
@@ -18,20 +18,16 @@ class Welcome extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1.0,
-		position: 'relative'
 	},
-	text: {
-		fontSize: 50
-	},
-	drawerContainer: {
+	welcomeText: {
+		fontSize: 18,
 		flex: 1.0,
-		zIndex: 5
+		alignSelf:'center',
+		justifyContent: 'center',
+		marginTop: 50
 	},
-	welcomeContainer: {
-		position: 'absolute',
-		flex: 1.0,
-		zIndex: 1
-	}
+	
+
 });
 export const mapStateToProps = state => ({
 	user: state.user
