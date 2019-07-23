@@ -9,7 +9,7 @@ class Nav extends Component {
 			<View style={styles.container}>
 				<View style={styles.profileContainer}>
 					<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.profile()}>
-						<FontAwesome style={styles.button} name="user" size={160} />
+						<FontAwesome style={styles.profileButton} name="user" size={60} />
 					</TouchableHighlight>
 				</View>
 		
@@ -59,6 +59,12 @@ const styles = StyleSheet.create({
 	},
 	profileContainer: {
 		marginTop: 10
+	},
+	profileButton : {
+		color: '#E8EAEF',
+		width: '100%',
+		textAlign: 'left',
+		padding: 10
 	}
 });
 

@@ -117,7 +117,7 @@ const styles = {
 		justifyContent: 'center',
 		backgroundColor: '#fff',
 		borderBottomColor: '#3B5998',
-		borderBottomWidth: 1
+		borderBottomWidth: 1.2
 
 	},
 	headerTitle: {
