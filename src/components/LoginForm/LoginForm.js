@@ -42,7 +42,7 @@ export class LoginForm extends Component {
 		const { username, password } = this.props;
 		return (
 			<View style={containerStyle}>
-				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%' }} />
+				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%', alignSelf: 'flex-end' }} />
 				<Text style={textHeaderStyle}>Log In</Text>
 				<View style={inputContainerStyle}>
 					<Input
@@ -76,6 +76,8 @@ const styles = {
 	inputContainerStyle: {
 		borderBottomWidth: 1,
 		padding: 5,
+		marginRight: 10,
+		marginLeft: 10,
 		backgroundColor: '#fff',
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
@@ -100,7 +102,8 @@ const styles = {
 		fontSize: 30,
 		fontWeight: '600',
 		paddingTop: 30,
-		paddingBottom: 40
+		paddingBottom: 40,
+		paddingLeft: 10
 	},
 	buttonContainerStyle: {
 		marginTop: 80
