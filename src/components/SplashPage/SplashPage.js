@@ -4,7 +4,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Button from '../common/Button';
 
 export default class SplashPage extends Component {
-	render() {
+	render () {
 		const { imageStyle, textStyle, textViewStyle, logInContainerStyle, logInTextStyle, logInButtonStyle } = styles;
 		return (
 			<View style={imageStyle}>

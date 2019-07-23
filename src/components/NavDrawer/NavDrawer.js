@@ -56,9 +56,10 @@ export class NavDrawer extends Component {
 	};
 
 	render () {
+		console.log(this.props)
 		return (
 			<SafeAreaView style={styles.safeAreaStyle}>
-				<StatusBar barStyle="light-content" />
+				<StatusBar barStyle="dark-content" />
 				<View style={styles.mainContainer}>
 					<Drawer
 						ref={ref => (this.drawer = ref)}
@@ -77,7 +78,7 @@ export class NavDrawer extends Component {
 									<AntDesign name="menu-fold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
 								)}
 							</TouchableOpacity>
-							<Text style={styles.headerTitle}>LangChat</Text>
+							<Text style={styles.headerTitle}>langchat</Text>
 							<View style={styles.menuButton} />
 						</View>
 						{this.props.children || null}
@@ -106,7 +107,7 @@ const styles = {
 	},
 	safeAreaStyle: {
 		flex: 1.0,
-		backgroundColor: '#3B5998'
+		backgroundColor: 'white'
 	},
 	headerContainer: {
 		position: 'relative',
@@ -114,13 +115,16 @@ const styles = {
 		height: 44,
 		flexDirection: 'row',
 		justifyContent: 'center',
-		backgroundColor: '#3B5998'
+		backgroundColor: '#fff',
+		borderBottomColor: '#3B5998',
+		borderBottomWidth: 1
+
 	},
 	headerTitle: {
 		flex: 1.0,
 		textAlign: 'center',
 		alignSelf: 'center',
-		color: 'white'
+		color: '#3B5998'
 	},
 	menuButton: {
 		marginLeft: 8,
@@ -146,7 +150,7 @@ const styles = {
 		textAlign: 'center'
 	},
 	menuIcon: {
-		color: 'white'
+		color: '#3B5998'
 	}
 };
 

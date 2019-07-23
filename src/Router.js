@@ -9,6 +9,7 @@ import ChatRoom from './components/ChatRoom/ChatRoom';
 import Tutorial from './components/Tutorial/Tutorial';
 import Welcome from './components/Welcome/Welcome';
 import Profile from './components/Profile/Profile';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 const RouterComponent = () => {
 	return (
@@ -19,13 +20,13 @@ const RouterComponent = () => {
 					<Scene key="splashPage" initial component={SplashPage} hideNavBar={true} />
 					<Scene key="loginForm" component={LoginForm} hideNavBar={true} />
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />
-					<Scene key="home"  component={Home} hideNavBar={true} />
+					<Scene key="home" component={Home} hideNavBar={true} />
 					<Scene type="reset" key="chatRoomSpanish" component={ChatRoom} hideNavBar={true} />
 					<Scene type="reset" key="chatRoomFrench" component={ChatRoom} hideNavBar={true} />
 					<Scene key="tutorial" component={Tutorial} hideNavBar={true} />
 					<Scene key="welcome" component={Welcome} hideNavBar={true} />
-					<Scene key="profile"  component={Profile} hideNavBar={true} />
-
+					<Scene key="profile" component={Profile} hideNavBar={true} />
+					<Scene key="errorPage" component={ErrorPage} hideNavBar={true} />
 				</Scene>
 			</Router>
 		</React.Fragment>
