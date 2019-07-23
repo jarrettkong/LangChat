@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, Image, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import  Button  from '../common/Button';
+import Button from '../common/Button';
 import NavDrawer from '../NavDrawer/NavDrawer';
 
 export class Profile extends React.Component {
@@ -53,30 +53,24 @@ export class Profile extends React.Component {
 				<NavDrawer>
 					<View style={styles.mainInfoContainer}>
 						<View style={styles.infoContainer}>
-							<Text>USERNAME</Text>
+							<Text style={styles.label}>username</Text>
 							<Text style={styles.inputContainerStyle}>{username}</Text>
 						</View>
 
 						<View style={styles.infoContainer}>
-							<Text>NAME</Text>
+							<Text style={styles.label}>name</Text>
 
 							<Text style={styles.inputContainerStyle}>
 								{first_name} {last_name}
 							</Text>
 						</View>
 						<View style={styles.infoContainer}>
-							<Text>EMAIL</Text>
+							<Text style={styles.label}>email</Text>
 							<Text style={styles.inputContainerStyle}>{email}</Text>
 						</View>
 						<View style={styles.infoContainer}>
-							<Text>Active</Text>
-							<Text style={styles.inputContainerStyle}>
-								<Switch
-									onValueChange={this.handleActivityPress}
-									value={this.state.active}
-									style={styles.inputContainerStyle}
-								/>
-							</Text>
+							<Text style={styles.label}>active</Text>
+							<Switch style={styles.switch} onValueChange={this.handleActivityPress} value={this.state.active} />
 						</View>
 					</View>
 
@@ -91,26 +85,39 @@ export class Profile extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
+		marginTop: 20,
 		flex: 1
 	},
 	buttonStyling: {},
 	inputContainerStyle: {
+		marginTop: 5,
 		borderBottomWidth: 1,
-		padding: 5,
+		padding: 10,
 		backgroundColor: 'white',
 		flexDirection: 'row',
 		borderColor: '#ddd',
 		position: 'relative',
-		marginTop: 5,
-		backgroundColor: 'blue'
+		backgroundColor: '#D4E0F7',
+		borderColor: '#007aff',
+		borderWidth: 0.2
 	},
 	infoContainer: {
 		flex: 1,
-		color: '#ffffff'
+		color: '#ffffff',
+		marginTop: 15
 	},
 	mainInfoContainer: {
+		marginTop: 10,
 		flex: 0.5,
-		padding: 5
+	},
+	label: {
+		marginRight: 20,
+		color: '#007aff',
+		fontSize: 14,
+		fontWeight: 'bold'
+	},
+	switch: {
+		marginTop: 10
 	}
 });
 
