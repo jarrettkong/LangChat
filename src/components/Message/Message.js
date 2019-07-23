@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
 		flexWrap: 'wrap'
 	},
 	initialContainer: {
-		width: 40,
-		height: 40,
+		width: 35,
+		height: 35,
 		marginRight: 15,
 		borderRadius: 100,
 		borderWidth: 1,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	initials: {
-		fontSize: 22,
+		fontSize: 20,
 		textAlign: 'center'
 	}
 });

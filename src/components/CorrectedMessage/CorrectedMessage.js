@@ -10,7 +10,7 @@ const CorrectedMessage = props => {
 				{props.reference.message}
 			</Text>
 			<Text>
-				<Ionicons name="ios-checkmark" />
+				<Ionicons name="ios-checkmark" size={20}/>
 				{props.message}
 			</Text>
 		</View>
