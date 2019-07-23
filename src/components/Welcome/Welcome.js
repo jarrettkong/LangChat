@@ -7,7 +7,7 @@ export default class Welcome extends Component {
 		return (
 			<View style={styles.container}>
 				<NavDrawer>
-					<Text>Welcome back user!</Text>
+					<Text>Welcome back {this.props.username}!</Text>
 				</NavDrawer>
 			</View>
 		);

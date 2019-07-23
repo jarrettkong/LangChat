@@ -6,11 +6,13 @@ import { connect } from 'react-redux';
 
 class Home extends Component {
 	render () {
+		console.log(this.props.user);
+
 		// ! add conditional to toggle between new user and existing user
 		// Todo new user should route to tutorial, existing to welcome
 		return (
 			<View style={styles.container}>
-				<Welcome />
+				{this.props.user.is_active ? <Welcome username={this.props.user.username} /> : <Tutorial />}
 			</View>
 		);
 	}
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
 });
 
 export const mapStateToProps = state => ({
-	user: state.currentUser
+	user: state.user
 });
 
 export default connect(mapStateToProps)(Home);
