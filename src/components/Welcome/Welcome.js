@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import NavDrawer from '../NavDrawer/NavDrawer';
+import { connect } from 'react-redux';
 
-export default class Welcome extends Component {
+class Welcome extends Component {
 	render () {
 		return (
 			<View style={styles.container}>
 				<NavDrawer>
-					<Text>Welcome back {this.props.username}!</Text>
+					<Text>Welcome back {this.props.user.username}!</Text>
 				</NavDrawer>
 			</View>
 		);
@@ -32,3 +33,8 @@ const styles = StyleSheet.create({
 		zIndex: 1
 	}
 });
+export const mapStateToProps = state => ({
+	user: state.user
+});
+
+export default connect(mapStateToProps)(Welcome);
