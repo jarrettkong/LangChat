@@ -3,7 +3,7 @@ import { Text, TextInput, View, StyleSheet, KeyboardAvoidingView, TouchableHighl
 import { connect } from 'react-redux';
 import MessageView from '../MessageView/MessageView';
 import { Ionicons } from '@expo/vector-icons';
-import { addMessage } from '../../actions';
+import { addMessage, addExistingMessages } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/NavDrawer';
 
@@ -23,14 +23,24 @@ export class ChatRoom extends Component {
 
 	componentDidMount() {
 		console.log('mounting...');
-		this.setState({ loading: true }, () => {
+		this.setState({ loading: true }, async () => {
 			this.connect();
+			await this.fetchMessages();
 		});
 	}
 
 	componentWillUnmount() {
 		this.socket.close();
 	}
+
+	fetchMessages = async () => {
+		const res = await fetch(
+			`https://langchat-crosspollination.herokuapp.com/api/v1/rooms/${this.props.roomId}/messages`
+		);
+		const data = await res.json();
+		const messages = JSON.parse(data);
+		this.props.addExistingMessages(messages);
+	};
 
 	setReferencedMessage = id => {
 		this.setState({ referencedMessage: id });
@@ -84,10 +94,7 @@ export class ChatRoom extends Component {
 						<Text>Loading...</Text>
 					) : (
 						<React.Fragment>
-							<MessageView
-								messages={messages}
-								setReferencedMessage={this.setReferencedMessage}
-							/>
+							<MessageView messages={messages} setReferencedMessage={this.setReferencedMessage} />
 							{this.state.referencedMessage && (
 								<TouchableHighlight onPress={this.clearReferencedMessage}>
 									<Text>Stop Correcting</Text>
@@ -151,7 +158,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-	addMessage: message => dispatch(addMessage(message))
+	addMessage: message => dispatch(addMessage(message)),
+	addExistingMessages: messages => dispatch(addExistingMessages(messages))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatRoom);
