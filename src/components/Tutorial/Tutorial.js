@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import Swiper from 'react-native-web-swiper';
 import { Actions } from 'react-native-router-flux';
 import { styles } from './styles';
+import  Button from '../common/Button'
 
 export default class Tutorial extends React.Component {
 	render () {
@@ -22,7 +23,7 @@ export default class Tutorial extends React.Component {
 						<Text>Slide 3</Text>
 					</View>
 					<View style={[ styles.slideContainer, styles.slide4 ]}>
-						<Button title="Go home" onPress={() => Actions.welcome()} />
+						<Button onPress={() => Actions.welcome()}>Start chatting!</Button>
 					</View>
 				</Swiper>
 			</View>
