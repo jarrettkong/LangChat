@@ -3,12 +3,14 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
 	container: {
 		marginTop: 20,
-		flex: 1.0
+		flex: 1.0,
+		backgroundColor: 'white'
 	},
 	profileContainer: {
 		flexDirection: 'row',
 		paddingTop: 40,
-		justifyContent: 'center'
+		justifyContent: 'center',
+		backgroundColor: 'white'
 	},
 	imageStyle: {
 		marginRight: 20,
@@ -21,8 +23,8 @@ export const styles = StyleSheet.create({
 	inputContainerStyle: {
 		marginTop: 5,
 		flexDirection: 'row',
-    fontSize: 16,
-    marginRight: 10
+		fontSize: 16,
+		marginRight: 10
 	},
 	infoContainer: {
 		flexDirection: 'row',
