@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, Image } from 'react-native';
 import Swiper from 'react-native-web-swiper';
 import { Actions } from 'react-native-router-flux';
-import { Styles } from './styles';
+import { styles } from './styles';
+
 export default class Tutorial extends React.Component {
 	render () {
 		return (
