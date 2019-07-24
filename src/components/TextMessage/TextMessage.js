@@ -6,7 +6,7 @@ const TextMessage = props => {
 };
 
 TextMessage.propTypes = {
-	message: PropTypes.text
+	message: PropTypes.string
 };
 
 const styles = StyleSheet.create({
