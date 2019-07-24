@@ -4,7 +4,7 @@ import Welcome from '../Welcome/Welcome';
 import Tutorial from '../Tutorial/Tutorial';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import styles from './styles'
 class Home extends Component {
 	render () {
 		return (
@@ -19,13 +19,7 @@ Home.propTypes = {
 	user: PropTypes.object.isRequired
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1.0,
-		position: 'relative',
-		backgroundColor: 'white'
-	}
-});
+
 
 export const mapStateToProps = state => ({
 	user: state.user
