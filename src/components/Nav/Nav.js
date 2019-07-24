@@ -9,27 +9,10 @@ class Nav extends Component {
 			<View style={styles.container}>
 				<View style={styles.profileContainer}>
 					<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.profile()}>
-						<FontAwesome style={styles.button} name="user" size={80} />
+						<FontAwesome style={styles.profileButton} name="user" size={40} />
 					</TouchableHighlight>
 				</View>
-				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.splashPage()}>
-					<Text style={styles.button}>splash</Text>
-				</TouchableHighlight>
-				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.loginForm()}>
-					<Text Text style={styles.button}>
-						login
-					</Text>
-				</TouchableHighlight>
-				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.signUpForm()}>
-					<Text Text style={styles.button}>
-						signup
-					</Text>
-				</TouchableHighlight>
-				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.home()}>
-					<Text Text style={styles.button}>
-						home
-					</Text>
-				</TouchableHighlight>
+		
 				<TouchableHighlight
 					underlayColor="#4765A9"
 					onPress={() => Actions.chatRoomFrench({ language: 'french', roomId: 1, languageId: 1 })}
@@ -46,11 +29,7 @@ class Nav extends Component {
 						chatroom spanish
 					</Text>
 				</TouchableHighlight>
-				<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.tutorial()}>
-					<Text Text style={styles.button}>
-						tutorial
-					</Text>
-				</TouchableHighlight>
+			
 					<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.tutorial()}>
 					<Text Text style={styles.button}>
 						tutorial
@@ -80,6 +59,12 @@ const styles = StyleSheet.create({
 	},
 	profileContainer: {
 		marginTop: 10
+	},
+	profileButton : {
+		color: '#E8EAEF',
+		width: '100%',
+		textAlign: 'left',
+		padding: 10
 	}
 });
 

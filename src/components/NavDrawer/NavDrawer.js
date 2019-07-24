@@ -56,9 +56,10 @@ export class NavDrawer extends Component {
 	};
 
 	render () {
+		console.log(this.props)
 		return (
 			<SafeAreaView style={styles.safeAreaStyle}>
-				<StatusBar barStyle="light-content" />
+				<StatusBar barStyle="dark-content" />
 				<View style={styles.mainContainer}>
 					<Drawer
 						ref={ref => (this.drawer = ref)}
@@ -106,7 +107,7 @@ const styles = {
 	},
 	safeAreaStyle: {
 		flex: 1.0,
-		backgroundColor: '#3B5998'
+		backgroundColor: 'white'
 	},
 	headerContainer: {
 		position: 'relative',
@@ -114,13 +115,17 @@ const styles = {
 		height: 44,
 		flexDirection: 'row',
 		justifyContent: 'center',
-		backgroundColor: '#3B5998'
+		backgroundColor: '#fff',
+		borderBottomColor: '#3B5998',
+		borderBottomWidth: 1.2
+
 	},
 	headerTitle: {
 		flex: 1.0,
 		textAlign: 'center',
 		alignSelf: 'center',
-		color: 'white'
+		color: '#007aff',
+		fontSize: 22
 	},
 	menuButton: {
 		marginLeft: 8,
@@ -146,7 +151,7 @@ const styles = {
 		textAlign: 'center'
 	},
 	menuIcon: {
-		color: 'white'
+		color: '#007aff',
 	}
 };
 
