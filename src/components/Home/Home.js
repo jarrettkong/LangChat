@@ -4,7 +4,7 @@ import Welcome from '../Welcome/Welcome';
 import Tutorial from '../Tutorial/Tutorial';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import styles from './styles'
+import { styles } from './styles'
 class Home extends Component {
 	render () {
 		return (
