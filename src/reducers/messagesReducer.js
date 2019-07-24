@@ -8,7 +8,6 @@ export default (state = [], action) => {
 				// fix this
 				return !JSON.stringify(state).includes(JSON.stringify(m));
 			});
-			console.log(messages.length);
 			return [...messages, ...state];
 		default:
 			return state;

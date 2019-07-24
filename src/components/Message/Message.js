@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import PropTypes from 'prop-types';
 
 const Message = props => {
 	const { timestamp, username, id, setReferencedMessage } = props;
@@ -21,6 +22,13 @@ const Message = props => {
 			</View>
 		</TouchableWithoutFeedback>
 	);
+};
+
+Message.propTypes = {
+	timestamp: PropTypes.string,
+	username: PropTypes.string,
+	id: PropTypes.number,
+	setReferencedMessage: PropTypes.object
 };
 
 const styles = StyleSheet.create({
