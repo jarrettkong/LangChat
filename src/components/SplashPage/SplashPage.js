@@ -17,7 +17,13 @@ export default class SplashPage extends Component {
 		} = styles;
 		return (
 			<View style={container}>
-				<Image style={imageStyle} source={{ uri: 'https://i.imgur.com/zciZ8K6.jpg' }} />
+				<Image
+					style={imageStyle}
+					source={{
+						uri:
+							'https://images.unsplash.com/photo-1548716188-9b0867f0d1c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
+					}}
+				/>
 				<View style={flexContainer}>
 					<Text style={textStyle}>LangChat</Text>
 					<View style={{ width: '100%' }}>

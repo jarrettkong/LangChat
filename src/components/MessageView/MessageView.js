@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		paddingLeft: 20,
 		paddingRight: 20,
-		// paddingTop: 15,
 		flex: 4
 	}
 });

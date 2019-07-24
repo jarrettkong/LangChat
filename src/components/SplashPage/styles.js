@@ -8,12 +8,13 @@ export default StyleSheet.create({
 	},
 	container: {
 		flex: 1,
-		position: 'relative'
+		position: 'relative',
+		backgroundColor: '#000'
 	},
 	imageStyle: {
 		flex: 1,
 		backgroundColor: '#000',
-		opacity: 0.9,
+		opacity: 0.75,
 		width: '100%'
 	},
 	flexContainer: {
@@ -22,9 +23,9 @@ export default StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		flexDirection: 'column',
-		paddingTop: 60,
-		paddingBottom: 60,
-		width: '90%',
+		paddingTop: 75,
+		paddingBottom: 75,
+		width: '100%',
 		alignSelf: 'center'
 	},
 	logInContainerStyle: {
