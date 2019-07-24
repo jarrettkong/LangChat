@@ -9,7 +9,7 @@ import NavDrawer from '../NavDrawer/NavDrawer';
 import PropTypes from 'prop-types';
 
 export class ChatRoom extends Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 		this.state = {
 			message: '',
@@ -22,8 +22,8 @@ export class ChatRoom extends Component {
 		);
 	}
 
-	componentDidMount() {
-		console.log(this.props)
+	componentDidMount () {
+		console.log(this.props);
 		console.log('mounting...');
 		this.setState({ loading: true }, async () => {
 			this.connect();
@@ -31,7 +31,7 @@ export class ChatRoom extends Component {
 		});
 	}
 
-	componentWillUnmount() {
+	componentWillUnmount () {
 		this.socket.close();
 	}
 
@@ -87,7 +87,7 @@ export class ChatRoom extends Component {
 		}
 	};
 
-	render() {
+	render () {
 		const messages = this.props.messages.filter(message => message.room === this.props.roomId);
 		return (
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" enabled>
@@ -112,8 +112,7 @@ export class ChatRoom extends Component {
 								<TouchableWithoutFeedback
 									style={styles.sendButton}
 									onPress={this.sendMessage}
-									disabled={!this.state.message.length}
-								>
+									disabled={!this.state.message.length}>
 									<Ionicons name="ios-send" size={35} color="#000" />
 								</TouchableWithoutFeedback>
 							</View>
@@ -124,6 +123,14 @@ export class ChatRoom extends Component {
 		);
 	}
 }
+
+ChatRoom.propTypes = {
+	messages: PropTypes.array,
+	user: PropTypes.object,
+	token: PropTypes.string,
+	addMessage: PropTypes.func,
+	addExistingMessages: PropTypes.func
+};
 
 const styles = StyleSheet.create({
 	ChatRoom: {
