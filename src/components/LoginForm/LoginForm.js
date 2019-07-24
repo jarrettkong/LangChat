@@ -6,6 +6,7 @@ import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { changeUsername, changePassword, login, currentUser } from '../../actions/index';
+import PropTypes from 'prop-types';
 
 export class LoginForm extends Component {
 	handleChange = (text, input) => {
@@ -72,6 +73,28 @@ export class LoginForm extends Component {
 	}
 }
 
+LoginForm.PropTypes = {
+username : PropTypes.string,
+password: PropTypes.string,
+user: PropTypes.object,
+changePassword: PropTypes.func,
+changeUsername: PropTypes.func,
+login: PropTypes.func,
+currentUser: PropTypes.func
+}
+export const mapStateToProps = state => ({
+	username: state.auth.username,
+	password: state.auth.password,
+	user: state.currentUser
+});
+
+export const mapDispatchToProps = dispatch => ({
+	changeUsername: text => dispatch(changeUsername(text)),
+	changePassword: text => dispatch(changePassword(text)),
+	login: (user, cookie) => dispatch(login(user, cookie)),
+	currentUser: user => dispatch(currentUser(user))
+});
+
 const styles = {
 	inputContainerStyle: {
 		borderBottomWidth: 1,
@@ -110,17 +133,6 @@ const styles = {
 	}
 };
 
-export const mapStateToProps = state => ({
-	username: state.auth.username,
-	password: state.auth.password,
-	user: state.currentUser
-});
 
-export const mapDispatchToProps = dispatch => ({
-	changeUsername: text => dispatch(changeUsername(text)),
-	changePassword: text => dispatch(changePassword(text)),
-	login: (user, cookie) => dispatch(login(user, cookie)),
-	currentUser: user => dispatch(currentUser(user))
-});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
