@@ -15,8 +15,8 @@ class Home extends Component {
 	}
 }
 
-Home.PropTypes = {
-	user: PropTypes.object
+Home.propTypes = {
+	user: PropTypes.object.isRequired
 }
 
 const styles = StyleSheet.create({

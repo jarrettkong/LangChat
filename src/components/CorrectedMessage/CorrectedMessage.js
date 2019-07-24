@@ -18,8 +18,8 @@ const CorrectedMessage = props => {
 };
 
 CorrectedMessage.propTypes = {
-	reference: PropTypes.object,
-	message: PropTypes.string
+	reference: PropTypes.object.isRequired,
+	message: PropTypes.string.isRequired
 }
 
 

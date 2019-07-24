@@ -25,10 +25,9 @@ const Message = props => {
 };
 
 Message.propTypes = {
-	timestamp: PropTypes.string,
-	username: PropTypes.string,
-	id: PropTypes.number,
-	setReferencedMessage: PropTypes.object
+	timestamp: PropTypes.string.isRequired,
+	username: PropTypes.string.isRequired,
+	id: PropTypes.number.isRequired,
 };
 
 const styles = StyleSheet.create({

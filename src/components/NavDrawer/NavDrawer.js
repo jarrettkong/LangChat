@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
 import Drawer from 'react-native-drawer';
 import { AntDesign } from '@expo/vector-icons';
-import Button from '../common/Button';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { logout } from '../../actions';
-
+import PropTypes from 'prop-types';
 import Nav from '../Nav/Nav';
+
 console.disableYellowBox = true;
 
 export class NavDrawer extends Component {
@@ -88,6 +88,26 @@ export class NavDrawer extends Component {
 	}
 }
 
+NavDrawer.propTypes = {
+	logout : PropTypes.func.isRequired,
+	cookie: PropTypes.string.isRequired,
+	username: PropTypes.string.isRequired,
+	password: PropTypes.string.isRequired,
+	token: PropTypes.string.isRequired
+}
+
+export const mapStateToProps = state => ({
+	cookie: state.cookie,
+	username: state.auth.username,
+	password: state.auth.password,
+	token: state.token
+});
+
+export const mapDispatchToProps = dispatch => ({
+	logout: () => dispatch(logout())
+});
+
+
 const drawerStyles = {
 	drawer: {
 		flex: 1.0,
@@ -154,15 +174,5 @@ const styles = {
 	}
 };
 
-export const mapStateToProps = state => ({
-	cookie: state.cookie,
-	username: state.auth.username,
-	password: state.auth.password,
-	token: state.token
-});
-
-export const mapDispatchToProps = dispatch => ({
-	logout: () => dispatch(logout())
-});
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavDrawer);

@@ -79,13 +79,12 @@ export class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-	username: PropTypes.string,
-	password: PropTypes.string,
-	user: PropTypes.object,
-	changePassword: PropTypes.func,
-	changeUsername: PropTypes.func,
-	login: PropTypes.func,
-	currentUser: PropTypes.func
+	username: PropTypes.string.isRequired,
+	password: PropTypes.string.isRequired,
+	changePassword: PropTypes.func.isRequired,
+	changeUsername: PropTypes.func.isRequired,
+	login: PropTypes.func.isRequired,
+	currentUser: PropTypes.func.isRequired
 };
 export const mapStateToProps = state => ({
 	username: state.auth.username,
