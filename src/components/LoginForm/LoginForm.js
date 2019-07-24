@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import Button from "../common/Button";
-import Input from "../common/Input";
+import Button from '../common/Button';
+import Input from '../common/Input';
 import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
@@ -43,7 +43,12 @@ export class LoginForm extends Component {
 		const { username, password } = this.props;
 		return (
 			<View style={containerStyle}>
-				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%', alignSelf: 'flex-end' }} />
+				<EvilIcons
+					name="close"
+					size={40}
+					onPress={() => Actions.splashPage()}
+					style={{ width: '13%', alignSelf: 'flex-end' }}
+				/>
 				<Text style={textHeaderStyle}>Log In</Text>
 				<View style={inputContainerStyle}>
 					<Input
@@ -73,15 +78,15 @@ export class LoginForm extends Component {
 	}
 }
 
-LoginForm.PropTypes = {
-username : PropTypes.string,
-password: PropTypes.string,
-user: PropTypes.object,
-changePassword: PropTypes.func,
-changeUsername: PropTypes.func,
-login: PropTypes.func,
-currentUser: PropTypes.func
-}
+LoginForm.propTypes = {
+	username: PropTypes.string,
+	password: PropTypes.string,
+	user: PropTypes.object,
+	changePassword: PropTypes.func,
+	changeUsername: PropTypes.func,
+	login: PropTypes.func,
+	currentUser: PropTypes.func
+};
 export const mapStateToProps = state => ({
 	username: state.auth.username,
 	password: state.auth.password,
@@ -132,7 +137,5 @@ const styles = {
 		marginTop: 80
 	}
 };
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
