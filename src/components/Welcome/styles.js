@@ -3,14 +3,14 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
 	container: {
     flex: 1.0,
+  
 	},
 	welcomeText: {
 		fontSize: 18,
-		flex: 1.0,
-		alignSelf: 'center',
 		justifyContent: 'center',
     marginTop: 50,
-		fontSize: 24
+    fontSize: 24,
+    textAlign: 'center'
     
 	},
 	offColor: {

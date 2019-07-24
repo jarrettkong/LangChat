@@ -10,7 +10,6 @@ export const styles = {
 	},
 	headerContainer: {
 		position: 'relative',
-		alignItems: 'center',
 		height: 44,
 		flexDirection: 'row',
 		justifyContent: 'center',
@@ -18,15 +17,14 @@ export const styles = {
 		borderBottomWidth: 1.6
 	},
 	headerTitle: {
-		flex: 1.0,
+    flex: 1.0,
+    position: 'absolute',
 		textAlign: 'center',
 		alignSelf: 'center',
-		color: '#007aff',
+		color: '#323232',
 		fontSize: 22
 	},
 	menuButton: {
-		marginLeft: 8,
-		marginRight: 8,
 		alignSelf: 'center',
 		tintColor: 'white'
 	},
@@ -38,17 +36,24 @@ export const styles = {
 		height: 60,
 		width: '100%',
 		flexDirection: 'row',
-		alignItem: 'center'
+		alignItem: 'center',
+		position: 'absolute'
 	},
 	menuTitle: {
 		width: '100%',
 		color: 'white',
 		fontSize: 17,
 		alignSelf: 'center',
-		textAlign: 'center'
+		textAlign: 'center',
+		marginRight: '2%'
 	},
 	menuIcon: {
-		color: '#007aff'
+		color: '#323232',
+    zIndex: 9999,
+    marginTop: 1,
+    alignSelf:'flex-start',
+    justifyContent:'center',
+    flex: 1.0
 	}
 };
 

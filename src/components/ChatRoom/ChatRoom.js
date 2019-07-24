@@ -7,7 +7,8 @@ import { addMessage, addExistingMessages } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/NavDrawer';
 import PropTypes from 'prop-types';
-import  styles  from './styles';
+import styles from './styles';
+import { Actions } from 'react-native-router-flux';
 
 export class ChatRoom extends Component {
 	constructor (props) {
@@ -24,7 +25,6 @@ export class ChatRoom extends Component {
 	}
 
 	componentDidMount () {
-		console.log('mounting...');
 		this.setState({ loading: true }, async () => {
 			this.connect();
 			await this.fetchMessages();
@@ -54,7 +54,7 @@ export class ChatRoom extends Component {
 
 	connect = () => {
 		this.socket.onopen = () => {
-			console.log(`connected to ${this.props.language} chat...`);
+			// console.log(`connected to ${this.props.language} chat...`);
 			this.setState({ loading: false });
 		};
 
@@ -65,6 +65,7 @@ export class ChatRoom extends Component {
 
 		this.socket.onerror = error => {
 			console.log('error: ', error.message);
+			Actions.errorPage();
 		};
 
 		this.socket.onclose = () => {
@@ -88,10 +89,11 @@ export class ChatRoom extends Component {
 	};
 
 	render () {
+		console.log(this.props)
 		const messages = this.props.messages.filter(message => message.room === this.props.roomId);
 		return (
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" enabled>
-				<NavDrawer>
+				<NavDrawer name={this.props.routeName}>
 					{this.state.loading ? (
 						<Text>Connecting...</Text>
 					) : (
@@ -112,8 +114,7 @@ export class ChatRoom extends Component {
 								<TouchableWithoutFeedback
 									style={styles.sendButton}
 									onPress={this.sendMessage}
-									disabled={!this.state.message.length}
-								>
+									disabled={!this.state.message.length}>
 									<Ionicons name="ios-send" size={35} color="#323232" />
 								</TouchableWithoutFeedback>
 							</View>
