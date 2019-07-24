@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
+import PropTypes from 'prop-types';
 const TextMessage = props => {
 	return <Text>{props.message}</Text>;
+};
+
+TextMessage.propTypes = {
+	message: PropTypes.text
 };
 
 const styles = StyleSheet.create({
