@@ -4,14 +4,11 @@ exports[`SignUpForm Component should match snapshot 1`] = `
 <View
   style={
     Object {
-      "borderBottomWidth": 0,
-      "borderColor": "#ddd",
-      "borderRadius": 2,
-      "borderWidth": 1,
+      "backgroundColor": "#323232",
       "elevation": 1,
-      "marginLeft": 5,
-      "marginRight": 5,
+      "flex": 1,
       "paddingTop": 50,
+      "position": "relative",
       "shadowColor": "#000",
       "shadowOffset": Object {
         "height": 2,
@@ -19,6 +16,7 @@ exports[`SignUpForm Component should match snapshot 1`] = `
       },
       "shadowOpacity": 0.1,
       "shadowRadius": 2,
+      "width": "100%",
     }
   }
 >
@@ -26,10 +24,12 @@ exports[`SignUpForm Component should match snapshot 1`] = `
   <Text
     style={
       Object {
-        "fontSize": 30,
-        "fontWeight": "600",
-        "paddingBottom": 40,
-        "paddingTop": 30,
+        "color": "white",
+        "fontSize": 50,
+        "fontWeight": "bold",
+        "margin": 40,
+        "textAlign": "center",
+        "textTransform": "uppercase",
       }
     }
   >
@@ -38,13 +38,12 @@ exports[`SignUpForm Component should match snapshot 1`] = `
   <View
     style={
       Object {
+        "alignSelf": "center",
         "backgroundColor": "#fff",
-        "borderBottomWidth": 1,
-        "borderColor": "#ddd",
-        "flexDirection": "row",
-        "justifyContent": "flex-start",
-        "padding": 5,
-        "position": "relative",
+        "borderRadius": 5,
+        "flexDirection": "column",
+        "margin": 10,
+        "width": "90%",
       }
     }
   >
@@ -53,7 +52,8 @@ exports[`SignUpForm Component should match snapshot 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
-          "height": 40,
+          "height": 50,
+          "width": "90%",
         }
       }
     >
@@ -78,10 +78,12 @@ exports[`SignUpForm Component should match snapshot 1`] = `
           Object {
             "color": "#000",
             "fontSize": 18,
+            "height": "100%",
             "lineHeight": 23,
+            "margin": "auto",
             "paddingLeft": 5,
             "paddingRight": 5,
-            "width": "100%",
+            "width": "95%",
           }
         }
         underlineColorAndroid="transparent"
@@ -91,13 +93,12 @@ exports[`SignUpForm Component should match snapshot 1`] = `
   <View
     style={
       Object {
+        "alignSelf": "center",
         "backgroundColor": "#fff",
-        "borderBottomWidth": 1,
-        "borderColor": "#ddd",
-        "flexDirection": "row",
-        "justifyContent": "flex-start",
-        "padding": 5,
-        "position": "relative",
+        "borderRadius": 5,
+        "flexDirection": "column",
+        "margin": 10,
+        "width": "90%",
       }
     }
   >
@@ -106,7 +107,8 @@ exports[`SignUpForm Component should match snapshot 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
-          "height": 40,
+          "height": 50,
+          "width": "90%",
         }
       }
     >
@@ -131,10 +133,12 @@ exports[`SignUpForm Component should match snapshot 1`] = `
           Object {
             "color": "#000",
             "fontSize": 18,
+            "height": "100%",
             "lineHeight": 23,
+            "margin": "auto",
             "paddingLeft": 5,
             "paddingRight": 5,
-            "width": "100%",
+            "width": "95%",
           }
         }
         underlineColorAndroid="transparent"
@@ -144,13 +148,12 @@ exports[`SignUpForm Component should match snapshot 1`] = `
   <View
     style={
       Object {
+        "alignSelf": "center",
         "backgroundColor": "#fff",
-        "borderBottomWidth": 1,
-        "borderColor": "#ddd",
-        "flexDirection": "row",
-        "justifyContent": "flex-start",
-        "padding": 5,
-        "position": "relative",
+        "borderRadius": 5,
+        "flexDirection": "column",
+        "margin": 10,
+        "width": "90%",
       }
     }
   >
@@ -159,7 +162,8 @@ exports[`SignUpForm Component should match snapshot 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
-          "height": 40,
+          "height": 50,
+          "width": "90%",
         }
       }
     >
@@ -184,10 +188,12 @@ exports[`SignUpForm Component should match snapshot 1`] = `
           Object {
             "color": "#000",
             "fontSize": 18,
+            "height": "100%",
             "lineHeight": 23,
+            "margin": "auto",
             "paddingLeft": 5,
             "paddingRight": 5,
-            "width": "100%",
+            "width": "95%",
           }
         }
         underlineColorAndroid="transparent"
@@ -195,48 +201,39 @@ exports[`SignUpForm Component should match snapshot 1`] = `
     </View>
   </View>
   <View
-    style={Object {}}
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignSelf": "center",
+        "backgroundColor": "#007aff",
+        "borderRadius": 5,
+        "margin": 10,
+        "opacity": 1,
+        "width": "90%",
+      }
+    }
   >
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+    <Text
       style={
         Object {
           "alignSelf": "center",
-          "backgroundColor": "#007aff",
-          "borderColor": "#007aff",
-          "borderRadius": 25,
-          "borderWidth": 1,
-          "marginLeft": 5,
-          "marginRight": 5,
-          "opacity": 1,
-          "position": "absolute",
-          "top": "84%",
-          "width": "85%",
+          "color": "#fff",
+          "fontSize": 19,
+          "fontWeight": "600",
+          "paddingBottom": 12,
+          "paddingTop": 12,
         }
       }
     >
-      <Text
-        style={
-          Object {
-            "alignSelf": "center",
-            "color": "#fff",
-            "fontSize": 19,
-            "fontWeight": "600",
-            "paddingBottom": 12,
-            "paddingTop": 12,
-          }
-        }
-      >
-        Next
-      </Text>
-    </View>
+      Next
+    </Text>
   </View>
 </View>
 `;

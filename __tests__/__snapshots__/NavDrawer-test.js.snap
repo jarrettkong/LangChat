@@ -5,7 +5,7 @@ exports[`NavDrawer Component should match snapshot 1`] = `
   emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#3B5998",
+      "backgroundColor": "white",
       "flex": 1,
     }
   }
@@ -109,109 +109,6 @@ exports[`NavDrawer Component should match snapshot 1`] = `
               style={null}
             >
               <Text
-                style={
-                  Object {
-                    "color": "#E8EAEF",
-                    "fontSize": 20,
-                    "padding": 10,
-                    "textAlign": "left",
-                    "width": "100%",
-                  }
-                }
-              >
-                splash
-              </Text>
-            </View>
-            <View
-              accessible={true}
-              isTVSelectable={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={null}
-            >
-              <Text
-                Text={true}
-                style={
-                  Object {
-                    "color": "#E8EAEF",
-                    "fontSize": 20,
-                    "padding": 10,
-                    "textAlign": "left",
-                    "width": "100%",
-                  }
-                }
-              >
-                login
-              </Text>
-            </View>
-            <View
-              accessible={true}
-              isTVSelectable={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={null}
-            >
-              <Text
-                Text={true}
-                style={
-                  Object {
-                    "color": "#E8EAEF",
-                    "fontSize": 20,
-                    "padding": 10,
-                    "textAlign": "left",
-                    "width": "100%",
-                  }
-                }
-              >
-                signup
-              </Text>
-            </View>
-            <View
-              accessible={true}
-              isTVSelectable={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={null}
-            >
-              <Text
-                Text={true}
-                style={
-                  Object {
-                    "color": "#E8EAEF",
-                    "fontSize": 20,
-                    "padding": 10,
-                    "textAlign": "left",
-                    "width": "100%",
-                  }
-                }
-              >
-                home
-              </Text>
-            </View>
-            <View
-              accessible={true}
-              isTVSelectable={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={null}
-            >
-              <Text
                 Text={true}
                 style={
                   Object {
@@ -250,32 +147,6 @@ exports[`NavDrawer Component should match snapshot 1`] = `
                 }
               >
                 chatroom spanish
-              </Text>
-            </View>
-            <View
-              accessible={true}
-              isTVSelectable={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={null}
-            >
-              <Text
-                Text={true}
-                style={
-                  Object {
-                    "color": "#E8EAEF",
-                    "fontSize": 20,
-                    "padding": 10,
-                    "textAlign": "left",
-                    "width": "100%",
-                  }
-                }
-              >
-                tutorial
               </Text>
             </View>
             <View
@@ -357,7 +228,9 @@ exports[`NavDrawer Component should match snapshot 1`] = `
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#3B5998",
+              "backgroundColor": "#fff",
+              "borderBottomColor": "#3B5998",
+              "borderBottomWidth": 1.2,
               "flexDirection": "row",
               "height": 44,
               "justifyContent": "center",
@@ -390,8 +263,9 @@ exports[`NavDrawer Component should match snapshot 1`] = `
             style={
               Object {
                 "alignSelf": "center",
-                "color": "white",
+                "color": "#007aff",
                 "flex": 1,
+                "fontSize": 22,
                 "textAlign": "center",
               }
             }

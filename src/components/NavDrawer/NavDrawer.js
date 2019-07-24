@@ -56,7 +56,6 @@ export class NavDrawer extends Component {
 	};
 
 	render () {
-		console.log(this.props)
 		return (
 			<SafeAreaView style={styles.safeAreaStyle}>
 				<StatusBar barStyle="dark-content" />
