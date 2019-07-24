@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Text, KeyboardAvoidingView, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Button from "../common/Button";
 import Input from "../common/Input";
-import { addMessage } from '../../actions';
-import { connect } from 'react-redux';
 
 class MessageInput extends Component {
 	state = {
