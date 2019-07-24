@@ -7,7 +7,7 @@ import { addMessage, addExistingMessages } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/NavDrawer';
 import PropTypes from 'prop-types';
-import { styles } from './styles';
+import  styles  from './styles';
 
 export class ChatRoom extends Component {
 	constructor (props) {
@@ -44,12 +44,12 @@ export class ChatRoom extends Component {
 		this.props.addExistingMessages(messages);
 	};
 
-	setReferencedMessage = id => {
-		this.setState({ referencedMessage: id });
+	setReferencedMessage = (id, message) => {
+		this.setState({ referencedMessage: id, message });
 	};
 
 	clearReferencedMessage = () => {
-		this.setState({ referencedMessage: null });
+		this.setState({ referencedMessage: null, message: '' });
 	};
 
 	connect = () => {
@@ -93,13 +93,13 @@ export class ChatRoom extends Component {
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" enabled>
 				<NavDrawer>
 					{this.state.loading ? (
-						<Text>Loading...</Text>
+						<Text>Connecting...</Text>
 					) : (
 						<React.Fragment>
 							<MessageView messages={messages} setReferencedMessage={this.setReferencedMessage} />
 							{this.state.referencedMessage && (
-								<TouchableHighlight onPress={this.clearReferencedMessage}>
-									<Text>Stop Correcting</Text>
+								<TouchableHighlight onPress={this.clearReferencedMessage} style={styles.stopCorrectingButton}>
+									<Ionicons name="ios-close" size={35} color="#ffffff" />
 								</TouchableHighlight>
 							)}
 							<View style={styles.inputContainer}>
@@ -112,8 +112,9 @@ export class ChatRoom extends Component {
 								<TouchableWithoutFeedback
 									style={styles.sendButton}
 									onPress={this.sendMessage}
-									disabled={!this.state.message.length}>
-									<Ionicons name="ios-send" size={35} color="#000" />
+									disabled={!this.state.message.length}
+								>
+									<Ionicons name="ios-send" size={35} color="#323232" />
 								</TouchableWithoutFeedback>
 							</View>
 						</React.Fragment>
@@ -123,13 +124,6 @@ export class ChatRoom extends Component {
 		);
 	}
 }
-
-ChatRoom.propTypes = {
-	user: PropTypes.object,
-	token: PropTypes.string,
-	addMessage: PropTypes.func,
-	addExistingMessages: PropTypes.func
-};
 
 export const mapStateToProps = state => ({
 	messages: state.messages,

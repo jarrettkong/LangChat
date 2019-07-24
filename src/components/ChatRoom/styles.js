@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export const styles = StyleSheet.create({
+export default StyleSheet.create({
 	ChatRoom: {
 		alignContent: 'flex-end',
 		flex: 1
@@ -27,5 +27,16 @@ export const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		justifyContent: 'center',
 		alignContent: 'center'
+	},
+	stopCorrectingButton: {
+		backgroundColor: 'red',
+		borderRadius: 100,
+		height: 35,
+		width: 35,
+		justifyContent: 'center',
+		position: 'absolute',
+		bottom: 50,
+		left: 5,
+		alignItems: 'center'
 	}
 });
