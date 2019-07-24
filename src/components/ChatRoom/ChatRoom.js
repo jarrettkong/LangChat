@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { addMessage, addExistingMessages } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/NavDrawer';
+import styles from './styles';
 
 export class ChatRoom extends Component {
 	constructor(props) {
@@ -43,12 +44,12 @@ export class ChatRoom extends Component {
 		this.props.addExistingMessages(messages);
 	};
 
-	setReferencedMessage = id => {
-		this.setState({ referencedMessage: id });
+	setReferencedMessage = (id, message) => {
+		this.setState({ referencedMessage: id, message });
 	};
 
 	clearReferencedMessage = () => {
-		this.setState({ referencedMessage: null });
+		this.setState({ referencedMessage: null, message: '' });
 	};
 
 	connect = () => {
@@ -92,13 +93,13 @@ export class ChatRoom extends Component {
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" enabled>
 				<NavDrawer>
 					{this.state.loading ? (
-						<Text>Loading...</Text>
+						<Text>Connecting...</Text>
 					) : (
 						<React.Fragment>
 							<MessageView messages={messages} setReferencedMessage={this.setReferencedMessage} />
 							{this.state.referencedMessage && (
-								<TouchableHighlight onPress={this.clearReferencedMessage}>
-									<Text>Stop Correcting</Text>
+								<TouchableHighlight onPress={this.clearReferencedMessage} style={styles.stopCorrectingButton}>
+									<Ionicons name="ios-close" size={35} color="#ffffff" />
 								</TouchableHighlight>
 							)}
 							<View style={styles.inputContainer}>
@@ -113,7 +114,7 @@ export class ChatRoom extends Component {
 									onPress={this.sendMessage}
 									disabled={!this.state.message.length}
 								>
-									<Ionicons name="ios-send" size={35} color="#000" />
+									<Ionicons name="ios-send" size={35} color="#323232" />
 								</TouchableWithoutFeedback>
 							</View>
 						</React.Fragment>
@@ -123,36 +124,6 @@ export class ChatRoom extends Component {
 		);
 	}
 }
-
-const styles = StyleSheet.create({
-	ChatRoom: {
-		alignContent: 'flex-end',
-		flex: 1
-	},
-	inputContainer: {
-		borderTopWidth: 1,
-		borderTopColor: '#f3f3f3',
-		justifyContent: 'space-between',
-		height: 45,
-		flexDirection: 'row',
-		alignContent: 'flex-start'
-	},
-	messageInput: {
-		alignContent: 'center',
-		borderColor: 'blue',
-		flex: 1,
-		backgroundColor: '#fff',
-		paddingLeft: 15,
-		fontSize: 16
-	},
-	sendButton: {
-		width: 45,
-		height: 45,
-		backgroundColor: '#fff',
-		justifyContent: 'center',
-		alignContent: 'center'
-	}
-});
 
 export const mapStateToProps = state => ({
 	messages: state.messages,

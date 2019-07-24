@@ -6,11 +6,12 @@ const CorrectedMessage = props => {
 	return (
 		<View>
 			<Text>
-				<Ionicons name="md-close" size={20} />
+				{props.reference.username} said:{'\n'}
+				<Ionicons name="md-close" color="#b30000" size={20} />
 				{props.reference.message}
 			</Text>
 			<Text>
-				<Ionicons name="ios-checkmark" size={20}/>
+				<Ionicons name="ios-checkmark" color="#339933" size={30} />
 				{props.message}
 			</Text>
 		</View>
