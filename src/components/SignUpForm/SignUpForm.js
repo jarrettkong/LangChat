@@ -16,6 +16,8 @@ import {
 	login
 } from '../../actions';
 import PropTypes from 'prop-types';
+import styles from './styles';
+
 export class SignUpForm extends Component {
 	state = {
 		userInfo: true,
@@ -116,7 +118,7 @@ export class SignUpForm extends Component {
 	};
 
 	render () {
-		const { containerStyle, inputContainerStyle, textHeaderStyle, buttonContainerStyle } = styles;
+		const { container, inputContainerStyle, textHeaderStyle } = styles;
 		const {
 			email,
 			password,
@@ -130,12 +132,12 @@ export class SignUpForm extends Component {
 			createUserName
 		} = this.props;
 		return (
-			<View style={containerStyle}>
+			<View style={container}>
 				<EvilIcons
 					name="close"
 					size={40}
 					onPress={() => Actions.splashPage()}
-					style={{ width: '13%', alignSelf: 'flex-end' }}
+					style={{ width: '13%', alignSelf: 'flex-end', color: 'white' }}
 				/>
 				<Text style={textHeaderStyle}>Sign Up</Text>
 				{this.state.userInfo && (
@@ -198,50 +200,11 @@ export class SignUpForm extends Component {
 						{this.validatePassword() && <Text>Passwords do not match</Text>}
 					</React.Fragment>
 				)}
-				<View style={buttonContainerStyle}>{this.buttonToRender()}</View>
+				{this.buttonToRender()}
 			</View>
 		);
 	}
 }
-
-const styles = {
-	inputContainerStyle: {
-		borderBottomWidth: 1,
-		padding: 5,
-		marginRight: 10,
-		marginLeft: 10,
-		backgroundColor: '#fff',
-		justifyContent: 'flex-start',
-		flexDirection: 'row',
-		borderColor: '#ddd',
-		position: 'relative'
-	},
-	containerStyle: {
-		borderWidth: 1,
-		borderRadius: 2,
-		borderColor: '#ddd',
-		borderBottomWidth: 0,
-		shadowColor: '#000',
-		shadowOffset: { width: 0, height: 2 },
-		shadowOpacity: 0.1,
-		shadowRadius: 2,
-		elevation: 1,
-		marginLeft: 5,
-		marginRight: 5,
-		paddingTop: 50
-	},
-	textHeaderStyle: {
-		fontSize: 30,
-		fontWeight: '600',
-		paddingTop: 30,
-		paddingBottom: 40,
-		paddingLeft: 10
-	},
-	buttonContainerStyle: {
-		// marginTop: 80
-	}
-};
-
 SignUpForm.propTypes = {
 	createFirstName: PropTypes.func.isRequired,
 	createLastName: PropTypes.func.isRequired,
