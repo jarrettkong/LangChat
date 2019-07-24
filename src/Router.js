@@ -16,7 +16,7 @@ const RouterComponent = () => {
 		<React.Fragment>
 			<StatusBar barStyle="dark-content" />
 			<Router>
-				<Scene key="root">
+				<Scene key="root" panHandlers={null}>
 					<Scene key="splashPage" initial component={SplashPage} hideNavBar={true} />
 					<Scene key="loginForm" component={LoginForm} hideNavBar={true} />
 					<Scene key="signUpForm" component={SignUpForm} hideNavBar={true} />

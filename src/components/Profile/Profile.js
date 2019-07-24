@@ -49,32 +49,42 @@ export class Profile extends React.Component {
 	render () {
 		const { country_of_origin, email, first_name, is_active, last_name, username, password } = this.props.user;
 		// todo change this.state to props after login is saving in redux store
+
 		return (
 			<View style={styles.container}>
 				<NavDrawer>
+					<View style={styles.profileContainer}>
+						<Image
+							style={styles.imageStyle}
+							source={{
+								uri: 'https://profiles.utdallas.edu/img/default.png'
+							}}
+						/>
+					</View>
+
 					<View style={styles.mainInfoContainer}>
 						<View style={styles.infoContainer}>
-							<Text style={styles.label}>username</Text>
-							<Text style={styles.inputContainerStyle}>{username}</Text>
-						</View>
-
-						<View style={styles.infoContainer}>
-							<Text style={styles.label}>name</Text>
-
 							<Text style={styles.inputContainerStyle}>
+								<Text style={styles.label}>Username:   </Text>
+								{username}
+							</Text>
+						</View>
+						<View style={styles.infoContainer}>
+							<Text style={styles.inputContainerStyle}>
+								<Text style={styles.label}>Name:   </Text>
 								{first_name} {last_name}
 							</Text>
 						</View>
 						<View style={styles.infoContainer}>
-							<Text style={styles.label}>email</Text>
-							<Text style={styles.inputContainerStyle}>{email}</Text>
+							<Text style={styles.inputContainerStyle}>
+								<Text style={styles.label}>Email:   </Text> {email}
+							</Text>
 						</View>
-						<View style={styles.infoContainer}>
-							<Text style={styles.label}>active</Text>
+						{/* <View style={styles.switchContainer}>
+							<Text style={styles.label}>Active: </Text>
 							<Switch style={styles.switch} onValueChange={this.handleActivityPress} value={this.state.active} />
-						</View>
+						</View> */}
 					</View>
-
 					<Button style={styles.buttonStyling} onPress={this.logout}>
 						Sign out
 					</Button>

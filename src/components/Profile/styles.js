@@ -1,39 +1,53 @@
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	container: {
 		marginTop: 20,
-		flex: 1
+		flex: 1.0
 	},
-	buttonStyling: {},
+	profileContainer: {
+		flexDirection: 'row',
+		paddingTop: 40,
+		justifyContent: 'center'
+	},
+	imageStyle: {
+		marginRight: 20,
+		height: 100,
+		width: 100,
+		borderRadius: 50,
+		borderWidth: 2,
+		borderColor: '#323232'
+	},
 	inputContainerStyle: {
 		marginTop: 5,
-		borderBottomWidth: 1,
-		padding: 10,
-		backgroundColor: 'white',
 		flexDirection: 'row',
-		borderColor: '#ddd',
-		position: 'relative',
-		backgroundColor: '#D4E0F7',
-		borderColor: '#007aff',
-		borderWidth: 0.2
+    fontSize: 16,
+    marginRight: 10
 	},
 	infoContainer: {
-		flex: 1,
-		color: '#ffffff',
-		marginTop: 15
+		flexDirection: 'row',
+		marginTop: 15,
+		padding: 10,
+		borderBottomColor: '#323232',
+		borderBottomWidth: 1
 	},
 	mainInfoContainer: {
 		marginTop: 10,
 		flex: 0.5,
+		marginBottom: 100,
+		padding: 30,
+		justifyContent: 'center'
 	},
 	label: {
-		marginRight: 20,
-		color: '#007aff',
-		fontSize: 14,
-		fontWeight: 'bold'
+		color: '#323232',
+		fontSize: 18,
+		fontWeight: 'bold',
+		margin: 10
 	},
 	switch: {
+		marginTop: 10
+	},
+	switchContainer: {
 		marginTop: 10
 	}
 });

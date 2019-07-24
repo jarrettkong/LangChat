@@ -6,8 +6,7 @@ export const styles = {
 		backgroundColor: '#3B5998'
 	},
 	safeAreaStyle: {
-		flex: 1.0,
-		backgroundColor: 'white'
+		flex: 1.0
 	},
 	headerContainer: {
 		position: 'relative',
@@ -15,9 +14,8 @@ export const styles = {
 		height: 44,
 		flexDirection: 'row',
 		justifyContent: 'center',
-		backgroundColor: '#fff',
-		borderBottomColor: '#3B5998',
-		borderBottomWidth: 1.2
+		borderBottomColor: '#323232',
+		borderBottomWidth: 1.6
 	},
 	headerTitle: {
 		flex: 1.0,
@@ -34,7 +32,7 @@ export const styles = {
 	},
 	menuContainer: {
 		flex: 1.0,
-		backgroundColor: '#3B5998'
+		backgroundColor: '#323232'
 	},
 	menuTitleContainer: {
 		height: 60,
@@ -56,8 +54,7 @@ export const styles = {
 
 export const drawerStyles = {
 	drawer: {
-		flex: 1.0,
-		backgroundColor: '#3B5998'
+		flex: 1.0
 	},
 	main: {
 		flex: 1.0,
