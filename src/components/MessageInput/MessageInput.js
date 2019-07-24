@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import Button from "../common/Button";
-import Input from "../common/Input";
-
+import Button from '../common/Button';
+import Input from '../common/Input';
+import { styles } from './styles';
 class MessageInput extends Component {
 	state = {
 		message: ''
@@ -26,13 +26,6 @@ class MessageInput extends Component {
 	}
 }
 
-const styles = StyleSheet.create({
-	MessageInput: {
-		bottom: 0,
-		left: 0,
-		right: 0,
-		position: 'absolute'
-	}
-});
+
 
 export default MessageInput;
