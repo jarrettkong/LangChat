@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Picker } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import Button from "../common/Button";
-import Input from "../common/Input";
+import Button from '../common/Button';
+import Input from '../common/Input';
 import { MaterialCommunityIcons, AntDesign, EvilIcons, Feather } from '@expo/vector-icons';
 import Data from '../../Helper/data';
 import { connect } from 'react-redux';
@@ -15,7 +15,7 @@ import {
 	createCountry,
 	login
 } from '../../actions';
-
+import PropTypes from 'prop-types';
 export class SignUpForm extends Component {
 	state = {
 		userInfo: true,
@@ -131,7 +131,12 @@ export class SignUpForm extends Component {
 		} = this.props;
 		return (
 			<View style={containerStyle}>
-				<EvilIcons name="close" size={40} onPress={() => Actions.splashPage()} style={{ width: '13%', alignSelf: 'flex-end' }} />
+				<EvilIcons
+					name="close"
+					size={40}
+					onPress={() => Actions.splashPage()}
+					style={{ width: '13%', alignSelf: 'flex-end' }}
+				/>
 				<Text style={textHeaderStyle}>Sign Up</Text>
 				{this.state.userInfo && (
 					<React.Fragment>
@@ -209,7 +214,7 @@ const styles = {
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
 		borderColor: '#ddd',
-		position: 'relative',
+		position: 'relative'
 	},
 	containerStyle: {
 		borderWidth: 1,
@@ -235,6 +240,16 @@ const styles = {
 	buttonContainerStyle: {
 		// marginTop: 80
 	}
+};
+
+SignUpForm.propTypes = {
+	createFirstName: PropTypes.func.isRequired,
+	createLastName: PropTypes.func.isRequired,
+	createEmail: PropTypes.func.isRequired,
+	createPassword: PropTypes.func.isRequired,
+	createUserName: PropTypes.func.isRequired,
+	createCountry: PropTypes.func.isRequired,
+	login: PropTypes.func.isRequired
 };
 
 export const mapStateToProps = state => ({
