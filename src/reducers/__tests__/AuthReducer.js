@@ -21,4 +21,11 @@ describe("AuthReducer", () => {
 
     expect(result).toEqual(expected);
   });
+
+  it("should return state with an array of password and username which are empty", () => {
+    const expected = {"password": "", "username": ""};
+    const result = AuthReducer(undefined, actions.logout(false));
+
+    expect(result).toEqual(expected);
+  });
 });
