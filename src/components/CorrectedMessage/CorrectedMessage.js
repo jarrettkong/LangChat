@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 const CorrectedMessage = props => {
@@ -20,5 +21,11 @@ const CorrectedMessage = props => {
 		</View>
 	);
 };
+
+CorrectedMessage.propTypes = {
+	reference: PropTypes.object.isRequired,
+	message: PropTypes.string.isRequired
+}
+
 
 export default CorrectedMessage;

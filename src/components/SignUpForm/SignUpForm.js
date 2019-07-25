@@ -15,6 +15,7 @@ import {
 	createCountry,
 	login
 } from '../../actions';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 export class SignUpForm extends Component {
@@ -32,8 +33,7 @@ export class SignUpForm extends Component {
 			return (
 				<Button
 					disabled={!firstName || !lastName || !userName}
-					onPress={() => this.setState({ userInfo: false, userCountry: true })}
-				>
+					onPress={() => this.setState({ userInfo: false, userCountry: true })}>
 					Next
 				</Button>
 			);
@@ -59,8 +59,7 @@ export class SignUpForm extends Component {
 				}}
 				itemStyle={{ fontSize: 25 }}
 				selectedValue={country}
-				onValueChange={itemValue => createCountry(itemValue)}
-			>
+				onValueChange={itemValue => createCountry(itemValue)}>
 				{countries.map(country => {
 					return <Picker.Item key={country} label={country} value={country} />;
 				})}
@@ -118,7 +117,7 @@ export class SignUpForm extends Component {
 		return this.state.confirmation !== this.props.password;
 	};
 
-	render() {
+	render () {
 		const { container, inputContainerStyle, textHeaderStyle } = styles;
 		const {
 			email,
@@ -206,6 +205,15 @@ export class SignUpForm extends Component {
 		);
 	}
 }
+SignUpForm.propTypes = {
+	createFirstName: PropTypes.func.isRequired,
+	createLastName: PropTypes.func.isRequired,
+	createEmail: PropTypes.func.isRequired,
+	createPassword: PropTypes.func.isRequired,
+	createUserName: PropTypes.func.isRequired,
+	createCountry: PropTypes.func.isRequired,
+	login: PropTypes.func.isRequired
+};
 
 export const mapStateToProps = state => ({
 	email: state.register.email,
