@@ -26,8 +26,7 @@ export class SignUpForm extends Component {
 		userCountry: false,
 		userCredentials: false,
 		confirmation: '',
-		loading: false,
-		matchingPassword: false
+		loading: false
 	};
 
 	buttonToRender = () => {
