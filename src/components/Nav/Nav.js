@@ -4,12 +4,12 @@ import { Actions } from 'react-native-router-flux';
 import { FontAwesome } from '@expo/vector-icons';
 import { styles } from './styles';
 
-class Nav extends Component {
+export class Nav extends Component {
 	render () {
 		return (
 			<View style={styles.container}>
 				<View style={styles.profileContainer}>
-					<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.profile()}>
+					<TouchableHighlight underlayColor="#4765A9" onPress={() => Actions.profile()} data-test='profile-btn'>
 						<FontAwesome style={styles.profileButton} name="user" size={40} />
 					</TouchableHighlight>
 				</View>

@@ -48,6 +48,7 @@
       "!src/components/TextMessage/styles.js",
       "!src/components/MessageView/MessageView.js",
       "!src/components/MessageInput/MessageInput.js",
+      "!src/components/Nav/Nav.js",
       "!src/components/MessageView/styles.js",
       "!src/components/MessageInput/styles.js",
       "!src/Router.js",

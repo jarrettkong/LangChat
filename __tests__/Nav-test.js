@@ -1,12 +1,21 @@
 // __tests__/Nav-test.js
 import React from 'react';
-import Nav from '../src/components/Nav/Nav';
+import { Nav, mapStateToProps, mapDispatchToProps } from '../src/components/Nav/Nav';
+import * as actions from '../src/actions/index';
+import { BackHandler } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { shallow } from 'enzyme';
+import routes from '../src/Router';
 
-import renderer from 'react-test-renderer';
+describe('Nav', () => {
+	let wrapper, instance;
 
-describe('Nav Component', () => {
-	it('should match snapshot', () => {
-		const tree = renderer.create(<Nav />).toJSON();
-		expect(tree).toMatchSnapshot();
+	beforeEach(() => {
+		wrapper = shallow(<Nav />);
+		instance = wrapper.instance();
+	});
+
+	it(`matches snapshot`, () => {
+		expect(wrapper).toMatchSnapshot();
 	});
 });
