@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1564040252322" clover="3.2.0">
-  <project timestamp="1564040252322" name="All files">
-    <metrics statements="305" coveredstatements="268" conditionals="77" coveredconditionals="72" methods="134" coveredmethods="104" elements="516" coveredelements="444" complexity="0" loc="305" ncloc="305" packages="19" files="42" classes="42"/>
-    <package name="assets">
-      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="group_learning.jpg" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/assets/group_learning.jpg">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-      </file>
-      <file name="learn_with_others.jpg" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/assets/learn_with_others.jpg">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-      </file>
-      <file name="talking.jpg" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/assets/talking.jpg">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.Helper">
+<coverage generated="1564040959547" clover="3.2.0">
+  <project timestamp="1564040959547" name="All files">
+    <metrics statements="300" coveredstatements="267" conditionals="77" coveredconditionals="73" methods="132" coveredmethods="106" elements="509" coveredelements="446" complexity="0" loc="300" ncloc="300" packages="18" files="34" classes="34"/>
+    <package name="Helper">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="data.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/Helper/data.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -25,26 +10,26 @@
         <line num="243" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.actions">
+    <package name="actions">
       <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="13"/>
       <file name="index.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/actions/index.js">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="13"/>
-        <line num="1" count="16" type="stmt"/>
-        <line num="6" count="16" type="stmt"/>
-        <line num="11" count="16" type="stmt"/>
-        <line num="16" count="16" type="stmt"/>
-        <line num="21" count="16" type="stmt"/>
-        <line num="26" count="16" type="stmt"/>
-        <line num="31" count="16" type="stmt"/>
-        <line num="36" count="16" type="stmt"/>
-        <line num="41" count="16" type="stmt"/>
-        <line num="46" count="16" type="stmt"/>
-        <line num="51" count="16" type="stmt"/>
-        <line num="56" count="16" type="stmt"/>
-        <line num="60" count="16" type="stmt"/>
+        <line num="1" count="17" type="stmt"/>
+        <line num="6" count="17" type="stmt"/>
+        <line num="11" count="17" type="stmt"/>
+        <line num="16" count="17" type="stmt"/>
+        <line num="21" count="17" type="stmt"/>
+        <line num="26" count="17" type="stmt"/>
+        <line num="31" count="17" type="stmt"/>
+        <line num="36" count="17" type="stmt"/>
+        <line num="41" count="17" type="stmt"/>
+        <line num="46" count="17" type="stmt"/>
+        <line num="51" count="17" type="stmt"/>
+        <line num="56" count="17" type="stmt"/>
+        <line num="60" count="17" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.ChatRoom">
+    <package name="components.ChatRoom">
       <metrics statements="46" coveredstatements="38" conditionals="6" coveredconditionals="6" methods="23" coveredmethods="18"/>
       <file name="ChatRoom.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/ChatRoom/ChatRoom.js">
         <metrics statements="46" coveredstatements="38" conditionals="6" coveredconditionals="6" methods="23" coveredmethods="18"/>
@@ -95,11 +80,8 @@
         <line num="146" count="1" type="stmt"/>
         <line num="147" count="1" type="stmt"/>
       </file>
-      <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/ChatRoom/styles.js">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
     </package>
-    <package name="src.components.CorrectedMessage">
+    <package name="components.CorrectedMessage">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="CorrectedMessage.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/CorrectedMessage/CorrectedMessage.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -112,7 +94,7 @@
         <line num="3" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.ErrorPage">
+    <package name="components.ErrorPage">
       <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="ErrorPage.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/ErrorPage/ErrorPage.js">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -121,7 +103,20 @@
         <line num="10" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.LoginForm">
+    <package name="components.Home">
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <file name="Home.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Home/Home.js">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+      </file>
+      <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Home/styles.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.LoginForm">
       <metrics statements="37" coveredstatements="32" conditionals="5" coveredconditionals="5" methods="14" coveredmethods="12"/>
       <file name="LoginForm.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/LoginForm/LoginForm.js">
         <metrics statements="37" coveredstatements="32" conditionals="5" coveredconditionals="5" methods="14" coveredmethods="12"/>
@@ -163,11 +158,8 @@
         <line num="113" count="1" type="stmt"/>
         <line num="114" count="1" type="stmt"/>
       </file>
-      <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/LoginForm/styles.js">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
     </package>
-    <package name="src.components.Message">
+    <package name="components.Message">
       <metrics statements="11" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <file name="Message.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Message/Message.js">
         <metrics statements="9" coveredstatements="8" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="1"/>
@@ -187,22 +179,7 @@
         <line num="4" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.MessageView">
-      <metrics statements="6" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="MessageView.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/MessageView/MessageView.js">
-        <metrics statements="5" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-      </file>
-      <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/MessageView/styles.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.components.Nav">
+    <package name="components.Nav">
       <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
       <file name="Nav.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Nav/Nav.js">
         <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
@@ -214,14 +191,14 @@
       </file>
       <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Nav/styles.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="5" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.NavDrawer">
+    <package name="components.NavDrawer">
       <metrics statements="28" coveredstatements="23" conditionals="6" coveredconditionals="6" methods="13" coveredmethods="7"/>
       <file name="NavDrawer.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/NavDrawer/NavDrawer.js">
         <metrics statements="26" coveredstatements="21" conditionals="6" coveredconditionals="6" methods="13" coveredmethods="7"/>
-        <line num="12" count="4" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
         <line num="15" count="6" type="stmt"/>
         <line num="20" count="7" type="stmt"/>
         <line num="27" count="6" type="stmt"/>
@@ -242,19 +219,19 @@
         <line num="65" count="0" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
         <line num="88" count="0" type="stmt"/>
-        <line num="104" count="4" type="stmt"/>
-        <line num="112" count="4" type="stmt"/>
-        <line num="119" count="4" type="stmt"/>
+        <line num="104" count="5" type="stmt"/>
+        <line num="112" count="5" type="stmt"/>
+        <line num="119" count="5" type="stmt"/>
         <line num="120" count="1" type="stmt"/>
         <line num="121" count="1" type="stmt"/>
       </file>
       <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/NavDrawer/styles.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="61" count="4" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="61" count="5" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Profile">
+    <package name="components.Profile">
       <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="9"/>
       <file name="Profile.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Profile/Profile.js">
         <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="9"/>
@@ -284,7 +261,7 @@
         <line num="3" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.SignUpForm">
+    <package name="components.SignUpForm">
       <metrics statements="59" coveredstatements="54" conditionals="18" coveredconditionals="17" methods="28" coveredmethods="26"/>
       <file name="SignUpForm.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/SignUpForm/SignUpForm.js">
         <metrics statements="59" coveredstatements="54" conditionals="18" coveredconditionals="17" methods="28" coveredmethods="26"/>
@@ -348,11 +325,8 @@
         <line num="251" count="1" type="stmt"/>
         <line num="252" count="1" type="stmt"/>
       </file>
-      <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/SignUpForm/styles.js">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
     </package>
-    <package name="src.components.SplashPage">
+    <package name="components.SplashPage">
       <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
       <file name="SplashPage.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/SplashPage/SplashPage.js">
         <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
@@ -361,11 +335,8 @@
         <line num="31" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
       </file>
-      <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/SplashPage/styles.js">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
     </package>
-    <package name="src.components.TextMessage">
+    <package name="components.TextMessage">
       <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="TextMessage.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/TextMessage/TextMessage.js">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -373,11 +344,8 @@
         <line num="7" count="0" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
       </file>
-      <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/TextMessage/styles.js">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
     </package>
-    <package name="src.components.Tutorial">
+    <package name="components.Tutorial">
       <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="Tutorial.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Tutorial/Tutorial.js">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -386,30 +354,30 @@
       </file>
       <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Tutorial/styles.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Welcome">
+    <package name="components.Welcome">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="Welcome.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Welcome/Welcome.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
       </file>
       <file name="styles.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/Welcome/styles.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.common">
+    <package name="components.common">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="Button.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/common/Button.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="7" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="13" count="7" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
       </file>
       <file name="Input.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/components/common/Input.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -419,7 +387,7 @@
         <line num="22" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="src.reducers">
+    <package name="reducers">
       <metrics statements="44" coveredstatements="44" conditionals="36" coveredconditionals="36" methods="9" coveredmethods="9"/>
       <file name="AuthReducer.js" path="/Users/matthewkaplan/Dropbox/cross-poll/LangChat/src/reducers/AuthReducer.js">
         <metrics statements="6" coveredstatements="6" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
