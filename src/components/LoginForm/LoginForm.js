@@ -99,8 +99,7 @@ LoginForm.propTypes = {
 	password: PropTypes.string.isRequired,
 	changePassword: PropTypes.func.isRequired,
 	changeUsername: PropTypes.func.isRequired,
-	login: PropTypes.func.isRequired,
-	currentUser: PropTypes.func.isRequired
+	login: PropTypes.func.isRequired
 };
 export const mapStateToProps = state => ({
 	username: state.auth.username,
