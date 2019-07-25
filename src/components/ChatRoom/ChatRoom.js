@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { addMessage, addExistingMessages } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/NavDrawer';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 export class ChatRoom extends Component {
@@ -23,7 +24,6 @@ export class ChatRoom extends Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props)
 		console.log('mounting...');
 		this.setState({ loading: true }, async () => {
 			this.connect();

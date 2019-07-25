@@ -21,11 +21,12 @@ export default class SplashPage extends Component {
 					style={imageStyle}
 					source={{
 						uri:
-							'https://images.unsplash.com/photo-1548716188-9b0867f0d1c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
+							'https://media.istockphoto.com/photos/speech-bubbles-colorful-communication-thoughts-talking-concept-picture-id486478366?k=6&m=486478366&s=612x612&w=0&h=zWcVmwbInjN9CXgDfG_ldOjgiKr5JAVvu6oyNagbLjs='
 					}}
+					resizeMode="contain"
 				/>
 				<View style={flexContainer}>
-					<Text style={textStyle}>LangChat</Text>
+					<Text style={{ ...textStyle, height: 150 }}>LangChat</Text>
 					<View style={{ width: '100%' }}>
 						<Button onPress={() => Actions.signUpForm()}>Sign Up</Button>
 						<View style={logInContainerStyle}>

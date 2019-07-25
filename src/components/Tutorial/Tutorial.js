@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import Swiper from 'react-native-web-swiper';
 import { Actions } from 'react-native-router-flux';
+import { styles } from './styles';
+import  Button from '../common/Button'
+
 export default class Tutorial extends React.Component {
 	render () {
 		return (
@@ -20,41 +23,10 @@ export default class Tutorial extends React.Component {
 						<Text>Slide 3</Text>
 					</View>
 					<View style={[ styles.slideContainer, styles.slide4 ]}>
-						<Button title="Go home" onPress={() => Actions.welcome()} />
+						<Button onPress={() => Actions.welcome()}>Start chatting!</Button>
 					</View>
 				</Swiper>
 			</View>
 		);
 	}
 }
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'space-around'
-	},
-	slideContainer: {
-		flex: 1,
-		alignItems: 'center',
-	
-		height: '100%',
-		width: '100%',
-		zIndex: 1
-	},
-	slide1: {
-		backgroundColor: 'rgba(20,20,200,0.3)'
-	},
-	slide2: {
-		backgroundColor: 'rgba(20,200,20,0.3)'
-	},
-	slide3: {
-		backgroundColor: 'rgba(200,20,20,0.3)'
-	},
-	slide4: {
-		marginTop: 100
-	},
-	imageStyle: {
-		height: '70%',
-		width: '100%',
-		opacity: 0.8
-	}
-});

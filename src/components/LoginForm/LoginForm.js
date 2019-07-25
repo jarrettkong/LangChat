@@ -5,7 +5,8 @@ import Input from '../common/Input';
 import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
-import { changeUsername, changePassword, login } from '../../actions/index';
+import { changeUsername, changePassword, login, currentUser } from '../../actions/index';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 export class LoginForm extends Component {
@@ -91,6 +92,14 @@ export class LoginForm extends Component {
 	}
 }
 
+LoginForm.propTypes = {
+	username: PropTypes.string.isRequired,
+	password: PropTypes.string.isRequired,
+	changePassword: PropTypes.func.isRequired,
+	changeUsername: PropTypes.func.isRequired,
+	login: PropTypes.func.isRequired,
+	currentUser: PropTypes.func.isRequired
+};
 export const mapStateToProps = state => ({
 	username: state.auth.username,
 	password: state.auth.password,

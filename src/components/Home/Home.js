@@ -3,8 +3,8 @@ import { Text, View, StyleSheet } from 'react-native';
 import Welcome from '../Welcome/Welcome';
 import Tutorial from '../Tutorial/Tutorial';
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
-
+import PropTypes from 'prop-types';
+import { styles } from './styles'
 class Home extends Component {
 	render () {
 		return (
@@ -14,13 +14,12 @@ class Home extends Component {
 		);
 	}
 }
-const styles = StyleSheet.create({
-	container: {
-		flex: 1.0,
-		position: 'relative',
-		backgroundColor: 'white'
-	}
-});
+
+Home.propTypes = {
+	user: PropTypes.object.isRequired
+}
+
+
 
 export const mapStateToProps = state => ({
 	user: state.user
