@@ -5,6 +5,7 @@ import registerReducer from './RegisterReducer';
 import userReducer from './userReducer';
 import tokenReducer from './tokenReducer';
 import cookieReducer from './cookieReducer';
+import handleErrorReducer from './handleErrorReducer';
 
 export default combineReducers({
 	auth: authReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
 	register: registerReducer,
 	user: userReducer,
 	token: tokenReducer,
-	cookie: cookieReducer
+	cookie: cookieReducer,
+	errorMessage: handleErrorReducer
 });
