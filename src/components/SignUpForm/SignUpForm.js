@@ -13,7 +13,8 @@ import {
 	createLastName,
 	createUserName,
 	createCountry,
-	login
+	login,
+	handleError
 } from '../../actions';
 import PropTypes from 'prop-types';
 import styles from './styles';
@@ -99,7 +100,7 @@ export class SignUpForm extends Component {
 			this.login(user);
 			// Actions.loginForm();
 		} catch (error) {
-			this.setState({ error: 'Unable to register new user.' });
+			this.props.handleError(error.message)
 		}
 	};
 
@@ -118,7 +119,7 @@ export class SignUpForm extends Component {
 			this.props.login(user, csrftoken); // redux
 			Actions.tutorial();
 		} catch (error) {
-			console.log(error.message);
+			this.props.handleError(error.message)
 		}
 	};
 
@@ -247,7 +248,8 @@ export const mapDispatchToProps = dispatch => ({
 	createPassword: password => dispatch(createPassword(password)),
 	createUserName: userName => dispatch(createUserName(userName)),
 	createCountry: country => dispatch(createCountry(country)),
-	login: (user, cookie) => dispatch(login(user, cookie))
+	login: (user, cookie) => dispatch(login(user, cookie)),
+	handleError: errorMessage => dispatch(handleError(errorMessage))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);

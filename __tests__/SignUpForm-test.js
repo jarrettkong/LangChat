@@ -10,6 +10,7 @@ const mockCreateUserName = jest.fn();
 const mockCreateCountry = jest.fn();
 const mockCreateEmail = jest.fn();
 const mockCreatePassword = jest.fn();
+const mockHandleError = jest.fn();
 
 const mockUser = {
 	country_of_origin: 'United States',
@@ -35,6 +36,7 @@ describe('SignUpForm', () => {
 				createCountry={mockCreateCountry}
 				createEmail={mockCreateEmail}
 				createPassword={mockCreatePassword}
+				handleError={mockHandleError}
 			/>
 		);
 		instance = wrapper.instance();
@@ -147,6 +149,12 @@ describe('SignUpForm', () => {
 			instance.login(mockUser);
 			expect(fetch).toHaveBeenCalledWith(mockUrl, mockBody);
 		});
+
+		it('should throw an error if the response is not ok and save that error to redux store', async () => {
+			window.fetch.mockImplementationOnce(() => Promise.reject(new Error('Fetch failed')));
+			await instance.login(mockUser);
+			expect(mockHandleError).toHaveBeenCalledWith('Fetch failed');
+		});
 	});
 
 	describe('register', () => {
@@ -161,6 +169,12 @@ describe('SignUpForm', () => {
 			const mockFn = jest.spyOn(instance, 'login');
 			await instance.register();
 			expect(mockFn).toHaveBeenCalledWith(1);
+		});
+
+		it('should throw an error if the response is not ok and save that error to redux store', async () => {
+			window.fetch.mockImplementationOnce(() => Promise.reject(new Error('Fetch failed')));
+			await instance.register();
+			expect(mockHandleError).toHaveBeenCalledWith('Fetch failed');
 		});
 	});
 });
@@ -243,6 +257,14 @@ describe('mapDispatchToProps', () => {
 		const actionToDispatch = actions.login('mockUser');
 		const mappedProps = mapDispatchToProps(mockDispatch);
 		mappedProps.login('mockUser');
+		expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+	});
+
+	it('should call dispatch for handleError', () => {
+		const mockDispatch = jest.fn();
+		const actionToDispatch = actions.handleError('mock error message');
+		const mappedProps = mapDispatchToProps(mockDispatch);
+		mappedProps.handleError('mock error message');
 		expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
 	});
 });

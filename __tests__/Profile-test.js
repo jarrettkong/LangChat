@@ -16,11 +16,13 @@ const mockUser = {
 	username: 'Mkaplan'
 };
 
+const mockHandleError = jest.fn();
+
 describe('Profile', () => {
 	let wrapper, instance;
 
 	beforeEach(() => {
-		wrapper = shallow(<Profile user={mockUser} />);
+		wrapper = shallow(<Profile user={mockUser} handleError={mockHandleError} />);
 		instance = wrapper.instance();
 
 		window.fetch = jest.fn().mockImplementation(() =>
@@ -83,5 +85,21 @@ describe('Profile', () => {
 			wrapper.find("[data-test='logout-btn']").simulate('press');
 			expect(mockFn).toHaveBeenCalled();
 		});
+
+		it('should throw an error if the response is not ok and save that error to redux store', async () => {
+			window.fetch.mockImplementationOnce(() => Promise.reject(new Error('Fetch failed')));
+			await instance.logout();
+			expect(mockHandleError).toHaveBeenCalledWith('Fetch failed');
+		});
+	});
+});
+
+describe('mapDispatchToProps', () => {
+	it('should call dispatch for handleError', () => {
+		const mockDispatch = jest.fn();
+		const actionToDispatch = actions.handleError('mock error message');
+		const mappedProps = mapDispatchToProps(mockDispatch);
+		mappedProps.handleError('mock error message');
+		expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
 	});
 });
