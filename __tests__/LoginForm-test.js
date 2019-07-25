@@ -98,9 +98,9 @@ describe('LoginForm', () => {
 		});
 
 		it('should throw an error if the response is not ok and save that error to redux store', async () => {
-			window.fetch.mockImplementationOnce(() => Promise.reject(new Error('Fetch failed')));
+			window.fetch.mockImplementationOnce(() => Promise.reject(new Error()));
 			await instance.login();
-			expect(mockHandleError).toHaveBeenCalledWith('Fetch failed');
+			expect(mockHandleError).toHaveBeenCalledWith("Your username or password is invalid. Please try again.");
 		});
 
 		it("should set the state of 'loading' back to false", async () => {

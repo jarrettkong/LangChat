@@ -151,9 +151,11 @@ describe('SignUpForm', () => {
 		});
 
 		it('should throw an error if the response is not ok and save that error to redux store', async () => {
-			window.fetch.mockImplementationOnce(() => Promise.reject(new Error('Fetch failed')));
+			window.fetch.mockImplementationOnce(() => Promise.reject(new Error()));
 			await instance.login(mockUser);
-			expect(mockHandleError).toHaveBeenCalledWith('Fetch failed');
+			expect(mockHandleError).toHaveBeenCalledWith(
+				'The username undefined already exists. Please choose another username and try again!'
+			);
 		});
 	});
 
