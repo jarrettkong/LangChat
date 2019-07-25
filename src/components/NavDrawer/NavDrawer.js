@@ -67,15 +67,27 @@ export class NavDrawer extends Component {
 						type="static"
 						onOpen={this.toggleDrawer}
 						onClose={this.toggleDrawer}
-						tapToClose={true}
+						tapToClose={true}''
 						openDrawerOffset={0.25}
 						styles={drawerStyles}>
 						<View style={styles.headerContainer}>
 							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
 								{this.state.drawerOpen ? (
-									<AntDesign name="menu-unfold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
+									<AntDesign
+										name="menu-unfold"
+										style={styles.menuIcon}
+										size={25}
+										onPress={() => this.openDrawer()}
+										data-test="close-drawer-btn"
+									/>
 								) : (
-									<AntDesign name="menu-fold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
+									<AntDesign
+										name="menu-fold"
+										style={styles.menuIcon}
+										size={25}
+										onPress={() => this.openDrawer()}
+										data-test="open-drawer-btn"
+									/>
 								)}
 							</TouchableOpacity>
 							<Text style={styles.headerTitle}>LangChat</Text>

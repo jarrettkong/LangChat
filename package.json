@@ -35,7 +35,10 @@
 		"preset": "jest-expo",
 		"transformIgnorePatterns": [
 			"node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
-		]
+		],
+		"setupFiles": [
+      "<rootDir>/setupTests.js"
+    ]
 	},
 	"devDependencies": {
 		"babel-preset-expo": "^5.1.1",
