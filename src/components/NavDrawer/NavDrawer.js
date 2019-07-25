@@ -67,7 +67,7 @@ export class NavDrawer extends Component {
 						type="static"
 						onOpen={this.toggleDrawer}
 						onClose={this.toggleDrawer}
-						tapToClose={true}''
+						tapToClose={true}
 						openDrawerOffset={0.25}
 						styles={drawerStyles}>
 						<View style={styles.headerContainer}>
