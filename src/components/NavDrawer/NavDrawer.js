@@ -7,7 +7,7 @@ import { Actions } from 'react-native-router-flux';
 import { logout, handleError } from '../../actions';
 import PropTypes from 'prop-types';
 import Nav from '../Nav/Nav';
-import { drawerStyles, styles } from './styles';
+import styles, { drawerStyles } from './styles';
 
 console.disableYellowBox = true;
 
@@ -16,7 +16,7 @@ export class NavDrawer extends Component {
 		drawerOpen: false
 	};
 
-	renderDrawer () {
+	renderDrawer() {
 		return (
 			<View style={styles.menuContainer}>
 				<Nav />
@@ -56,7 +56,7 @@ export class NavDrawer extends Component {
 		}
 	};
 
-	render () {
+	render() {
 		return (
 			<SafeAreaView style={styles.safeAreaStyle}>
 				<StatusBar barStyle="dark-content" />
@@ -69,7 +69,8 @@ export class NavDrawer extends Component {
 						onClose={this.toggleDrawer}
 						tapToClose={true}
 						openDrawerOffset={0.25}
-						styles={drawerStyles}>
+						styles={drawerStyles}
+					>
 						<View style={styles.headerContainer}>
 							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer} style={styles.menuIcon}>
 								{this.state.drawerOpen ? (

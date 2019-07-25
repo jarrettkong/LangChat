@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	container: {
-		marginTop: 20,
 		flex: 1.0,
 		backgroundColor: 'white'
 	},
@@ -13,12 +12,12 @@ export const styles = StyleSheet.create({
 		backgroundColor: 'white'
 	},
 	imageStyle: {
-		marginRight: 20,
 		height: 100,
 		width: 100,
 		borderRadius: 50,
 		borderWidth: 2,
-		borderColor: '#323232'
+		borderColor: '#323232',
+		marginBottom: 30
 	},
 	inputContainerStyle: {
 		marginTop: 5,

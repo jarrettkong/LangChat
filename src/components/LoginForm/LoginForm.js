@@ -69,7 +69,7 @@ export class LoginForm extends Component {
 		);
 	};
 
-	render () {
+	render() {
 		const { container, inputContainerStyle, textHeaderStyle, textErrorStyle } = styles;
 		const { username, password } = this.props;
 		const { loading } = this.state;
@@ -117,6 +117,7 @@ LoginForm.propTypes = {
 	changeUsername: PropTypes.func.isRequired,
 	login: PropTypes.func.isRequired
 };
+
 export const mapStateToProps = state => ({
 	username: state.auth.username,
 	password: state.auth.password,

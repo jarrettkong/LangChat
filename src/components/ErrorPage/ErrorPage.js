@@ -5,9 +5,9 @@ import Button from '../common/Button';
 
 export const ErrorPage = () => {
 	return (
-		<View>
+		<View style={{ flex: 1.0, justiftContent: 'center', alignItems: 'center', padding: 70 }}>
 			<Text>Uh oh, something went wrong!</Text>
-			<Button title="Go back home" onPress={() => Actions.home()} />
+			<Button style={{marginTop: 50}} onPress={() => Actions.home()}> Go back home!</Button>
 		</View>
 	);
 };

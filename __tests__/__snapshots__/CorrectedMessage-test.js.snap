@@ -32,6 +32,7 @@ exports[`CorrectedMessage Component should match snapshot 1`] = `
           "alignItems": "center",
           "flexDirection": "row",
           "justifyContent": "flex-start",
+          "width": "95%",
         }
       }
     >
@@ -54,6 +55,10 @@ exports[`CorrectedMessage Component should match snapshot 1`] = `
         "flexDirection": "row",
         "justifyContent": "flex-start",
         "paddingLeft": 10,
+<<<<<<< HEAD
+=======
+        "width": "95%",
+>>>>>>> 6bba9738226438400dee617c6f3d992ce1d88c0d
       }
     }
   >

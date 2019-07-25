@@ -78,7 +78,36 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
+<<<<<<< HEAD
 <a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+=======
+<<<<<<< HEAD
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+=======
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> master
+>>>>>>> 6bba9738226438400dee617c6f3d992ce1d88c0d
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -101,7 +130,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">1x</span>
+=======
+<<<<<<< HEAD
+<span class="cline-any cline-yes">1x</span>
+=======
+>>>>>>> master
+>>>>>>> 6bba9738226438400dee617c6f3d992ce1d88c0d
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,32 +147,88 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Text, View, StyleSheet, Image } from 'react-native';
 import NavDrawer from '../NavDrawer/NavDrawer';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { styles } from './styles';
+=======
+<<<<<<< HEAD
+import { Text, View, StyleSheet, Image } from 'react-native';
+import NavDrawer from '../NavDrawer/NavDrawer';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { styles } from './styles';
+=======
+import { Text, View, StyleSheet } from 'react-native';
+import NavDrawer from '../NavDrawer/NavDrawer';
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+>>>>>>> master
+>>>>>>> 6bba9738226438400dee617c6f3d992ce1d88c0d
 &nbsp;
 export class Welcome extends Component {
 	render () {
 		return (
 			&lt;View style={styles.container}&gt;
 				&lt;NavDrawer&gt;
+<<<<<<< HEAD
 					&lt;Image style={styles.imageStyle} source={require('../../../assets/group_learning.jpg')} /&gt;
 					&lt;Text style={styles.welcomeText}&gt;
 						Welcome back &lt;Text style={styles.offColor}&gt;{this.props.user.username}&lt;/Text&gt;! {'\n'}
 						{'\n'}
 						Join a chatroom to start learning.
+=======
+<<<<<<< HEAD
+					&lt;Image style={styles.imageStyle} source={require('../../../assets/group_learning.jpg')} /&gt;
+					&lt;Text style={styles.welcomeText}&gt;
+						Welcome back &lt;Text style={styles.offColor}&gt;{this.props.user.username}&lt;/Text&gt;! {'\n'}
+						{'\n'}
+						Join a chatroom to start learning.
+=======
+					&lt;Text style={styles.welcomeText}&gt;
+						Welcome back &lt;Text style={styles.offColor}&gt;{this.props.user.username}&lt;/Text&gt;!
+>>>>>>> master
+>>>>>>> 6bba9738226438400dee617c6f3d992ce1d88c0d
 					&lt;/Text&gt;
 				&lt;/NavDrawer&gt;
 			&lt;/View&gt;
 		);
 	}
 }
+<<<<<<< HEAD
 Welcome.propTypes = {
 	user: PropTypes.object.isRequired
 };
 &nbsp;
+=======
+<<<<<<< HEAD
+Welcome.propTypes = {
+	user: PropTypes.object.isRequired
+};
+&nbsp;
+=======
+&nbsp;
+const styles = StyleSheet.create({
+	container: {
+		flex: 1.0
+	},
+	welcomeText: {
+		fontSize: 18,
+		flex: 1.0,
+		alignSelf: 'center',
+		justifyContent: 'center',
+		marginTop: 50
+	},
+	offColor: {
+		color: '#3B5998',
+		fontWeight: 'bold',
+		fontSize: 20
+	}
+});
+>>>>>>> master
+>>>>>>> 6bba9738226438400dee617c6f3d992ce1d88c0d
 export const mapStateToProps = state =&gt; ({
 	user: state.user
 });
@@ -148,7 +240,15 @@ export default connect(mapStateToProps)(Welcome);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
+<<<<<<< HEAD
   generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jul 25 2019 01:42:18 GMT-0600 (Mountain Daylight Time)
+=======
+<<<<<<< HEAD
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 24 2019 23:12:14 GMT-0600 (Mountain Daylight Time)
+=======
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 24 2019 22:34:25 GMT-0600 (Mountain Daylight Time)
+>>>>>>> master
+>>>>>>> 6bba9738226438400dee617c6f3d992ce1d88c0d
 </div>
 </div>
 <script src="../../../prettify.js"></script>
