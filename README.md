@@ -79,6 +79,6 @@ Please make sure to update tests as appropriate.
 
 ---
 
-**[Back to top](https://github.com/MatthewKaplan/Go-Phish#gophish)**
+**[Back to top](https://github.com/jarrettkong/LangChat#langchat)**
 
 ---
