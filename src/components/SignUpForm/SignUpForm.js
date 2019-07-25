@@ -33,16 +33,24 @@ export class SignUpForm extends Component {
 			return (
 				<Button
 					disabled={!firstName || !lastName || !userName}
-					onPress={() => this.setState({ userInfo: false, userCountry: true })}>
+					onPress={() => this.setState({ userInfo: false, userCountry: true })}
+					data-test="user-info-btn">
 					Next
 				</Button>
 			);
 		}
 		if (this.state.userCountry) {
-			return <Button onPress={() => this.setState({ userCountry: false, userCredentials: true })}>Next</Button>;
+			return (
+				<Button onPress={() => this.setState({ userCountry: false, userCredentials: true })} data-test="next-btn">
+					Next
+				</Button>
+			);
 		}
 		return (
-			<Button disabled={(!email || !password) && this.validatePassword()} onPress={this.register}>
+			<Button
+				disabled={(!email || !password) && this.validatePassword()}
+				onPress={() => this.register()}
+				data-test="email-password-submit-btn">
 				Sign Up!
 			</Button>
 		);
@@ -59,7 +67,8 @@ export class SignUpForm extends Component {
 				}}
 				itemStyle={{ fontSize: 25 }}
 				selectedValue={country}
-				onValueChange={itemValue => createCountry(itemValue)}>
+				onValueChange={itemValue => createCountry(itemValue)}
+				data-test="country-picker">
 				{countries.map(country => {
 					return <Picker.Item key={country} label={country} value={country} />;
 				})}
@@ -138,6 +147,7 @@ export class SignUpForm extends Component {
 					size={40}
 					onPress={() => Actions.splashPage()}
 					style={{ width: '13%', alignSelf: 'flex-end', color: 'white' }}
+					data-test="close-btn"
 				/>
 				<Text style={textHeaderStyle}>Sign Up</Text>
 				{this.state.userInfo && (
@@ -148,6 +158,7 @@ export class SignUpForm extends Component {
 								placeholder="First Name"
 								value={firstName}
 								onChangeText={firstName => createFirstName(firstName)}
+								data-test="first-name-input"
 							/>
 						</View>
 						<View style={inputContainerStyle}>
@@ -156,6 +167,7 @@ export class SignUpForm extends Component {
 								placeholder="Last Name"
 								value={lastName}
 								onChangeText={lastName => createLastName(lastName)}
+								data-test="last-name-input"
 							/>
 						</View>
 						<View style={inputContainerStyle}>
@@ -164,6 +176,7 @@ export class SignUpForm extends Component {
 								placeholder="Username"
 								value={userName}
 								onChangeText={userName => createUserName(userName)}
+								data-test="username-input"
 							/>
 						</View>
 					</React.Fragment>
@@ -177,6 +190,7 @@ export class SignUpForm extends Component {
 								placeholder="Email"
 								value={email}
 								onChangeText={email => createEmail(email)}
+								data-test="email-input"
 							/>
 						</View>
 						<View style={inputContainerStyle}>
@@ -186,6 +200,7 @@ export class SignUpForm extends Component {
 								secureTextEntry
 								value={password}
 								onChangeText={password => createPassword(password)}
+								data-test="password-input"
 							/>
 						</View>
 						<View style={inputContainerStyle}>
@@ -195,6 +210,7 @@ export class SignUpForm extends Component {
 								value={this.state.confirmation}
 								onChangeText={text => this.setState({ confirmation: text })}
 								secureTextEntry
+								data-test="confirm-password-input"
 							/>
 						</View>
 						{this.validatePassword() && <Text>Passwords do not match</Text>}

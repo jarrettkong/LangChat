@@ -1,87 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Message Component should match snapshot 1`] = `
-<View
+<RNGestureHandlerButton
+  collapsable={false}
+  onGestureEvent={[Function]}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onHandlerStateChange={[Function]}
+  rippleColor={0}
   style={
-    Object {
-      "alignContent": "center",
-      "flexDirection": "row",
-      "justifyContent": "flex-start",
-      "paddingBottom": 5,
-      "paddingTop": 5,
-    }
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      undefined,
+    ]
   }
 >
   <View
-    style={
-      Object {
-        "borderColor": "black",
-        "borderRadius": 100,
-        "borderWidth": 1,
-        "height": 40,
-        "justifyContent": "center",
-        "marginRight": 15,
-        "width": 40,
-      }
-    }
+    accessible={true}
   >
-    <Text
-      style={
-        Object {
-          "fontSize": 22,
-          "textAlign": "center",
-        }
-      }
-    >
-      MOCKUSER
-    </Text>
-  </View>
-  <View
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <View>
-      <Text
-        style={
-          Object {
-            "fontSize": 16,
-            "fontWeight": "500",
-          }
-        }
-      >
-        mockUser
-      </Text>
-      <Text
-        style={
-          Object {
-            "fontSize": 16,
-            "fontWeight": "500",
-          }
-        }
-      />
-    </View>
     <View
       style={
         Object {
-          "width": "80%",
+          "alignContent": "center",
+          "borderColor": "#f3f3f3",
+          "borderTopWidth": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingBottom": 13,
+          "paddingTop": 13,
         }
       }
     >
-      <Text
+      <View
         style={
           Object {
-            "flex": 1,
-            "flexWrap": "wrap",
-            "fontSize": 16,
+            "borderColor": "#a7a7a7",
+            "borderRadius": 100,
+            "borderWidth": 1,
+            "height": 35,
+            "justifyContent": "center",
+            "marginRight": 15,
+            "marginTop": 1,
+            "width": 35,
           }
         }
       >
-        This is a mock message
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#a7a7a7",
+              "fontSize": 20,
+              "textAlign": "center",
+            }
+          }
+        >
+          MOCKUSER
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#323232",
+                "fontSize": 16,
+                "fontWeight": "500",
+              }
+            }
+          >
+            mockUser
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#a7a7a7",
+                "fontWeight": "300",
+                "marginLeft": 10,
+              }
+            }
+          >
+            NaN days ago
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": "85%",
+            }
+          }
+        />
+      </View>
     </View>
   </View>
-</View>
+</RNGestureHandlerButton>
 `;

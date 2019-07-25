@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { styles } from './styles';
 
-class Welcome extends Component {
+export class Welcome extends Component {
 	render () {
 		return (
 			<View style={styles.container}>

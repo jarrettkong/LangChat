@@ -14,15 +14,10 @@ exports[`Button Component should match snapshot 1`] = `
     Object {
       "alignSelf": "center",
       "backgroundColor": "#007aff",
-      "borderColor": "#007aff",
-      "borderRadius": 25,
-      "borderWidth": 1,
-      "marginLeft": 5,
-      "marginRight": 5,
+      "borderRadius": 5,
+      "margin": 10,
       "opacity": 1,
-      "position": "absolute",
-      "top": "84%",
-      "width": "85%",
+      "width": "90%",
     }
   }
 >

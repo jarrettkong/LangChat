@@ -42,4 +42,11 @@ describe("RegisterReducer", () => {
 
     expect(result).toEqual(expected);
   });
+
+  it("should return state with an array of country", () => {
+    const expected = {"country": "United States", "email": "", "firstName": "", "lastName": "", "password": "", "userName": ""};
+    const result = RegisterReducer(undefined, actions.createCountry("United States"));
+
+    expect(result).toEqual(expected);
+  });
 });

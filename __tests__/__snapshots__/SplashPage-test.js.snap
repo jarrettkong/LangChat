@@ -4,126 +4,133 @@ exports[`SplashPage Component should match snapshot 1`] = `
 <View
   style={
     Object {
-      "alignSelf": "stretch",
+      "alignContent": "center",
+      "backgroundColor": "#fff",
       "flex": 1,
-      "opacity": 0.8,
-      "width": null,
+      "justifyContent": "center",
+      "position": "relative",
     }
   }
 >
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "uri": "https://media.istockphoto.com/photos/speech-bubbles-colorful-communication-thoughts-talking-concept-picture-id486478366?k=6&m=486478366&s=612x612&w=0&h=zWcVmwbInjN9CXgDfG_ldOjgiKr5JAVvu6oyNagbLjs=",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  />
   <View
     style={
       Object {
         "alignItems": "center",
-        "justifyContent": "center",
-        "paddingTop": 60,
+        "alignSelf": "center",
+        "flexDirection": "column",
+        "height": "100%",
+        "justifyContent": "space-between",
+        "paddingBottom": 75,
+        "paddingTop": 75,
         "position": "absolute",
         "width": "100%",
-        "zIndex": 1,
       }
     }
   >
     <Text
       style={
         Object {
-          "color": "#007aff",
-          "fontSize": 50,
-          "fontWeight": "800",
+          "color": "#323232",
+          "fontSize": 70,
+          "fontWeight": "bold",
+          "height": 150,
         }
       }
     >
       LangChat
     </Text>
-  </View>
-  <Image
-    source={
-      Object {
-        "uri": "https://i.imgur.com/IoKqmrE.jpg",
-      }
-    }
-    style={
-      Object {
-        "alignSelf": "stretch",
-        "flex": 1,
-        "opacity": 0.8,
-        "width": null,
-      }
-    }
-  />
-  <View
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignSelf": "center",
-        "backgroundColor": "#007aff",
-        "borderColor": "#007aff",
-        "borderRadius": 25,
-        "borderWidth": 1,
-        "marginLeft": 5,
-        "marginRight": 5,
-        "opacity": 1,
-        "position": "absolute",
-        "top": "84%",
-        "width": "85%",
-      }
-    }
-  >
-    <Text
+    <View
       style={
         Object {
-          "alignSelf": "center",
-          "color": "#fff",
-          "fontSize": 19,
-          "fontWeight": "600",
-          "paddingBottom": 12,
-          "paddingTop": 12,
+          "width": "100%",
         }
       }
     >
-      Sign Up
-    </Text>
-  </View>
-  <View
-    style={
-      Object {
-        "alignSelf": "center",
-        "flexDirection": "row",
-        "fontWeight": "600",
-        "position": "absolute",
-        "top": "93%",
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "#fff",
-          "fontSize": 15,
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignSelf": "center",
+            "backgroundColor": "#007aff",
+            "borderRadius": 5,
+            "margin": 10,
+            "opacity": 1,
+            "width": "90%",
+          }
         }
-      }
-    >
-      Already have an account?
-    </Text>
-    <Text
-      onPress={[Function]}
-      style={
-        Object {
-          "color": "#fff",
-          "fontSize": 15,
-          "marginLeft": 8,
-          "textDecorationLine": "underline",
+      >
+        <Text
+          style={
+            Object {
+              "alignSelf": "center",
+              "color": "#fff",
+              "fontSize": 19,
+              "fontWeight": "600",
+              "paddingBottom": 12,
+              "paddingTop": 12,
+            }
+          }
+        >
+          Sign Up
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "fontWeight": "600",
+            "justifyContent": "center",
+            "width": "100%",
+          }
         }
-      }
-    >
-      Log In
-    </Text>
+      >
+        <Text
+          style={
+            Object {
+              "color": "#323232",
+              "fontSize": 16,
+            }
+          }
+        >
+          Already have an account?
+        </Text>
+        <Text
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#323232",
+              "fontSize": 16,
+              "marginLeft": 8,
+              "textDecorationLine": "underline",
+            }
+          }
+        >
+          Log In
+        </Text>
+      </View>
+    </View>
   </View>
 </View>
 `;

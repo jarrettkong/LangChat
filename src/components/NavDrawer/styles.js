@@ -47,16 +47,14 @@ export default StyleSheet.create({
 		fontSize: 17,
 		alignSelf: 'center',
 		textAlign: 'center',
-		marginRight: '2%'
 	},
 	menuIcon: {
 		color: '#323232',
-		zIndex: 9999,
-		marginTop: 2,
-		marginLeft: 5,
-		alignSelf: 'flex-start',
-		justifyContent: 'center',
-		flex: 1.0
+    zIndex: 9999,
+    marginTop: 1,
+    alignSelf:'flex-start',
+    justifyContent:'center',
+    flex: 1.0
 	}
 });
 
