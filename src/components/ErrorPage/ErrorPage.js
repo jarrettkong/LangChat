@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from '../common/Button';
 
-const ErrorPage = () => {
+export const ErrorPage = () => {
 	return (
 		<View>
 			<Text>Uh oh, something went wrong!</Text>

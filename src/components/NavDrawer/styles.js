@@ -6,10 +6,12 @@ export const styles = {
 		backgroundColor: '#3B5998'
 	},
 	safeAreaStyle: {
-		flex: 1.0
+		flex: 1.0,
+		backgroundColor: 'white'
 	},
 	headerContainer: {
 		position: 'relative',
+		alignItems: 'center',
 		height: 44,
 		flexDirection: 'row',
 		justifyContent: 'center',
@@ -45,7 +47,6 @@ export const styles = {
 		fontSize: 17,
 		alignSelf: 'center',
 		textAlign: 'center',
-		marginRight: '2%'
 	},
 	menuIcon: {
 		color: '#323232',

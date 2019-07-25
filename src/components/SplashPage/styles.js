@@ -4,18 +4,19 @@ export default StyleSheet.create({
 	textStyle: {
 		fontSize: 70,
 		fontWeight: 'bold',
-		color: '#fff'
+		color: '#323232'
 	},
 	container: {
 		flex: 1,
 		position: 'relative',
-		backgroundColor: '#000'
+		backgroundColor: '#fff',
+		justifyContent: 'center',
+		alignContent: 'center'
 	},
 	imageStyle: {
 		flex: 1,
-		backgroundColor: '#000',
-		opacity: 0.75,
-		width: '100%'
+		flexDirection: 'row',
+		backgroundColor: '#fff',
 	},
 	flexContainer: {
 		position: 'absolute',
@@ -36,11 +37,11 @@ export default StyleSheet.create({
 	},
 	logInTextStyle: {
 		fontSize: 16,
-		color: '#fff'
+		color: '#323232'
 	},
 	logInButtonStyle: {
 		fontSize: 16,
-		color: '#fff',
+		color: '#323232',
 		marginLeft: 8,
 		textDecorationLine: 'underline'
 	}

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CorrectedMessage Component should match snapshot 1`] = `
+<View>
+  <View
+    style={Object {}}
+  >
+    <Text
+      style={
+        Object {
+          "fontStyle": "italic",
+        }
+      }
+    >
+      test_user1
+       said:
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Object {
+            "marginLeft": 5,
+          }
+        }
+      >
+        Got a spot for us to roll
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+      }
+    }
+  >
+    <Text />
+    <Text
+      style={
+        Object {
+          "marginLeft": 5,
+        }
+      }
+    />
+  </View>
+</View>
+`;
