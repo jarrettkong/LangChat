@@ -2,6 +2,10 @@
 
 LangChat is a mobile application that allow users from all over the world the ability create a free account and chat with users in other countries in an effort to learn each others languages. As of now the application has two chatroom's (Spanish & French) with more rooms and direct messaging to come in future iterations. The idea is that someone who is interested in either learning Spanish or French will join these chatroom's where there will be native Spanish and French speaking users to chat with. As the users interact, they have the ability to correct each others messages in the case that a user spelt something wrong or used the wrong grammar. After a user corrects another users message, the user who originally sent the message will see the corrected message along with their original message to see where it was that they made a mistake. 
 
+<p align="center" >
+  <img src="https://i.imgur.com/oOF83Tu.png" alt="project test coverage">
+</p>
+
 ## Getting Started:
 
 These instructions will get a copy of the project up and running on your local machine for usage and testing purposes.
