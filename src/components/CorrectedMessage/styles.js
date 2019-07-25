@@ -15,7 +15,8 @@ export default StyleSheet.create({
 	correction: {
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
-		alignItems: 'center'
+		alignItems: 'center',
+		width: '95%'
 	},
 	correctionText: {
 		marginLeft: 10

@@ -3,7 +3,7 @@ import { View, Text, KeyboardAvoidingView } from 'react-native';
 import Button from '../common/Button';
 import Input from '../common/Input';
 import { Actions } from 'react-native-router-flux';
-import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
+import { AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { changeUsername, changePassword, login, currentUser } from '../../actions/index';
 import PropTypes from 'prop-types';
@@ -11,7 +11,8 @@ import styles from './styles';
 
 export class LoginForm extends Component {
 	state = {
-		loading: false
+		loading: false,
+		error: ''
 	};
 
 	handleChange = (text, input) => {
@@ -39,7 +40,7 @@ export class LoginForm extends Component {
 			this.props.login(user, csrftoken);
 			Actions.home();
 		} catch (error) {
-			console.log(error.message);
+			this.setState({ error: 'Invalid login credentials' });
 		}
 		this.setState({ loading: false });
 	};
@@ -50,8 +51,8 @@ export class LoginForm extends Component {
 		return !username || !password || loading;
 	};
 
-	render() {
-		const { container, inputContainerStyle, textHeaderStyle } = styles;
+	render () {
+		const { container, inputContainerStyle, textHeaderStyle, textErrorStyle } = styles;
 		const { username, password } = this.props;
 		const { loading } = this.state;
 		return (
@@ -84,6 +85,7 @@ export class LoginForm extends Component {
 				<Button disabled={this.disabled()} onPress={this.login}>
 					Log In
 				</Button>
+				<Text style={textErrorStyle}>{this.state.error}</Text>
 			</KeyboardAvoidingView>
 		);
 	}

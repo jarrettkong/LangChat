@@ -7,7 +7,7 @@ import { Actions } from 'react-native-router-flux';
 import { logout } from '../../actions';
 import PropTypes from 'prop-types';
 import Nav from '../Nav/Nav';
-import { drawerStyles, styles } from './styles';
+import styles, { drawerStyles } from './styles';
 
 console.disableYellowBox = true;
 
@@ -16,7 +16,7 @@ export class NavDrawer extends Component {
 		drawerOpen: false
 	};
 
-	renderDrawer () {
+	renderDrawer() {
 		return (
 			<View style={styles.menuContainer}>
 				<Nav />
@@ -56,7 +56,7 @@ export class NavDrawer extends Component {
 		}
 	};
 
-	render () {
+	render() {
 		return (
 			<SafeAreaView style={styles.safeAreaStyle}>
 				<StatusBar barStyle="dark-content" />
@@ -69,16 +69,17 @@ export class NavDrawer extends Component {
 						onClose={this.toggleDrawer}
 						tapToClose={true}
 						openDrawerOffset={0.25}
-						styles={drawerStyles}>
+						styles={drawerStyles}
+					>
 						<View style={styles.headerContainer}>
-							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
+							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer} style={styles.menuIcon}>
 								{this.state.drawerOpen ? (
-									<AntDesign name="menu-unfold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
+									<AntDesign name="menu-unfold" style={styles.menuIcon} size={32} onPress={this.openDrawer} />
 								) : (
-									<AntDesign name="menu-fold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
+									<AntDesign name="menu-fold" style={styles.menuIcon} size={32} onPress={this.openDrawer} />
 								)}
 							</TouchableOpacity>
-							<Text style={styles.headerTitle}>LangChat</Text>
+							<Text style={styles.headerTitle}>{this.props.name || 'LangChat'}</Text>
 							<View style={styles.menuButton} />
 						</View>
 						{this.props.children || null}

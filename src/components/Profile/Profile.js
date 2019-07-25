@@ -7,11 +7,11 @@ import { styles } from './styles';
 import NavDrawer from '../NavDrawer/NavDrawer';
 
 export class Profile extends React.Component {
-	componentDidMount () {
+	componentDidMount() {
 		// redirect to splash or 404 if user doesn't exist
 		// if (this.props.userName === '') Actions.splashPage();
 	}
-	constructor (props) {
+	constructor(props) {
 		super(props);
 
 		this.state = {
@@ -46,7 +46,7 @@ export class Profile extends React.Component {
 			console.log(error.message);
 		}
 	};
-	render () {
+	render() {
 		const { country_of_origin, email, first_name, is_active, last_name, username, password } = this.props.user;
 		// todo change this.state to props after login is saving in redux store
 
@@ -65,19 +65,25 @@ export class Profile extends React.Component {
 					<View style={styles.mainInfoContainer}>
 						<View style={styles.infoContainer}>
 							<Text style={styles.inputContainerStyle}>
-								<Text style={styles.label}>Username:   </Text>
+								<Text style={styles.label}>Username: </Text>
 								{username}
 							</Text>
 						</View>
 						<View style={styles.infoContainer}>
 							<Text style={styles.inputContainerStyle}>
-								<Text style={styles.label}>Name:   </Text>
+								<Text style={styles.label}>Name: </Text>
 								{first_name} {last_name}
 							</Text>
 						</View>
 						<View style={styles.infoContainer}>
 							<Text style={styles.inputContainerStyle}>
-								<Text style={styles.label}>Email:   </Text> {email}
+								<Text style={styles.label}>Email: </Text> {email}
+							</Text>
+						</View>
+						<View style={styles.infoContainer}>
+							<Text style={styles.inputContainerStyle}>
+								<Text style={styles.label}>Location: </Text>
+								{country_of_origin}
 							</Text>
 						</View>
 						{/* <View style={styles.switchContainer}>

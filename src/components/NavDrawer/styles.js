@@ -1,35 +1,34 @@
 import { StyleSheet } from 'react-native';
 
-export const styles = {
+export default StyleSheet.create({
 	mainContainer: {
 		flex: 1.0,
-		backgroundColor: '#3B5998'
+		backgroundColor: '#fff'
 	},
 	safeAreaStyle: {
 		flex: 1.0,
-		backgroundColor: 'white'
+		backgroundColor: '#fff'
 	},
 	headerContainer: {
 		position: 'relative',
-		alignItems: 'center',
-		height: 44,
+		height: 45,
 		flexDirection: 'row',
 		justifyContent: 'center',
-		borderBottomColor: '#323232',
-		borderBottomWidth: 1.6
+		borderBottomColor: '#a7a7a7',
+		borderBottomWidth: 1
 	},
 	headerTitle: {
 		flex: 1.0,
+		position: 'absolute',
 		textAlign: 'center',
 		alignSelf: 'center',
-		color: '#007aff',
+		color: '#323232',
 		fontSize: 22
 	},
 	menuButton: {
-		marginLeft: 8,
-		marginRight: 8,
 		alignSelf: 'center',
-		tintColor: 'white'
+		tintColor: 'white',
+		marginLeft: 5
 	},
 	menuContainer: {
 		flex: 1.0,
@@ -39,19 +38,27 @@ export const styles = {
 		height: 60,
 		width: '100%',
 		flexDirection: 'row',
-		alignItem: 'center'
+		alignItems: 'center',
+		position: 'absolute'
 	},
 	menuTitle: {
 		width: '100%',
 		color: 'white',
 		fontSize: 17,
 		alignSelf: 'center',
-		textAlign: 'center'
+		textAlign: 'center',
+		marginRight: '2%'
 	},
 	menuIcon: {
-		color: '#007aff'
+		color: '#323232',
+		zIndex: 9999,
+		marginTop: 2,
+		marginLeft: 5,
+		alignSelf: 'flex-start',
+		justifyContent: 'center',
+		flex: 1.0
 	}
-};
+});
 
 export const drawerStyles = {
 	drawer: {
