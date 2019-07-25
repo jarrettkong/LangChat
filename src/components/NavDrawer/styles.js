@@ -1,26 +1,25 @@
 import { StyleSheet } from 'react-native';
 
-export const styles = {
+export default StyleSheet.create({
 	mainContainer: {
 		flex: 1.0,
-		backgroundColor: '#3B5998'
+		backgroundColor: '#fff'
 	},
 	safeAreaStyle: {
 		flex: 1.0,
-		backgroundColor: 'white'
+		backgroundColor: '#fff'
 	},
 	headerContainer: {
 		position: 'relative',
-		alignItems: 'center',
-		height: 44,
+		height: 45,
 		flexDirection: 'row',
 		justifyContent: 'center',
-		borderBottomColor: '#323232',
-		borderBottomWidth: 1.6
+		borderBottomColor: '#a7a7a7',
+		borderBottomWidth: 1
 	},
 	headerTitle: {
-    flex: 1.0,
-    position: 'absolute',
+		flex: 1.0,
+		position: 'absolute',
 		textAlign: 'center',
 		alignSelf: 'center',
 		color: '#323232',
@@ -28,7 +27,8 @@ export const styles = {
 	},
 	menuButton: {
 		alignSelf: 'center',
-		tintColor: 'white'
+		tintColor: 'white',
+		marginLeft: 5
 	},
 	menuContainer: {
 		flex: 1.0,
@@ -38,7 +38,7 @@ export const styles = {
 		height: 60,
 		width: '100%',
 		flexDirection: 'row',
-		alignItem: 'center',
+		alignItems: 'center',
 		position: 'absolute'
 	},
 	menuTitle: {
@@ -56,7 +56,7 @@ export const styles = {
     justifyContent:'center',
     flex: 1.0
 	}
-};
+});
 
 export const drawerStyles = {
 	drawer: {
