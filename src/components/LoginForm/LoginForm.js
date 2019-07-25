@@ -5,7 +5,7 @@ import Input from '../common/Input';
 import { Actions } from 'react-native-router-flux';
 import { AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
-import { changeUsername, changePassword, login, currentUser } from '../../actions/index';
+import { changeUsername, changePassword, login, handleError } from '../../actions/index';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
@@ -40,7 +40,7 @@ export class LoginForm extends Component {
 			this.props.login(user, csrftoken);
 			Actions.home();
 		} catch (error) {
-			this.setState({ error: 'Invalid login credentials' });
+			this.props.handleError(error.message);
 		}
 		this.setState({ loading: false });
 	};
@@ -110,7 +110,8 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
 	changeUsername: text => dispatch(changeUsername(text)),
 	changePassword: text => dispatch(changePassword(text)),
-	login: (user, cookie) => dispatch(login(user, cookie))
+	login: (user, cookie) => dispatch(login(user, cookie)),
+	handleError: errorMessage => dispatch(handleError(errorMessage))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
