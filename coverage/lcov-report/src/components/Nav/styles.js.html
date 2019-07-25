@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/Tutorial/Tutorial.js</title>
+    <title>Code coverage report for src/components/Nav/styles.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/Tutorial</a> Tutorial.js
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/Nav</a> styles.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>1/1</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -75,19 +75,9 @@
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -103,45 +93,46 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import Swiper from 'react-native-web-swiper';
-import { Actions } from 'react-native-router-flux';
-import { styles } from './styles';
-import  Button from '../common/Button'
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { StyleSheet } from 'react-native';
 &nbsp;
-export default class Tutorial extends React.Component {
-	render () {
-		return (
-			&lt;View style={styles.container}&gt;
-				&lt;Swiper&gt;
-					&lt;View style={[ styles.slideContainer, styles.slide1 ]}&gt;
-						&lt;Image style={styles.imageStyle} source={require('../../../assets/talking.jpg')} /&gt;
-						&lt;Text&gt;Slide 1&lt;/Text&gt;
-					&lt;/View&gt;
-					&lt;View style={[ styles.slideContainer, styles.slide2 ]}&gt;
-						&lt;Image style={styles.imageStyle} source={require('../../../assets/learn_with_others.jpg')} /&gt;
-						&lt;Text&gt;Slide 2&lt;/Text&gt;
-					&lt;/View&gt;
-					&lt;View style={[ styles.slideContainer, styles.slide3 ]}&gt;
-						&lt;Image style={styles.imageStyle} source={require('../../../assets/group_learning.jpg')} /&gt;
-						&lt;Text&gt;Slide 3&lt;/Text&gt;
-					&lt;/View&gt;
-					&lt;View style={[ styles.slideContainer, styles.slide4 ]}&gt;
-						&lt;Button onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >Actions.welcome()}</span>&gt;Start chatting!&lt;/Button&gt;
-					&lt;/View&gt;
-				&lt;/Swiper&gt;
-			&lt;/View&gt;
-		);
+export const styles = StyleSheet.create({
+	container: {
+		flex: 1.0,
+		marginTop: 5,
+		color: 'white'
+	},
+	button: {
+		color: '#E8EAEF',
+		width: '100%',
+		textAlign: 'left',
+		padding: 10,
+		fontSize: 20
+	},
+	buttonTitle: {
+		fontSize: 15,
+		color: 'white'
+	},
+	profileContainer: {
+		marginTop: 10
+	},
+	profileButton : {
+		color: '#E8EAEF',
+		width: '100%',
+		textAlign: 'left',
+		padding: 10
 	}
-}
+});
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

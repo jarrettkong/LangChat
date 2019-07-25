@@ -3,12 +3,23 @@
 exports[`CorrectedMessage Component should match snapshot 1`] = `
 <View>
   <View
-    style={Object {}}
+    style={
+      Object {
+        "borderColor": "#d4d4d4",
+        "borderRadius": 3,
+        "borderWidth": 1,
+        "marginBottom": 5,
+        "marginTop": 5,
+        "padding": 5,
+        "paddingLeft": 10,
+      }
+    }
   >
     <Text
       style={
         Object {
           "fontStyle": "italic",
+          "marginBottom": 5,
         }
       }
     >
@@ -28,7 +39,7 @@ exports[`CorrectedMessage Component should match snapshot 1`] = `
       <Text
         style={
           Object {
-            "marginLeft": 5,
+            "marginLeft": 10,
           }
         }
       >
@@ -42,6 +53,7 @@ exports[`CorrectedMessage Component should match snapshot 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-start",
+        "paddingLeft": 10,
       }
     }
   >
@@ -49,7 +61,7 @@ exports[`CorrectedMessage Component should match snapshot 1`] = `
     <Text
       style={
         Object {
-          "marginLeft": 5,
+          "marginLeft": 10,
         }
       }
     />

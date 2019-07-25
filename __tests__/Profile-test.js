@@ -59,7 +59,7 @@ describe('Profile', () => {
 			expect(wrapper.state('active')).toEqual(false);
 		});
 
-		it("should invoke 'handleActivityPress' when the user changes the active btn", () => {
+		it.skip("should invoke 'handleActivityPress' when the user changes the active btn", () => {
 			const mockFn = jest.spyOn(instance, 'handleActivityPress');
 			wrapper.find("[data-test='active-btn']").simulate('ValueChange', false);
 			expect(mockFn).toHaveBeenCalled();
