@@ -6,12 +6,15 @@ export const styles = StyleSheet.create({
 		marginTop: 5,
 		color: 'white'
 	},
+	profileIcon: {
+		marginLeft: 10
+	},
 	button: {
 		color: '#E8EAEF',
 		width: '100%',
 		textAlign: 'left',
 		padding: 10,
-		fontSize: 20
+		fontSize: 16
 	},
 	buttonTitle: {
 		fontSize: 15,
@@ -20,10 +23,20 @@ export const styles = StyleSheet.create({
 	profileContainer: {
 		marginTop: 10
 	},
-	profileButton : {
+	profileButton: {
 		color: '#E8EAEF',
 		width: '100%',
 		textAlign: 'left',
-		padding: 10
+		padding: 10,
+		marginRight: 10
+
+	},
+	navHeader : {
+		color: 'grey',
+		padding: 10,
+		fontSize: 20,
+		borderBottomColor: 'grey',
+		borderBottomWidth: 2
+
 	}
 });
