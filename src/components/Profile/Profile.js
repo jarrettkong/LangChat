@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import Button from '../common/Button';
 import { styles } from './styles';
+import { handleError } from '../../actions';
 import NavDrawer from '../NavDrawer/NavDrawer';
 
 export class Profile extends Component {
@@ -45,7 +46,7 @@ export class Profile extends Component {
 			});
 			Actions.splashPage();
 		} catch (error) {
-			console.log(error.message);
+			this.props.handleError(error.message)
 		}
 	};
 	render () {
@@ -104,4 +105,8 @@ export const mapStateToProps = state => ({
 	user: state.user
 });
 
-export default connect(mapStateToProps)(Profile);
+export const mapDispatchToProps = dispatch => ({
+	handleError: errorMessage => dispatch(handleError(errorMessage))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

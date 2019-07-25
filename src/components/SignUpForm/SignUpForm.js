@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Picker } from 'react-native';
+import { View, Text, Picker, Keyboard } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from '../common/Button';
 import Input from '../common/Input';
+import Spinner from '../common/Spinner';
 import { MaterialCommunityIcons, AntDesign, EvilIcons, Feather } from '@expo/vector-icons';
 import Data from '../../Helper/data';
 import { connect } from 'react-redux';
@@ -13,7 +14,8 @@ import {
 	createLastName,
 	createUserName,
 	createCountry,
-	login
+	login,
+	handleError
 } from '../../actions';
 import PropTypes from 'prop-types';
 import styles from './styles';
@@ -24,7 +26,7 @@ export class SignUpForm extends Component {
 		userCountry: false,
 		userCredentials: false,
 		confirmation: '',
-		error: ''
+		loading: false
 	};
 
 	buttonToRender = () => {
@@ -46,10 +48,17 @@ export class SignUpForm extends Component {
 				</Button>
 			);
 		}
+		if (this.state.loading) {
+			return (
+				<View style={{ marginBottom: 5, marginTop: 40 }}>
+					<Spinner size="large" />
+				</View>
+			);
+		}
 		return (
 			<Button
-				disabled={(!email || !password) && this.validatePassword()}
-				onPress={() => this.register()}
+				disabled={!email || !password || !this.state.confirmation || this.validatePassword()}
+				onPress={() => this.register() && Keyboard.dismiss()}
 				data-test="email-password-submit-btn">
 				Sign Up!
 			</Button>
@@ -88,7 +97,7 @@ export class SignUpForm extends Component {
 			password,
 			passwordConfirmation: password
 		};
-
+		this.setState({ loading: true });
 		try {
 			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/users/', {
 				method: 'POST',
@@ -97,9 +106,8 @@ export class SignUpForm extends Component {
 			});
 			const user = await res.json();
 			this.login(user);
-			// Actions.loginForm();
 		} catch (error) {
-			this.setState({ error: 'Unable to register new user.' });
+			this.props.handleError(error.message);
 		}
 	};
 
@@ -115,10 +123,13 @@ export class SignUpForm extends Component {
 			const cookieData = res.headers.get('set-cookie'); //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
 			const match = cookieData.match(/(csrftoken=)\w+;/);
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
-			this.props.login(user, csrftoken); // redux
+			this.props.login(user, csrftoken);
+			this.setState({ loading: false });
 			Actions.tutorial();
 		} catch (error) {
-			console.log(error.message);
+			this.props.handleError(`The username ${this.props.userName} already exists. Please choose another username and try again!`);
+			this.props.createUserName("")
+			this.setState({userInfo: true, userCredentials: false, loading: false, confirmation: ''})
 		}
 	};
 
@@ -127,7 +138,7 @@ export class SignUpForm extends Component {
 	};
 
 	render () {
-		const { container, inputContainerStyle, textHeaderStyle } = styles;
+		const { container, inputContainerStyle, textHeaderStyle, passwordErrorStyle } = styles;
 		const {
 			email,
 			password,
@@ -175,10 +186,11 @@ export class SignUpForm extends Component {
 								label={<AntDesign name="user" size={30} color="#999" />}
 								placeholder="Username"
 								value={userName}
-								onChangeText={userName => createUserName(userName)}
+								onChangeText={userName => createUserName(userName) && this.props.handleError("")}
 								data-test="username-input"
 							/>
 						</View>
+						<Text style={passwordErrorStyle}>{this.props.errorMessage}</Text>
 					</React.Fragment>
 				)}
 				{this.state.userCountry && <View style={inputContainerStyle}>{this.renderPicker()}</View>}
@@ -213,7 +225,9 @@ export class SignUpForm extends Component {
 								data-test="confirm-password-input"
 							/>
 						</View>
-						{this.validatePassword() && <Text>Passwords do not match</Text>}
+						{this.validatePassword() && this.state.confirmation.length ? (
+							<Text style={passwordErrorStyle}>Passwords do not match</Text>
+						) : null}
 					</React.Fragment>
 				)}
 				{this.buttonToRender()}
@@ -237,7 +251,8 @@ export const mapStateToProps = state => ({
 	firstName: state.register.firstName,
 	lastName: state.register.lastName,
 	userName: state.register.userName,
-	country: state.register.country
+	country: state.register.country,
+	errorMessage: state.errorMessage
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -247,7 +262,8 @@ export const mapDispatchToProps = dispatch => ({
 	createPassword: password => dispatch(createPassword(password)),
 	createUserName: userName => dispatch(createUserName(userName)),
 	createCountry: country => dispatch(createCountry(country)),
-	login: (user, cookie) => dispatch(login(user, cookie))
+	login: (user, cookie) => dispatch(login(user, cookie)),
+	handleError: errorMessage => dispatch(handleError(errorMessage))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);

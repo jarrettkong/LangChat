@@ -56,3 +56,8 @@ export const login = (user, cookie) => ({
 export const logout = () => ({
 	type: 'LOGOUT'
 });
+
+export const handleError = errorMessage => ({
+  type: "HANDLE_ERROR",
+  errorMessage
+});

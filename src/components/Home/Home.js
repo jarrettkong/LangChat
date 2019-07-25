@@ -5,7 +5,8 @@ import Tutorial from '../Tutorial/Tutorial';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { styles } from './styles'
-class Home extends Component {
+
+export class Home extends Component {
 	render () {
 		return (
 			<View style={styles.container}>

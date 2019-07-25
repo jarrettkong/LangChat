@@ -29,7 +29,8 @@
 		"react-swipeable-views-native": "^0.13.2",
 		"redux": "^4.0.4",
 		"socket.io": "^2.2.0",
-		"whatwg-fetch": "^2.0.4"
+		"whatwg-fetch": "^2.0.4",
+		"ws": "^7.1.1"
 	},
 	"jest": {
 		"preset": "jest-expo",
@@ -37,8 +38,25 @@
 			"node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
 		],
 		"setupFiles": [
-      "<rootDir>/setupTests.js"
-    ]
+			"<rootDir>/setupTests.js"
+		],
+		"collectCoverageFrom": [
+			"src/**/*.{js,jsx}",
+			"!src/components/ChatRoom/styles.js",
+			"!src/components/LoginForm/styles.js",
+			"!src/components/SignUpForm/styles.js",
+			"!src/components/SplashPage/styles.js",
+			"!src/components/TextMessage/styles.js",
+			"!src/components/MessageView/MessageView.js",
+			"!src/components/MessageInput/MessageInput.js",
+			"!src/components/ChatRoom/ChatRoom.js",
+			"!src/components/Nav/Nav.js",
+			"!src/components/MessageView/styles.js",
+			"!src/components/MessageInput/styles.js",
+			"!src/Router.js",
+			"!src/setupTests.js",
+			"!src/reducers/index.js"
+		]
 	},
 	"devDependencies": {
 		"babel-preset-expo": "^5.1.1",

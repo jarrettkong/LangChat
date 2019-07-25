@@ -4,7 +4,7 @@ import Drawer from 'react-native-drawer';
 import { AntDesign } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import { logout } from '../../actions';
+import { logout, handleError } from '../../actions';
 import PropTypes from 'prop-types';
 import Nav from '../Nav/Nav';
 import { drawerStyles, styles } from './styles';
@@ -52,7 +52,7 @@ export class NavDrawer extends Component {
 			this.props.logout();
 			Actions.splashPage();
 		} catch (error) {
-			console.log(error.message);
+			this.props.handleError(error.message)
 		}
 	};
 
@@ -117,7 +117,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-	logout: () => dispatch(logout())
+	logout: () => dispatch(logout()),
+	handleError: errorMessage => dispatch(handleError(errorMessage))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavDrawer);

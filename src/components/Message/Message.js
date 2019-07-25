@@ -4,7 +4,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-const Message = props => {
+export const Message = props => {
 	const { timestamp, username, id, setReferencedMessage, message } = props;
 	const milliseconds = Date.now() - Date.parse(timestamp);
 	const days = Math.floor(milliseconds / (60 * 60 * 24 * 1000));
@@ -12,7 +12,7 @@ const Message = props => {
 	const initial = username[0].toUpperCase();
 
 	return (
-		<TouchableWithoutFeedback onLongPress={() => setReferencedMessage(id, message)}>
+		<TouchableWithoutFeedback onLongPress={() => setReferencedMessage(id, message)} data-test='edit-mode' >
 			<View style={styles.container}>
 				<View style={styles.initialContainer}>
 					<Text style={styles.initials}>{initial}</Text>

@@ -7,12 +7,13 @@ import Drawer from 'react-native-drawer';
 
 const mockDrawer = Drawer;
 const mockLogout = jest.fn();
+const mockHandleError = jest.fn();
 
 describe('NavDrawer', () => {
 	let wrapper, instance;
 
 	beforeEach(() => {
-		wrapper = shallow(<NavDrawer logout={mockLogout} drawer={mockDrawer} />);
+		wrapper = shallow(<NavDrawer logout={mockLogout} drawer={mockDrawer} handleError={mockHandleError}/>);
 		instance = wrapper.instance();
 
 		window.fetch = jest.fn().mockImplementation(() =>
@@ -68,6 +69,12 @@ describe('NavDrawer', () => {
 			await instance.logout();
 			expect(mockLogout).toHaveBeenCalled();
 		});
+
+		it('should throw an error if the response is not ok and save that error to redux store', async () => {
+			window.fetch.mockImplementationOnce(() => Promise.reject(new Error('Fetch failed')));
+			await instance.logout();
+			expect(mockHandleError).toHaveBeenCalledWith('Fetch failed');
+		});
 	});
 });
 
@@ -77,6 +84,14 @@ describe('mapDispatchToProps', () => {
 		const actionToDispatch = actions.logout();
 		const mappedProps = mapDispatchToProps(mockDispatch);
 		mappedProps.logout();
+		expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+	});
+
+	it('should call dispatch for handleError', () => {
+		const mockDispatch = jest.fn();
+		const actionToDispatch = actions.handleError('mock error message');
+		const mappedProps = mapDispatchToProps(mockDispatch);
+		mappedProps.handleError('mock error message');
 		expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
 	});
 });

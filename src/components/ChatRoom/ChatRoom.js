@@ -3,7 +3,7 @@ import { Text, TextInput, View, StyleSheet, KeyboardAvoidingView, TouchableHighl
 import { connect } from 'react-redux';
 import MessageView from '../MessageView/MessageView';
 import { Ionicons } from '@expo/vector-icons';
-import { addMessage, addExistingMessages } from '../../actions';
+import { addMessage, addExistingMessages, handleError } from '../../actions';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import NavDrawer from '../NavDrawer/NavDrawer';
 import PropTypes from 'prop-types';
@@ -36,12 +36,16 @@ export class ChatRoom extends Component {
 	}
 
 	fetchMessages = async () => {
-		const res = await fetch(
-			`https://langchat-crosspollination.herokuapp.com/api/v1/rooms/${this.props.roomId}/messages`
-		);
-		const data = await res.json();
-		const messages = JSON.parse(data);
-		this.props.addExistingMessages(messages);
+		try {
+			const res = await fetch(
+				`https://langchat-crosspollination.herokuapp.com/api/v1/rooms/${this.props.roomId}/messages`
+			);
+			const data = await res.json();
+			const messages = JSON.parse(data);
+			this.props.addExistingMessages(messages);
+		} catch (error) {
+			this.props.handleError(error.message);
+		}
 	};
 
 	setReferencedMessage = (id, message) => {
@@ -84,12 +88,11 @@ export class ChatRoom extends Component {
 			this.socket.send(JSON.stringify(message));
 			this.setState({ message: '', referencedMessage: null });
 		} catch (err) {
-			console.log(err.message);
+			this.props.handleError(err.message);
 		}
 	};
 
 	render () {
-		console.log(this.props)
 		const messages = this.props.messages.filter(message => message.room === this.props.roomId);
 		return (
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" enabled>
@@ -100,7 +103,10 @@ export class ChatRoom extends Component {
 						<React.Fragment>
 							<MessageView messages={messages} setReferencedMessage={this.setReferencedMessage} />
 							{this.state.referencedMessage && (
-								<TouchableHighlight onPress={this.clearReferencedMessage} style={styles.stopCorrectingButton}>
+								<TouchableHighlight
+									onPress={() => this.clearReferencedMessage()}
+									style={styles.stopCorrectingButton}
+									data-test="close-edit-message">
 									<Ionicons name="ios-close" size={35} color="#ffffff" />
 								</TouchableHighlight>
 							)}
@@ -110,11 +116,13 @@ export class ChatRoom extends Component {
 									placeholder="Enter your message here..."
 									value={this.state.message}
 									onChangeText={message => this.setState({ message })}
+									data-test='message-input'
 								/>
 								<TouchableWithoutFeedback
 									style={styles.sendButton}
-									onPress={this.sendMessage}
-									disabled={!this.state.message.length}>
+									onPress={() => this.sendMessage()}
+									disabled={!this.state.message.length}
+									data-test="send-message-btn">
 									<Ionicons name="ios-send" size={35} color="#323232" />
 								</TouchableWithoutFeedback>
 							</View>
@@ -134,7 +142,8 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
 	addMessage: message => dispatch(addMessage(message)),
-	addExistingMessages: messages => dispatch(addExistingMessages(messages))
+	addExistingMessages: messages => dispatch(addExistingMessages(messages)),
+	handleError: errorMessage => dispatch(handleError(errorMessage))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatRoom);

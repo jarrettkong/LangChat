@@ -10,6 +10,7 @@ const mockLogin = jest.fn();
 const mockUsername = 'mockUsername';
 const mockPassword = 'mockPassword';
 const mockSplashPage = jest.fn();
+const mockHandleError = jest.fn();
 
 describe('LoginForm', () => {
 	let wrapper, instance;
@@ -23,6 +24,7 @@ describe('LoginForm', () => {
 				username={mockUsername}
 				password={mockPassword}
 				splashPage={mockSplashPage}
+				handleError={mockHandleError}
 			/>
 		);
 		instance = wrapper.instance();
@@ -95,6 +97,12 @@ describe('LoginForm', () => {
 			expect(fetch).toHaveBeenCalledWith(mockUrl, mockBody);
 		});
 
+		it('should throw an error if the response is not ok and save that error to redux store', async () => {
+			window.fetch.mockImplementationOnce(() => Promise.reject(new Error()));
+			await instance.login();
+			expect(mockHandleError).toHaveBeenCalledWith("Your username or password is invalid. Please try again.");
+		});
+
 		it("should set the state of 'loading' back to false", async () => {
 			wrapper.setState({ loading: true });
 			expect(wrapper.state('loading')).toEqual(true);
@@ -132,6 +140,14 @@ describe('mapDispatchToProps', () => {
 		const actionToDispatch = actions.login('mockUser');
 		const mappedProps = mapDispatchToProps(mockDispatch);
 		mappedProps.login('mockUser');
+		expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+	});
+
+	it('should call dispatch for handleError', () => {
+		const mockDispatch = jest.fn();
+		const actionToDispatch = actions.handleError('mock error message');
+		const mappedProps = mapDispatchToProps(mockDispatch);
+		mappedProps.handleError('mock error message');
 		expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
 	});
 });
