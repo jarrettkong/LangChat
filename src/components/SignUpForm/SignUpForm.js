@@ -33,7 +33,7 @@ export class SignUpForm extends Component {
 				<Button
 					disabled={!firstName || !lastName || !userName}
 					onPress={() => this.setState({ userInfo: false, userCountry: true })}
-					data-test="user-name-btn">
+					data-test="user-info-btn">
 					Next
 				</Button>
 			);
@@ -48,7 +48,7 @@ export class SignUpForm extends Component {
 		return (
 			<Button
 				disabled={(!email || !password) && this.validatePassword()}
-				onPress={this.register}
+				onPress={() => this.register()}
 				data-test="email-password-submit-btn">
 				Sign Up!
 			</Button>
@@ -175,7 +175,7 @@ export class SignUpForm extends Component {
 								placeholder="Username"
 								value={userName}
 								onChangeText={userName => createUserName(userName)}
-								data-test="user-input"
+								data-test="username-input"
 							/>
 						</View>
 					</React.Fragment>
