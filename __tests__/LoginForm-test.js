@@ -40,15 +40,18 @@ describe('LoginForm', () => {
 	});
 
 	it('should match init state', () => {
-		const initState = { loading: false };
+		const initState = {
+			loading: false,
+			error: ''
+		};
 
 		expect(wrapper.state()).toEqual(initState);
 	});
 
 	it.skip("should invoke 'Actions.splashPage()' when close button is pressed", () => {
 		wrapper.find("[data-test='close-btn']").simulate('press');
-		expect(mockSplashPage).toHaveBeenCalled()
-	})
+		expect(mockSplashPage).toHaveBeenCalled();
+	});
 
 	describe('handleChange', () => {
 		it("should invoke 'handleChange' when user types username with correct params", () => {

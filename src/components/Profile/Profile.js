@@ -87,7 +87,7 @@ export class Profile extends Component {
 							<Switch style={styles.switch} onValueChange={this.handleActivityPress} value={this.state.active} />
 						</View> */}
 					</View>
-					<Button style={styles.buttonStyling} onPress={this.logout}>
+					<Button style={styles.buttonStyling} onPress={() => this.logout()} data-test='logout-btn'>
 						Sign out
 					</Button>
 				</NavDrawer>
