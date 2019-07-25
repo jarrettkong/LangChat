@@ -49,6 +49,9 @@ const styles = StyleSheet.create({
 	slide3: {
 		backgroundColor: 'rgba(200,20,20,0.3)'
 	},
+	slide4: {
+		marginTop: 100
+	},
 	imageStyle: {
 		height: '70%',
 		width: '100%',

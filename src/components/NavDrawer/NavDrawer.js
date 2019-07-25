@@ -72,9 +72,21 @@ export class NavDrawer extends Component {
 						<View style={styles.headerContainer}>
 							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
 								{this.state.drawerOpen ? (
-									<AntDesign name="menu-unfold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
+									<AntDesign
+										name="menu-unfold"
+										style={styles.menuIcon}
+										size={25}
+										onPress={() => this.openDrawer()}
+										data-test="close-drawer-btn"
+									/>
 								) : (
-									<AntDesign name="menu-fold" style={styles.menuIcon} size={25} onPress={this.openDrawer} />
+									<AntDesign
+										name="menu-fold"
+										style={styles.menuIcon}
+										size={25}
+										onPress={() => this.openDrawer()}
+										data-test="open-drawer-btn"
+									/>
 								)}
 							</TouchableOpacity>
 							<Text style={styles.headerTitle}>LangChat</Text>
@@ -117,7 +129,6 @@ const styles = {
 		backgroundColor: '#fff',
 		borderBottomColor: '#3B5998',
 		borderBottomWidth: 1.2
-
 	},
 	headerTitle: {
 		flex: 1.0,
@@ -150,7 +161,7 @@ const styles = {
 		textAlign: 'center'
 	},
 	menuIcon: {
-		color: '#007aff',
+		color: '#007aff'
 	}
 };
 
