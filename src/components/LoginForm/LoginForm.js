@@ -5,7 +5,7 @@ import Input from '../common/Input';
 import { Actions } from 'react-native-router-flux';
 import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
-import { changeUsername, changePassword, login, currentUser } from '../../actions/index';
+import { changeUsername, changePassword, login } from '../../actions/index';
 import styles from './styles';
 
 export class LoginForm extends Component {
@@ -49,7 +49,7 @@ export class LoginForm extends Component {
 		return !username || !password || loading;
 	};
 
-	render() {
+	render () {
 		const { container, inputContainerStyle, textHeaderStyle } = styles;
 		const { username, password } = this.props;
 		const { loading } = this.state;
@@ -60,6 +60,7 @@ export class LoginForm extends Component {
 					size={40}
 					onPress={() => Actions.splashPage()}
 					style={{ width: '13%', alignSelf: 'flex-end', color: 'white' }}
+					data-test="close-btn"
 				/>
 				<Text style={textHeaderStyle}>Log In</Text>
 				<View style={inputContainerStyle}>
@@ -69,6 +70,7 @@ export class LoginForm extends Component {
 						value={this.props.username}
 						onChangeText={username => this.handleChange(username, 'username')}
 						required
+						data-test="username-input"
 					/>
 				</View>
 				<View style={inputContainerStyle}>
@@ -78,9 +80,10 @@ export class LoginForm extends Component {
 						secureTextEntry
 						value={this.props.password}
 						onChangeText={password => this.handleChange(password, 'password')}
+						data-test="password-input"
 					/>
 				</View>
-				<Button disabled={this.disabled()} onPress={this.login}>
+				<Button disabled={this.disabled()} onPress={() => this.login()} data-test="login-btn">
 					Log In
 				</Button>
 			</KeyboardAvoidingView>
@@ -97,8 +100,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
 	changeUsername: text => dispatch(changeUsername(text)),
 	changePassword: text => dispatch(changePassword(text)),
-	login: (user, cookie) => dispatch(login(user, cookie)),
-	currentUser: user => dispatch(currentUser(user))
+	login: (user, cookie) => dispatch(login(user, cookie))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
