@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, KeyboardAvoidingView } from 'react-native';
 import Button from '../common/Button';
 import Input from '../common/Input';
+import Spinner from '../common/Spinner';
 import { Actions } from 'react-native-router-flux';
 import { AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
@@ -39,16 +40,28 @@ export class LoginForm extends Component {
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
 			this.props.login(user, csrftoken);
 			Actions.home();
+			this.setState({ loading: false });
 		} catch (error) {
 			this.props.handleError(error.message);
 		}
-		this.setState({ loading: false });
 	};
 
 	disabled = () => {
 		const { username, password } = this.props;
 		const { loading } = this.state;
 		return !username || !password || loading;
+	};
+
+	renderButton = () => {
+		if (this.state.loading) {
+			return <Spinner size="large" />;
+		}
+
+		return (
+			<Button disabled={this.disabled()} onPress={() => this.login()} data-test="login-btn">
+				Log In
+			</Button>
+		);
 	};
 
 	render () {
@@ -85,9 +98,7 @@ export class LoginForm extends Component {
 						data-test="password-input"
 					/>
 				</View>
-				<Button disabled={this.disabled()} onPress={() => this.login()} data-test="login-btn">
-					Log In
-				</Button>
+				{this.renderButton()}
 				<Text style={textErrorStyle}>{this.state.error}</Text>
 			</KeyboardAvoidingView>
 		);

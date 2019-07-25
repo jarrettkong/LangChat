@@ -3,6 +3,7 @@ import { View, Text, Picker } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from '../common/Button';
 import Input from '../common/Input';
+import Spinner from '../common/Spinner';
 import { MaterialCommunityIcons, AntDesign, EvilIcons, Feather } from '@expo/vector-icons';
 import Data from '../../Helper/data';
 import { connect } from 'react-redux';
@@ -25,7 +26,7 @@ export class SignUpForm extends Component {
 		userCountry: false,
 		userCredentials: false,
 		confirmation: '',
-		error: ''
+		loading: false
 	};
 
 	buttonToRender = () => {
@@ -45,6 +46,13 @@ export class SignUpForm extends Component {
 				<Button onPress={() => this.setState({ userCountry: false, userCredentials: true })} data-test="next-btn">
 					Next
 				</Button>
+			);
+		}
+		if (this.state.loading) {
+			return (
+				<View style={{marginBottom: 5, marginTop: 40}}>
+					<Spinner size="large" />
+				</View>
 			);
 		}
 		return (
@@ -89,7 +97,7 @@ export class SignUpForm extends Component {
 			password,
 			passwordConfirmation: password
 		};
-
+		this.setState({ loading: true });
 		try {
 			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/users/', {
 				method: 'POST',
@@ -100,7 +108,7 @@ export class SignUpForm extends Component {
 			this.login(user);
 			// Actions.loginForm();
 		} catch (error) {
-			this.props.handleError(error.message)
+			this.props.handleError(error.message);
 		}
 	};
 
@@ -117,9 +125,10 @@ export class SignUpForm extends Component {
 			const match = cookieData.match(/(csrftoken=)\w+;/);
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
 			this.props.login(user, csrftoken); // redux
+			this.setState({ loading: false });
 			Actions.tutorial();
 		} catch (error) {
-			this.props.handleError(error.message)
+			this.props.handleError(error.message);
 		}
 	};
 
