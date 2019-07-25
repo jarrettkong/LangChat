@@ -9,7 +9,6 @@ import NavDrawer from '../NavDrawer/NavDrawer';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import { Actions } from 'react-native-router-flux';
-// const WebSocket = require('ws');
 
 export class ChatRoom extends Component {
 	constructor (props) {

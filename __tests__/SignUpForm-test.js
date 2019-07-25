@@ -59,7 +59,7 @@ describe('SignUpForm', () => {
 			userCountry: false,
 			userCredentials: false,
 			confirmation: '',
-			error: ''
+			loading: false
 		};
 
 		expect(wrapper.state()).toEqual(initState);

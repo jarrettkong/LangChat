@@ -29,7 +29,8 @@
 		"react-swipeable-views-native": "^0.13.2",
 		"redux": "^4.0.4",
 		"socket.io": "^2.2.0",
-		"whatwg-fetch": "^2.0.4"
+		"whatwg-fetch": "^2.0.4",
+		"ws": "^7.1.1"
 	},
 	"jest": {
 		"preset": "jest-expo",
@@ -48,6 +49,7 @@
 			"!src/components/TextMessage/styles.js",
 			"!src/components/MessageView/MessageView.js",
 			"!src/components/MessageInput/MessageInput.js",
+			"!src/components/ChatRoom/ChatRoom.js",
 			"!src/components/Nav/Nav.js",
 			"!src/components/MessageView/styles.js",
 			"!src/components/MessageInput/styles.js",

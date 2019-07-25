@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, KeyboardAvoidingView } from 'react-native';
+import { View, Text, KeyboardAvoidingView, Keyboard } from 'react-native';
 import Button from '../common/Button';
 import Input from '../common/Input';
 import Spinner from '../common/Spinner';
@@ -17,6 +17,7 @@ export class LoginForm extends Component {
 	};
 
 	handleChange = (text, input) => {
+		this.props.handleError('');
 		if (input === 'username') {
 			this.props.changeUsername(text);
 		} else {
@@ -25,9 +26,9 @@ export class LoginForm extends Component {
 	};
 
 	login = async () => {
-		this.setState({ loading: true });
 		const { username, password } = this.props;
 		try {
+			this.setState({ loading: true });
 			const res = await fetch('https://langchat-crosspollination.herokuapp.com/api/v1/log_in/?format=json', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -40,10 +41,10 @@ export class LoginForm extends Component {
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
 			this.props.login(user, csrftoken);
 			Actions.home();
-			this.setState({ loading: false });
 		} catch (error) {
-			this.props.handleError(error.message);
+			this.props.handleError('Your username or password is invalid. Please try again.');
 		}
+		this.setState({ loading: false });
 	};
 
 	disabled = () => {
@@ -54,11 +55,15 @@ export class LoginForm extends Component {
 
 	renderButton = () => {
 		if (this.state.loading) {
-			return <Spinner size="large" />;
+			return (
+				<View style={{marginBottom: 5, marginTop: 40}}>
+					<Spinner size="large" />
+				</View>
+			);
 		}
 
 		return (
-			<Button disabled={this.disabled()} onPress={() => this.login()} data-test="login-btn">
+			<Button disabled={this.disabled()} onPress={() => this.login() && Keyboard.dismiss()} data-test="login-btn">
 				Log In
 			</Button>
 		);
@@ -99,7 +104,7 @@ export class LoginForm extends Component {
 					/>
 				</View>
 				{this.renderButton()}
-				<Text style={textErrorStyle}>{this.state.error}</Text>
+				<Text style={textErrorStyle}>{this.props.errorMessage}</Text>
 			</KeyboardAvoidingView>
 		);
 	}
@@ -115,7 +120,8 @@ LoginForm.propTypes = {
 export const mapStateToProps = state => ({
 	username: state.auth.username,
 	password: state.auth.password,
-	user: state.currentUser
+	user: state.currentUser,
+	errorMessage: state.errorMessage
 });
 
 export const mapDispatchToProps = dispatch => ({

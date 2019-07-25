@@ -29,5 +29,13 @@ export default StyleSheet.create({
 		textAlign: 'center',
 		textTransform: 'uppercase',
 		fontWeight: 'bold'
+	},
+	passwordErrorStyle: {
+		fontSize: 13,
+		fontWeight: '600',
+		color: '#DB4343',
+		textAlign: 'center',
+		textTransform: 'uppercase',
+		fontWeight: 'bold'
 	}
 });
