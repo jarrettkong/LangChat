@@ -71,7 +71,7 @@ export class NavDrawer extends Component {
 						openDrawerOffset={0.25}
 						styles={drawerStyles}>
 						<View style={styles.headerContainer}>
-							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
+							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer} style={styles.menuIcon}>
 								{this.state.drawerOpen ? (
 									<AntDesign
 										name="menu-unfold"
@@ -90,7 +90,7 @@ export class NavDrawer extends Component {
 									/>
 								)}
 							</TouchableOpacity>
-							<Text style={styles.headerTitle}>LangChat</Text>
+							<Text style={styles.headerTitle}>{this.props.name || 'LangChat'}</Text>
 							<View style={styles.menuButton} />
 						</View>
 						{this.props.children || null}

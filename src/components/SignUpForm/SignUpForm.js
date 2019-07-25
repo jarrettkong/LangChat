@@ -67,12 +67,8 @@ export class SignUpForm extends Component {
 				}}
 				itemStyle={{ fontSize: 25 }}
 				selectedValue={country}
-<<<<<<< HEAD
 				onValueChange={itemValue => createCountry(itemValue)}
 				data-test="country-picker">
-=======
-				onValueChange={itemValue => createCountry(itemValue)}>
->>>>>>> master
 				{countries.map(country => {
 					return <Picker.Item key={country} label={country} value={country} />;
 				})}
