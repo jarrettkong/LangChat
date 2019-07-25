@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
 import Drawer from 'react-native-drawer';
 import { AntDesign } from '@expo/vector-icons';
-import Button from '../common/Button';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { logout } from '../../actions';
-
+import PropTypes from 'prop-types';
 import Nav from '../Nav/Nav';
+import { drawerStyles, styles } from './styles';
+
 console.disableYellowBox = true;
 
 export class NavDrawer extends Component {
@@ -88,70 +89,12 @@ export class NavDrawer extends Component {
 	}
 }
 
-const drawerStyles = {
-	drawer: {
-		flex: 1.0,
-		backgroundColor: '#3B5998'
-	},
-	main: {
-		flex: 1.0,
-		backgroundColor: 'white'
-	}
-};
-
-const styles = {
-	mainContainer: {
-		flex: 1.0,
-		backgroundColor: '#3B5998'
-	},
-	safeAreaStyle: {
-		flex: 1.0,
-		backgroundColor: 'white'
-	},
-	headerContainer: {
-		position: 'relative',
-		alignItems: 'center',
-		height: 44,
-		flexDirection: 'row',
-		justifyContent: 'center',
-		backgroundColor: '#fff',
-		borderBottomColor: '#3B5998',
-		borderBottomWidth: 1.2
-
-	},
-	headerTitle: {
-		flex: 1.0,
-		textAlign: 'center',
-		alignSelf: 'center',
-		color: '#007aff',
-		fontSize: 22
-	},
-	menuButton: {
-		marginLeft: 8,
-		marginRight: 8,
-		alignSelf: 'center',
-		tintColor: 'white'
-	},
-	menuContainer: {
-		flex: 1.0,
-		backgroundColor: '#3B5998'
-	},
-	menuTitleContainer: {
-		height: 60,
-		width: '100%',
-		flexDirection: 'row',
-		alignItem: 'center'
-	},
-	menuTitle: {
-		width: '100%',
-		color: 'white',
-		fontSize: 17,
-		alignSelf: 'center',
-		textAlign: 'center'
-	},
-	menuIcon: {
-		color: '#007aff',
-	}
+NavDrawer.propTypes = {
+	logout: PropTypes.func.isRequired,
+	cookie: PropTypes.string.isRequired,
+	username: PropTypes.string.isRequired,
+	password: PropTypes.string.isRequired,
+	token: PropTypes.string.isRequired
 };
 
 export const mapStateToProps = state => ({
