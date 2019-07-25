@@ -3,7 +3,8 @@ import { Text, View, StyleSheet } from 'react-native';
 import NavDrawer from '../NavDrawer/NavDrawer';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-class Welcome extends Component {
+
+export class Welcome extends Component {
 	render () {
 		return (
 			<View style={styles.container}>
