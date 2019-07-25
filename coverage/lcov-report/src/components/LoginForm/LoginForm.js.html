@@ -20,9 +20,15 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
         <span class="strong">84.21% </span>
         <span class="quiet">Statements</span>
         <span class='fraction'>32/38</span>
+=======
+        <span class="strong">83.78% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>31/37</span>
+>>>>>>> master
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +41,15 @@
         <span class='fraction'>11/13</span>
       </div>
       <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
         <span class="strong">86.11% </span>
         <span class="quiet">Lines</span>
         <span class='fraction'>31/36</span>
+=======
+        <span class="strong">85.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>30/35</span>
+>>>>>>> master
       </div>
     </div>
     <p class="quiet">
@@ -152,6 +164,7 @@
 <a name='L104'></a><a href='#L104'>104</a>
 <a name='L105'></a><a href='#L105'>105</a>
 <a name='L106'></a><a href='#L106'>106</a>
+<<<<<<< HEAD
 <a name='L107'></a><a href='#L107'>107</a>
 <a name='L108'></a><a href='#L108'>108</a>
 <a name='L109'></a><a href='#L109'>109</a>
@@ -165,6 +178,9 @@
 <a name='L117'></a><a href='#L117'>117</a>
 <a name='L118'></a><a href='#L118'>118</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+<a name='L107'></a><a href='#L107'>107</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> master
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,7 +195,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+>>>>>>> master
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -211,6 +230,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-yes">21x</span>
@@ -221,6 +241,18 @@
 <span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-yes">21x</span>
+=======
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+>>>>>>> master
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -258,6 +290,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -267,6 +300,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+>>>>>>> master
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -285,16 +320,26 @@ import { View, Text, KeyboardAvoidingView } from 'react-native';
 import Button from '../common/Button';
 import Input from '../common/Input';
 import { Actions } from 'react-native-router-flux';
+<<<<<<< HEAD
 import { AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { changeUsername, changePassword, login, currentUser } from '../../actions/index';
 import PropTypes from 'prop-types';
+=======
+import { MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
+import { connect } from 'react-redux';
+import { changeUsername, changePassword, login } from '../../actions/index';
+>>>>>>> master
 import styles from './styles';
 &nbsp;
 export class LoginForm extends Component {
 	state = {
+<<<<<<< HEAD
 		loading: false,
 		error: ''
+=======
+		loading: false
+>>>>>>> master
 	};
 &nbsp;
 	handleChange = (text, input) =&gt; {
@@ -322,7 +367,11 @@ export class LoginForm extends Component {
 <span class="cstat-no" title="statement not covered" >			this.props.login(user, csrftoken);</span>
 <span class="cstat-no" title="statement not covered" >			Actions.home();</span>
 		} catch (error) {
+<<<<<<< HEAD
 			this.setState({ error: 'Invalid login credentials' });
+=======
+			console.log(error.message);
+>>>>>>> master
 		}
 		this.setState({ loading: false });
 	};
@@ -334,7 +383,11 @@ export class LoginForm extends Component {
 	};
 &nbsp;
 	render () {
+<<<<<<< HEAD
 		const { container, inputContainerStyle, textHeaderStyle, textErrorStyle } = styles;
+=======
+		const { container, inputContainerStyle, textHeaderStyle } = styles;
+>>>>>>> master
 		const { username, password } = this.props;
 		const { loading } = this.state;
 		return (
@@ -370,12 +423,16 @@ export class LoginForm extends Component {
 				&lt;Button disabled={this.disabled()} onPress={() =&gt; this.login()} data-test="login-btn"&gt;
 					Log In
 				&lt;/Button&gt;
+<<<<<<< HEAD
 				&lt;Text style={textErrorStyle}&gt;{this.state.error}&lt;/Text&gt;
+=======
+>>>>>>> master
 			&lt;/KeyboardAvoidingView&gt;
 		);
 	}
 }
 &nbsp;
+<<<<<<< HEAD
 LoginForm.propTypes = {
 	username: PropTypes.string.isRequired,
 	password: PropTypes.string.isRequired,
@@ -384,6 +441,8 @@ LoginForm.propTypes = {
 	login: PropTypes.func.isRequired,
 	currentUser: PropTypes.func.isRequired
 };
+=======
+>>>>>>> master
 export const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
 	username: state.auth.username,
 	password: state.auth.password,
@@ -403,7 +462,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
+<<<<<<< HEAD
   generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 24 2019 23:12:14 GMT-0600 (Mountain Daylight Time)
+=======
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 24 2019 22:34:25 GMT-0600 (Mountain Daylight Time)
+>>>>>>> master
 </div>
 </div>
 <script src="../../../prettify.js"></script>
