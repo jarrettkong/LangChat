@@ -19,8 +19,8 @@ export const styles = StyleSheet.create({
 		marginBottom: 30
 	},
 	imageStyle: {
-		marginTop: 50,
-		height: '70%',
+		marginTop: 0,
+		height: '100%',
 		width: '100%',
 		opacity: 0.8
 	},
@@ -33,10 +33,11 @@ export const styles = StyleSheet.create({
 		paddingBottom: 12
 	},
 	buttonStyle: {
+		position: "absolute",
 		width: '90%',
-		margin: 10,
 		backgroundColor: '#007aff',
 		borderRadius: 5,
-		alignSelf: 'center'
+		alignSelf: 'center',
+		top: 650
 	}
 });

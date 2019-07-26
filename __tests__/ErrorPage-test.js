@@ -1,7 +1,6 @@
 // __tests__/ErrorPage-test.js
 import React from 'react';
 import { ErrorPage } from '../src/components/ErrorPage/ErrorPage';
-import * as actions from '../src/actions/index';
 import { shallow } from 'enzyme';
 
 describe('ErrorPage', () => {

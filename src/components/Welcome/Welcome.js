@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import NavDrawer from '../NavDrawer/NavDrawer';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';

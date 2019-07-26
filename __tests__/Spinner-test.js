@@ -1,7 +1,6 @@
 // __tests__/Spinner-test.js
 import React from 'react';
-import { Spinner, mapStateToProps, mapDispatchToProps } from '../src/components/common/Spinner';
-import * as actions from '../src/actions/index';
+import { Spinner } from '../src/components/common/Spinner';
 import { shallow } from 'enzyme';
 
 describe('Spinner', () => {

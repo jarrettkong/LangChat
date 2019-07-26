@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
 import styles from './styles';
@@ -12,7 +12,7 @@ export const Message = props => {
 	const initial = username[0].toUpperCase();
 
 	return (
-		<TouchableWithoutFeedback onLongPress={() => setReferencedMessage(id, message)} data-test='edit-mode' >
+		<TouchableWithoutFeedback onLongPress={() => setReferencedMessage(id, message)} data-test="edit-mode">
 			<View style={styles.container}>
 				<View style={styles.initialContainer}>
 					<Text style={styles.initials}>{initial}</Text>
@@ -34,6 +34,5 @@ Message.propTypes = {
 	username: PropTypes.string.isRequired,
 	id: PropTypes.number.isRequired
 };
-
 
 export default Message;

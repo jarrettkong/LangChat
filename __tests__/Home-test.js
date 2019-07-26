@@ -1,7 +1,6 @@
 // __tests__/Home-test.js
 import React from 'react';
-import { Home, mapStateToProps, mapDispatchToProps } from '../src/components/Home/Home';
-import * as actions from '../src/actions/index';
+import { Home, mapStateToProps } from '../src/components/Home/Home';
 import { shallow } from 'enzyme';
 
 const mockUser = {

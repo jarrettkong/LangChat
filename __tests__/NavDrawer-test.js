@@ -1,6 +1,6 @@
 // __tests__/NavDrawer-test.js
 import React from 'react';
-import { NavDrawer, mapStateToProps, mapDispatchToProps } from '../src/components/NavDrawer/NavDrawer';
+import { NavDrawer, mapDispatchToProps } from '../src/components/NavDrawer/NavDrawer';
 import * as actions from '../src/actions/index';
 import { shallow } from 'enzyme';
 import Drawer from 'react-native-drawer';
