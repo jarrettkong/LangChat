@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tutorial Component should match snapshot 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "flex": 1,
@@ -21,5 +22,5 @@ exports[`Tutorial Component should match snapshot 1`] = `
       ]
     }
   />
-</View>
+</RCTSafeAreaView>
 `;

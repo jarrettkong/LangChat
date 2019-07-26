@@ -120,7 +120,7 @@ export class SignUpForm extends Component {
 				body: JSON.stringify({ username, password: this.props.password })
 			});
 			const user = await res.json();
-			const cookieData = res.headers.get('set-cookie'); //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
+			const cookieData = res.headers.get('set-cookie'); 
 			const match = cookieData.match(/(csrftoken=)\w+;/);
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
 			this.props.login(user, csrftoken);

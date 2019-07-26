@@ -43,8 +43,7 @@ describe('LoginForm', () => {
 
 	it('should match init state', () => {
 		const initState = {
-			loading: false,
-			error: ''
+			loading: false
 		};
 
 		expect(wrapper.state()).toEqual(initState);

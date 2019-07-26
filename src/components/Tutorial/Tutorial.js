@@ -1,29 +1,26 @@
 import React from 'react';
-import { View, Text, SafeAreaView, Image } from 'react-native';
+import { View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-web-swiper';
 import { Actions } from 'react-native-router-flux';
 import { styles } from './styles';
 import Button from '../common/Button';
 
 export default class Tutorial extends React.Component {
-	render() {
+	render () {
 		return (
 			<SafeAreaView style={styles.container}>
 				<Swiper>
-					<View style={[styles.slideContainer, styles.slide1]}>
-						<Image style={styles.imageStyle} source={require('../../../assets/tut_2.png')} />
-						<Text style={styles.tutorialText}>
-							Click the menu at the top left of the screen to open the navigation and join a chatroom!
-						</Text>
+					<View style={[ styles.slideContainer, styles.slide1 ]}>
+						<Image style={styles.imageStyle} source={{ uri: 'https://i.imgur.com/ODVGwz9.gif' }} />
 					</View>
-					<View style={[styles.slideContainer, styles.slide2]}>
-						<Image style={styles.imageStyle} source={require('../../../assets/tut_1.jpg')} />
-						<Text style={styles.tutorialText}>Send messages and chat with other users to learn!</Text>
+					<View style={[ styles.slideContainer, styles.slide2 ]}>
+						<Image style={styles.imageStyle} source={{ uri: 'https://i.imgur.com/sfw9qgf.gif' }} />
 					</View>
-					<View style={[styles.slideContainer, styles.slide3]}>
-						<Image style={styles.imageStyle} source={require('../../../assets/tut_3.jpg')} />
-						<Text style={styles.tutorialText}>Edit user messages to help others learn!</Text>
-						<Button onPress={() => Actions.welcome()}>Start chatting!</Button>
+					<View style={[ styles.slideContainer, styles.slide3 ]}>
+						<Image style={styles.imageStyle} source={{ uri: 'https://i.imgur.com/C3WVMOy.gif' }} />
+						<TouchableOpacity onPress={() => Actions.welcome()} style={styles.buttonStyle}>
+							<Text style={styles.textStyle}>Start Chatting!</Text>
+						</TouchableOpacity>
 					</View>
 				</Swiper>
 			</SafeAreaView>

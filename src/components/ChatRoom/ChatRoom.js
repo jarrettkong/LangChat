@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TextInput, View, StyleSheet, KeyboardAvoidingView, TouchableHighlight } from 'react-native';
+import { Text, TextInput, View, KeyboardAvoidingView, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import MessageView from '../MessageView/MessageView';
 import { Ionicons } from '@expo/vector-icons';
@@ -58,7 +58,6 @@ export class ChatRoom extends Component {
 
 	connect = () => {
 		this.socket.onopen = () => {
-			// console.log(`connected to ${this.props.language} chat...`);
 			this.setState({ loading: false });
 		};
 
@@ -115,6 +114,7 @@ export class ChatRoom extends Component {
 							<View style={styles.inputContainer}>
 								<TextInput
 									style={styles.messageInput}
+									autoCorrect={false}
 									placeholder="Enter your message here..."
 									value={this.state.message}
 									onChangeText={message => this.setState({ message })}

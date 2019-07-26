@@ -1,7 +1,6 @@
 // __tests__/Message-test.js
 import React from 'react';
-import { Message, mapStateToProps, mapDispatchToProps } from '../src/components/Message/Message';
-import * as actions from '../src/actions/index';
+import { Message } from '../src/components/Message/Message';
 import { shallow } from 'enzyme';
 
 const mockUserName = [ 'mockUser' ];

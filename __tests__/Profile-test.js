@@ -1,6 +1,6 @@
 // __tests__/Profile-test.js
 import React from 'react';
-import { Profile, mapStateToProps, mapDispatchToProps } from '../src/components/Profile/Profile';
+import { Profile, mapDispatchToProps } from '../src/components/Profile/Profile';
 import * as actions from '../src/actions/index';
 import { shallow } from 'enzyme';
 

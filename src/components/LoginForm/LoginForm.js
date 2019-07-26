@@ -11,10 +11,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 export class LoginForm extends Component {
-	state = {
-		loading: false,
-		error: ''
-	};
+	state = { loading: false };
 
 	handleChange = (text, input) => {
 		this.props.handleError('');
@@ -36,7 +33,7 @@ export class LoginForm extends Component {
 			});
 			const user = await res.json();
 
-			const cookieData = res.headers.get('set-cookie'); //use postive lookbehind to extract csfrtoken= and positive lookahead to extract ;
+			const cookieData = res.headers.get('set-cookie');
 			const match = cookieData.match(/(csrftoken=)\w+;/);
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
 			this.props.login(user, csrftoken);
@@ -71,8 +68,6 @@ export class LoginForm extends Component {
 
 	render() {
 		const { container, inputContainerStyle, textHeaderStyle, textErrorStyle } = styles;
-		const { username, password } = this.props;
-		const { loading } = this.state;
 		return (
 			<KeyboardAvoidingView style={container} behavior="padding" enabled>
 				<EvilIcons
