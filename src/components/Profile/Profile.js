@@ -8,7 +8,7 @@ import { handleError } from '../../actions';
 import NavDrawer from '../NavDrawer/NavDrawer';
 
 export class Profile extends Component {
-	componentDidMount () {
+	componentDidMount() {
 		// redirect to splash or 404 if user doesn't exist
 		// if (this.props.userName === '') Actions.splashPage();
 	}
@@ -46,7 +46,7 @@ export class Profile extends Component {
 			});
 			Actions.splashPage();
 		} catch (error) {
-			this.props.handleError(error.message)
+			this.props.handleError(error.message);
 		}
 	};
 	render() {
@@ -55,7 +55,7 @@ export class Profile extends Component {
 
 		return (
 			<View style={styles.container}>
-				<NavDrawer>
+				<NavDrawer name="Profile">
 					<View style={styles.profileContainer}>
 						<Image
 							style={styles.imageStyle}
@@ -94,7 +94,7 @@ export class Profile extends Component {
 							<Switch style={styles.switch} onValueChange={this.handleActivityPress} value={this.state.active} />
 						</View> */}
 					</View>
-					<Button style={styles.buttonStyling} onPress={() => this.logout()} data-test='logout-btn'>
+					<Button style={styles.buttonStyling} onPress={() => this.logout()} data-test="logout-btn">
 						Sign out
 					</Button>
 				</NavDrawer>

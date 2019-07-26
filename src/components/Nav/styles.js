@@ -10,15 +10,17 @@ export const styles = StyleSheet.create({
 		marginLeft: 10
 	},
 	button: {
-		color: '#E8EAEF',
 		width: '100%',
-		textAlign: 'left',
-		padding: 10,
-		fontSize: 16
+		height: 40,
+		justifyContent: 'flex-start',
+		paddingLeft: 10,
+		alignItems: 'center',
+		flexDirection: 'row'
 	},
 	buttonTitle: {
-		fontSize: 15,
-		color: 'white'
+		fontSize: 18,
+		color: '#fff',
+		paddingLeft: 10
 	},
 	profileContainer: {
 		marginTop: 10
@@ -29,14 +31,12 @@ export const styles = StyleSheet.create({
 		textAlign: 'left',
 		padding: 10,
 		marginRight: 10
-
 	},
-	navHeader : {
+	navHeader: {
 		color: 'grey',
 		padding: 10,
 		fontSize: 20,
 		borderBottomColor: 'grey',
 		borderBottomWidth: 2
-
 	}
 });

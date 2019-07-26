@@ -11,7 +11,7 @@ import styles from './styles';
 import { Actions } from 'react-native-router-flux';
 
 export class ChatRoom extends Component {
-	constructor (props) {
+	constructor(props) {
 		super(props);
 		this.state = {
 			message: '',
@@ -24,14 +24,14 @@ export class ChatRoom extends Component {
 		);
 	}
 
-	componentDidMount () {
+	componentDidMount() {
 		this.setState({ loading: true }, async () => {
 			this.connect();
 			await this.fetchMessages();
 		});
 	}
 
-	componentWillUnmount () {
+	componentWillUnmount() {
 		this.socket.close();
 	}
 
@@ -92,11 +92,12 @@ export class ChatRoom extends Component {
 		}
 	};
 
-	render () {
+	render() {
 		const messages = this.props.messages.filter(message => message.room === this.props.roomId);
+		const title = this.props.language[0].toUpperCase() + this.props.language.slice(1);
 		return (
 			<KeyboardAvoidingView style={styles.ChatRoom} behavior="padding" enabled>
-				<NavDrawer name={this.props.routeName}>
+				<NavDrawer name={title}>
 					{this.state.loading ? (
 						<Text>Connecting...</Text>
 					) : (
@@ -106,7 +107,8 @@ export class ChatRoom extends Component {
 								<TouchableHighlight
 									onPress={() => this.clearReferencedMessage()}
 									style={styles.stopCorrectingButton}
-									data-test="close-edit-message">
+									data-test="close-edit-message"
+								>
 									<Ionicons name="ios-close" size={35} color="#ffffff" />
 								</TouchableHighlight>
 							)}
@@ -116,13 +118,14 @@ export class ChatRoom extends Component {
 									placeholder="Enter your message here..."
 									value={this.state.message}
 									onChangeText={message => this.setState({ message })}
-									data-test='message-input'
+									data-test="message-input"
 								/>
 								<TouchableWithoutFeedback
 									style={styles.sendButton}
 									onPress={() => this.sendMessage()}
 									disabled={!this.state.message.length}
-									data-test="send-message-btn">
+									data-test="send-message-btn"
+								>
 									<Ionicons name="ios-send" size={35} color="#323232" />
 								</TouchableWithoutFeedback>
 							</View>

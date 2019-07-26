@@ -26,9 +26,10 @@ export default StyleSheet.create({
 		fontSize: 22
 	},
 	menuButton: {
-		alignSelf: 'center',
+		position: 'absolute',
 		tintColor: 'white',
-		marginLeft: 5
+		left: 7,
+		top: 10
 	},
 	menuContainer: {
 		flex: 1.0,
@@ -46,15 +47,15 @@ export default StyleSheet.create({
 		color: 'white',
 		fontSize: 17,
 		alignSelf: 'center',
-		textAlign: 'center',
+		textAlign: 'center'
 	},
 	menuIcon: {
 		color: '#323232',
-    zIndex: 9999,
-    marginTop: 1,
-    alignSelf:'flex-start',
-    justifyContent:'center',
-    flex: 1.0
+		zIndex: 9999,
+		marginTop: 1,
+		alignSelf: 'flex-start',
+		justifyContent: 'center',
+		flex: 1.0
 	}
 });
 
