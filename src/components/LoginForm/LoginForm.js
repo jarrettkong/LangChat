@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, KeyboardAvoidingView, Keyboard } from 'react-native';
+import { View, Text, KeyboardAvoidingView, Keyboard, AsyncStorage } from 'react-native';
 import Button from '../common/Button';
 import Input from '../common/Input';
 import Spinner from '../common/Spinner';
@@ -10,8 +10,37 @@ import { changeUsername, changePassword, login, handleError } from '../../action
 import PropTypes from 'prop-types';
 import styles from './styles';
 
+const ACCESS_TOKEN = 'access_token';
+
 export class LoginForm extends Component {
 	state = { loading: false };
+
+	async storeToken(accessToken) {
+		try {
+			await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
+			this.getToken();
+		} catch (error) {
+			console.log("Something went wrong")
+		}
+	}
+
+	async getToken() {
+		try {
+			let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+			console.log("Token is:", token)
+		} catch (error) {
+			console.log("Something went wrong")
+		}
+	}
+
+	async removeToken() {
+		try {
+			await AsyncStorage.removeItem(ACCESS_TOKEN);
+			this.getToken();
+		} catch (error) {
+			console.log("Something went wrong")
+		}
+	}
 
 	handleChange = (text, input) => {
 		this.props.handleError('');
@@ -36,6 +65,7 @@ export class LoginForm extends Component {
 			const cookieData = res.headers.get('set-cookie');
 			const match = cookieData.match(/(csrftoken=)\w+;/);
 			const csrftoken = match[0].split('=')[1].slice(0, -1);
+			this.storeToken(user.token)
 			this.props.login(user, csrftoken);
 			Actions.home();
 		} catch (error) {

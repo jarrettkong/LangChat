@@ -3,7 +3,6 @@ import { View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import Swiper from 'react-native-web-swiper';
 import { Actions } from 'react-native-router-flux';
 import { styles } from './styles';
-import Button from '../common/Button';
 
 export default class Tutorial extends React.Component {
 	render () {
