@@ -52,7 +52,7 @@ export class NavDrawer extends Component {
 			this.props.logout();
 			Actions.splashPage();
 		} catch (error) {
-			this.props.handleError(error.message)
+			this.props.handleError(error.message);
 		}
 	};
 
@@ -72,7 +72,7 @@ export class NavDrawer extends Component {
 						styles={drawerStyles}
 					>
 						<View style={styles.headerContainer}>
-							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer} style={styles.menuIcon}>
+							<TouchableOpacity style={styles.menuButton} onPress={this.openDrawer}>
 								{this.state.drawerOpen ? (
 									<AntDesign
 										name="menu-unfold"
