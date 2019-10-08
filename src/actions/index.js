@@ -1,12 +1,12 @@
-export const changeUsername = text => ({
-	type: 'CHANGE_USERNAME',
-	text
-});
+// export const changeUsername = text => ({
+// 	type: 'CHANGE_USERNAME',
+// 	text
+// });
 
-export const changePassword = text => ({
-	type: 'CHANGE_PASSWORD',
-	text
-});
+// export const changePassword = text => ({
+// 	type: 'CHANGE_PASSWORD',
+// 	text
+// });
 
 export const createEmail = text => ({
 	type: 'CREATE_EMAIL',
