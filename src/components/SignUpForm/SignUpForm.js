@@ -25,7 +25,7 @@ export class SignUpForm extends Component {
 	};
 
 	handleChange = (name, text) => {
-		this.setState({ [name]: text }, () => console.log(this.state));
+		this.setState({ [name]: text });
 	};
 
 	buttonToRender = () => {
@@ -71,10 +71,7 @@ export class SignUpForm extends Component {
 		const { country } = this.state;
 		return (
 			<Picker
-				style={{
-					width: '100%',
-					height: 244
-				}}
+				style={{ width: '100%', height: 244 }}
 				itemStyle={{ fontSize: 25 }}
 				selectedValue={country}
 				onValueChange={country => this.handleChange('country', country)}
