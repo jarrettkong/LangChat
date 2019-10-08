@@ -6,7 +6,7 @@ import Spinner from '../common/Spinner';
 import { Actions } from 'react-native-router-flux';
 import { AntDesign, EvilIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
-import { changeUsername, changePassword, login, handleError } from '../../actions/index';
+import { login, handleError } from '../../actions/index';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
