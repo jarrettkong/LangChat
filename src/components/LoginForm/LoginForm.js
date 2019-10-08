@@ -48,7 +48,7 @@ export class LoginForm extends Component {
 	};
 
 	disabled = () => {
-		const { username, password } = this.props;
+		const { username, password } = this.state;
 		const { loading } = this.state;
 		return !username || !password || loading;
 	};
