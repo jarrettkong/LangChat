@@ -4,7 +4,7 @@ import { Text, TouchableOpacity } from 'react-native';
 const Button = ({ onPress, children, disabled }) => {
 	const { buttonStyle, textStyle, disabledButtonStyle } = styles;
 	return (
-		<TouchableOpacity onPress={onPress} style={disabled ? disabledButtonStyle : buttonStyle } disabled={disabled}>
+		<TouchableOpacity onPress={onPress} style={disabled ? disabledButtonStyle : buttonStyle} disabled={disabled}>
 			<Text style={textStyle}>{children}</Text>
 		</TouchableOpacity>
 	);
@@ -29,7 +29,7 @@ const styles = {
 	disabledButtonStyle: {
 		width: '90%',
 		margin: 10,
-		backgroundColor: "#007aff",
+		backgroundColor: '#007aff',
 		borderRadius: 5,
 		alignSelf: 'center',
 		opacity: 0.5
