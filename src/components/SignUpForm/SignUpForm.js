@@ -17,7 +17,7 @@ export class SignUpForm extends Component {
 		firstName: '',
 		lastName: '',
 		username: '',
-		country: '',
+		country: 'United States',
 		email: '',
 		password: '',
 		confirmation: '',
