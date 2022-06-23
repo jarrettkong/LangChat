@@ -64,7 +64,7 @@
 		"enzyme-adapter-react-16": "^1.14.0",
 		"jest": "^24.8.0",
 		"jest-expo": "26.0.0",
-		"jsdom": "^15.1.1",
+		"jsdom": "^16.5.0",
 		"react": "^16.8.3",
 		"react-native-mock": "^0.3.1",
 		"react-native-mock-render": "^0.1.5",
